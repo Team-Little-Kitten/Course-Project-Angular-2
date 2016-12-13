@@ -15,8 +15,8 @@ class HomeService {
     }
 
     getHomeData(): Observable<any> {
-        return this.http.get('http://localhost:8080/')
-            .map((response: Response) => response.json())
+        return this.http.get('http://localhost:8080/api/pieces/all')
+            .map((response: Response) => response)
             .catch(this.handleError);
     }
 
