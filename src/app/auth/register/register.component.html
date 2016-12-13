@@ -1,11 +1,27 @@
-<form [formGroup]="form" (ngSubmit)="register()">
+<form [formGroup]="form" (ngSubmit)="register()" class="auth-form">
     <label for="tb-username">Username</label>
     <br />
-    <input type="text" id="tb-username" formControlName="username">
+    <input type="text" id="tb-username" formControlName="username" class="form-control">
     <br />
+
+    <label for="tb-firstname">First name</label>
+    <br />
+    <input type="text" id="tb-firstname" formControlName="firstname" class="form-control">
+    <br />
+
+    <label for="tb-lastname">Last name</label>
+    <br />
+    <input type="text" id="tb-lastname" formControlName="lastname" class="form-control">
+    <br />
+
     <label for="tb-password">Password</label>
     <br />
-    <input type="password" id="tb-password" formControlName="password">
+    <input type="password" id="tb-password" formControlName="password" class="form-control">
+    <br />
+
+    <label for="tb-confirm-password">Confirm Password</label>
+    <br />
+    <input type="password" id="tb-confirm-password" formControlName="confirmPassword" class="form-control">
     <br />
     <button type="submit">Register</button>
 </form>

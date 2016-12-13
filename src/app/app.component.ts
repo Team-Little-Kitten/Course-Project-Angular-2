@@ -5,4 +5,6 @@ import { Component } from '@angular/core';
     templateUrl: './app.component.html',
     styleUrls: []
 })
-export class AppComponent { }
+export class AppComponent {
+    isUserLoggedIn: boolean = !!localStorage.getItem('username');
+}
