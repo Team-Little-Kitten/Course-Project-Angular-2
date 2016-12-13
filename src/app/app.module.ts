@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { APP_ROUTES } from './app.routes';
 import { AuthModule } from './auth/auth.module';
 
+import { AuthService } from './auth/auth.service';
+
 @NgModule({
     bootstrap: [AppComponent],
     declarations: [AppComponent],
@@ -13,6 +15,7 @@ import { AuthModule } from './auth/auth.module';
         BrowserModule,
         RouterModule.forRoot(APP_ROUTES),
         AuthModule
-    ]
+    ],
+    providers: [AuthService]
 })
 export class AppModule { }

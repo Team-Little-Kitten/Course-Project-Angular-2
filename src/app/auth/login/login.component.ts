@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
                 response => {
                     let username: string = response.username;
                     localStorage.setItem('username', username);
+                    this.authService.setIsUserLogged();
                 },
                 err => console.log(err)
             );

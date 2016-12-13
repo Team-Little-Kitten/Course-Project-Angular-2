@@ -1,5 +1,6 @@
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
 
 const REGISTER_URL: string = 'http://localhost:8080/auth/register';
@@ -8,9 +9,21 @@ const LOGIN_URL: string = 'http://localhost:8080/auth/login';
 @Injectable()
 export class AuthService {
     private _http: Http;
+    private _isLogged: boolean;
+    private _subject: Subject<boolean>;
 
     constructor(http: Http) {
         this._http = http;
+        this._subject = new Subject<boolean>();
+    }
+
+    setIsUserLogged(): void {
+        this._isLogged = !!localStorage.getItem('username');
+        this._subject.next(this._isLogged);
+    }
+
+    getIsUserLoggedIn(): Observable<boolean> {
+        return this._subject.asObservable();
     }
 
     registerUser(data: Object) {
