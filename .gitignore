@@ -60,3 +60,5 @@ npm-debug.log
 # IDE #
 .idea/
 *.swp
+/Course-Project-Angular-2.sln
+/.vs/Course-Project-Angular-2/v15/.suo
