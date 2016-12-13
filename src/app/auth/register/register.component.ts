@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+
 import { AuthService } from '../auth.service';
 
 @Component({
     templateUrl: './register.component.html',
-    styleUrls: ['./register.component.css']
+    styleUrls: ['../auth.common.css']
 })
 export class RegisterComponent implements OnInit {
     form: FormGroup;
