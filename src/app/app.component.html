@@ -1,10 +1,53 @@
-<div>
-    <nav>
-        <a [routerLink]="['/register']">Register</a>
-        <a [routerLink]="['/login']">Login</a>
-        <a [routerLink]="['/']">Home</a>
-    </nav>
-    <div class="container">
-        <router-outlet></router-outlet>
+<div class="header-v8 header-sticky">
+    <!-- Topbar blog -->
+    <div class="blog-topbar">
+        <div class="topbar-search-block">
+            <div class="container">
+                <form action="">
+                    <input type="text" class="form-control" placeholder="Search">
+                    <div class="search-close"><i class="icon-close"></i></div>
+                </form>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="clearfix">
+                    <i class="fa fa-search search-btn pull-right"></i>
+                    <ul class="topbar-list topbar-log_reg pull-right visible-sm-block visible-md-block visible-lg-block">
+                        <li class="cd-log_reg home"><a class="cd-signin" [routerLink]="['/login']">Login</a></li>
+                        <li class="cd-log_reg"><a class="cd-signup" [routerLink]="['/register']">Register</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
+    <div class="navbar mega-menu" role="navigation">
+        <div class="container">
+
+            <div class="res-container">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+
+                <div class="navbar-brand">
+                    <a [routerLink]="['/']">
+                        <img src="assets/img/themes/logo-news-dark-default.png" alt="Logo">
+                    </a>
+                </div>
+            </div>
+            <div class="collapse navbar-collapse navbar-responsive-collapse">
+                <div class="res-container">
+                    <ul class="nav navbar-nav">
+                        <li><a [routerLink]="['/']">Home</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <router-outlet></router-outlet>
 </div>
