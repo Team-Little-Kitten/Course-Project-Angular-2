@@ -16,6 +16,7 @@ import { HomeService } from './home/home.service';
         BrowserModule,
         RouterModule.forRoot(APP_ROUTES),
         AuthModule
-    ]
+    ],
+    providers: [HomeService]
 })
 export class AppModule { }
