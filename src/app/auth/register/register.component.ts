@@ -50,7 +50,7 @@ export class RegisterComponent implements OnInit {
                 if (response.message) {
                     this._notificationService.create('Registration failed.', 'User with this username already exists.', 'error');
                 } else {
-                    this._notificationService.create('Registration successful.', 'Now you can log in.', 'success');                   
+                    this._notificationService.create('Registration successful.', 'Now you can log in.', 'success');
                     setTimeout(() => this._router.navigateByUrl('/login'), 1500);
                 }
             },

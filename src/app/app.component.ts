@@ -10,13 +10,13 @@ import { AuthService } from './auth/auth.service';
 export class AppComponent implements OnInit {
     private _authService: AuthService;
     private _router: Router;
-
+    
     public isUserLoggedIn: boolean;
 
     constructor(authService: AuthService, router: Router) {
         this._authService = authService;
         this._router = router;
-        this.isUserLoggedIn = !!localStorage.getItem('username');
+        this.isUserLoggedIn = !!localStorage.getItem('user');
     }
 
     ngOnInit() {
@@ -26,6 +26,7 @@ export class AppComponent implements OnInit {
     }
 
     logout() {
+        this._authService.logoutUser();
         localStorage.clear();
         this._router.navigateByUrl('/');
         this._authService.setIsUserLogged();

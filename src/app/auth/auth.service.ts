@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 
 const REGISTER_URL: string = 'http://localhost:8080/auth/register';
 const LOGIN_URL: string = 'http://localhost:8080/auth/login';
+const LOGOUT_URL: string = 'http://localhost:8080/auth/logout';
 
 @Injectable()
 export class AuthService {
@@ -18,7 +19,7 @@ export class AuthService {
     }
 
     setIsUserLogged(): void {
-        this._isLogged = !!localStorage.getItem('username');
+        this._isLogged = !!localStorage.getItem('user');
         this._subject.next(this._isLogged);
     }
 
@@ -40,6 +41,11 @@ export class AuthService {
         return this._http
             .post(LOGIN_URL, userToLogin, options)
             .map((response: Response) => response.json());
+    }
+
+    logoutUser() {
+        return this._http
+            .post(LOGOUT_URL, '');
     }
 
     private _getRequestOptions(sendData: boolean): RequestOptions {

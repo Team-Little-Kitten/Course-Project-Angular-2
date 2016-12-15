@@ -43,8 +43,7 @@ export class LoginComponent implements OnInit {
                 if (result.error) {
                     this._notificationService.create('Login failed!', 'Please try again.', 'error')
                 } else {
-                    let username: string = response.username;
-                    localStorage.setItem('username', username);
+                    localStorage.setItem('user', JSON.stringify(result));
                     this._authService.setIsUserLogged();
                     this._notificationService.create('Login successful!', 'Welcome.', 'success');
                     setTimeout(() => this._router.navigateByUrl('/profile'), 1500);
