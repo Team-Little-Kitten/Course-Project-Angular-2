@@ -7,8 +7,9 @@ import { HomeComponent } from './home/home.component';
 
 import { APP_ROUTES } from './app.routes';
 import { AuthModule } from './auth/auth.module';
-import { HomeService } from './home/home.service';
+import { ProfileModule } from './profile';
 
+import { HomeService } from './home/home.service';
 import { AuthService } from './auth/auth.service';
 
 @NgModule({
@@ -17,7 +18,8 @@ import { AuthService } from './auth/auth.service';
     imports: [
         BrowserModule,
         RouterModule.forRoot(APP_ROUTES),
-        AuthModule
+        AuthModule,
+        ProfileModule
     ],
     providers: [HomeService, AuthService]
 })

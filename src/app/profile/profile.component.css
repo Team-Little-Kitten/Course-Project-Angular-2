@@ -1,0 +1,10 @@
+#profile-navigation {
+    width: 300px;
+    display: block;
+    margin: 0 auto;
+}
+
+.profile-nav-btn-img {
+    width: 50px;
+    margin: 20px;
+}

@@ -1,0 +1,14 @@
+<h1 style="text-align: center;">Welcome {{username}}</h1>
+
+<nav id="profile-navigation">
+    <a [routerLink]="['works']">
+        <img src="/assets/images/profile-images/works.png" alt="Works" class="profile-nav-btn-img">
+    </a>
+    <a [routerLink]="['additional-info']">
+        <img src="/assets/images/profile-images/additional-info.png" alt="Additional Information" class="profile-nav-btn-img">
+    </a>
+    <a [routerLink]="['friends']">
+        <img src="/assets/images/profile-images/friends.png" alt="Friends" class="profile-nav-btn-img">
+    </a>
+</nav>
+<router-outlet></router-outlet>

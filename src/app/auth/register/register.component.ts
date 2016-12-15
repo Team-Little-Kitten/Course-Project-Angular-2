@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { AuthService } from '../auth.service';
 
@@ -8,13 +9,16 @@ import { AuthService } from '../auth.service';
     styleUrls: ['../auth.common.css']
 })
 export class RegisterComponent implements OnInit {
+    private _authService: AuthService;
+    private _router: Router;
+
     form: FormGroup;
     fb: FormBuilder;
-    authService: AuthService;
 
-    constructor(fb: FormBuilder, authService: AuthService) {
+    constructor(fb: FormBuilder, authService: AuthService, router: Router) {
         this.fb = fb;
-        this.authService = authService;
+        this._authService = authService;
+        this._router = router;
     }
 
     ngOnInit() {
@@ -28,8 +32,10 @@ export class RegisterComponent implements OnInit {
     }
 
     register() {
-        this.authService
+        this._authService
             .registerUser(this.form.value)
-            .subscribe(console.log, console.log);
+            .subscribe(
+            () => this._router.navigateByUrl('/login'),
+            err => console.log(err));
     }
 }
