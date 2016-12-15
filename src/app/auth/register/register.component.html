@@ -1,27 +1,53 @@
 <form [formGroup]="form" (ngSubmit)="register()" class="auth-form">
-    <label for="tb-username">Username</label>
-    <br />
-    <input type="text" id="tb-username" formControlName="username" class="form-control">
-    <br />
+    <div class="form-group" [ngClass]="{'has-error':!form.controls['username'].valid && form.controls['username'].touched}">
+        <label for="tb-username">Username</label>
+        <br />
+        <input type="text" id="tb-username" formControlName="username" class="form-control">
+        <br />
+        <div class="alert alert-danger" *ngIf="!form.controls['username'].valid && form.controls['username'].touched">
+            Username must be between 3 and 20 characters.
+        </div>
+    </div>
 
-    <label for="tb-firstname">First name</label>
-    <br />
-    <input type="text" id="tb-firstname" formControlName="firstname" class="form-control">
-    <br />
+    <div class="form-group" [ngClass]="{'has-error':!form.controls['firstname'].valid && form.controls['firstname'].touched}">
+        <label for="tb-firstname">First name</label>
+        <br />
+        <input type="text" id="tb-firstname" formControlName="firstname" class="form-control">
+        <br />
+        <div class="alert alert-danger" *ngIf="!form.controls['firstname'].valid && form.controls['firstname'].touched">
+            First name must be between 3 and 20 characters.
+        </div>
+    </div>
 
-    <label for="tb-lastname">Last name</label>
-    <br />
-    <input type="text" id="tb-lastname" formControlName="lastname" class="form-control">
-    <br />
+    <div class="form-group" [ngClass]="{'has-error':!form.controls['lastname'].valid && form.controls['lastname'].touched}">
+        <label for="tb-lastname">Last name</label>
+        <br />
+        <input type="text" id="tb-lastname" formControlName="lastname" class="form-control">
+        <br />
+        <div class="alert alert-danger" *ngIf="!form.controls['lastname'].valid && form.controls['lastname'].touched">
+            Last name must be between 3 and 20 characters.
+        </div>
+    </div>
 
-    <label for="tb-password">Password</label>
-    <br />
-    <input type="password" id="tb-password" formControlName="password" class="form-control">
-    <br />
+    <div class="form-group" [ngClass]="{'has-error':!form.controls['password'].valid && form.controls['password'].touched}">
+        <label for="tb-password">Password</label>
+        <br />
+        <input type="password" id="tb-password" formControlName="password" class="form-control">
+        <br />
+        <div class="alert alert-danger" *ngIf="!form.controls['password'].valid && form.controls['password'].touched">
+            Password must be between 6 and 30 symbols.
+        </div>
+    </div>
 
-    <label for="tb-confirm-password">Confirm Password</label>
-    <br />
-    <input type="password" id="tb-confirm-password" formControlName="confirmPassword" class="form-control">
-    <br />
-    <button type="submit">Register</button>
+    <div class="form-group" [ngClass]="{'has-error':!form.controls['confirmPassword'].valid && form.controls['confirmPassword'].touched}">
+        <label for="tb-confirm-password">Confirm Password</label>
+        <br />
+        <input type="password" id="tb-confirm-password" formControlName="confirmPassword" class="form-control">
+        <br />
+        <div class="alert alert-danger" *ngIf="!form.controls['confirmPassword'].valid && form.controls['confirmPassword'].touched">
+            Confirm password must be between 6 and 30 symbols and should match password.
+        </div>
+    </div>
+    <button class="btn-reg-log btn-u btn-u-md btn-u-bg-default btn-u-upper" type="submit" [disabled]="!form.valid">Register</button>
 </form>
+<simple-notifications [options]="options"></simple-notifications>

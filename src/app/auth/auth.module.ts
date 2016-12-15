@@ -1,16 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Router } from '@angular/router';
 import { HttpModule } from '@angular/http';
+import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SimpleNotificationsModule, NotificationsService } from '../../../node_modules/angular2-notifications';
 
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+
 import { AuthService } from './auth.service';
 
 @NgModule({
     declarations: [RegisterComponent, LoginComponent],
-    imports: [HttpModule, FormsModule, ReactiveFormsModule, RouterModule],
+    imports: [HttpModule, FormsModule, ReactiveFormsModule, RouterModule, SimpleNotificationsModule, CommonModule],
     exports: [],
-    providers: [AuthService]
+    providers: [AuthService, NotificationsService]
 })
 export class AuthModule { }
