@@ -6,6 +6,7 @@ import { Observable } from 'rxjs/Observable';
 const REGISTER_URL: string = 'http://localhost:8080/auth/register';
 const LOGIN_URL: string = 'http://localhost:8080/auth/login';
 const LOGOUT_URL: string = 'http://localhost:8080/auth/logout';
+const VERIFY_LOGIN_URL: string = 'http://localhost:8080/auth/verifyLogin';
 
 @Injectable()
 export class AuthService {
@@ -46,6 +47,15 @@ export class AuthService {
     logoutUser() {
         return this._http
             .post(LOGOUT_URL, '');
+    }
+
+    isLoggedIn() {
+        let userDataString = localStorage.getItem('user');
+        if (!userDataString) {
+            return false;
+        }
+
+        return true;
     }
 
     private _getRequestOptions(sendData: boolean): RequestOptions {

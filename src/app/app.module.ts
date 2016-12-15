@@ -11,6 +11,7 @@ import { ProfileModule } from './profile';
 
 import { HomeService } from './home/home.service';
 import { AuthService } from './auth/auth.service';
+import { GuardIsLoggedUser } from './route-guards';
 
 @NgModule({
     bootstrap: [AppComponent],
@@ -21,6 +22,6 @@ import { AuthService } from './auth/auth.service';
         AuthModule,
         ProfileModule
     ],
-    providers: [HomeService, AuthService]
+    providers: [HomeService, AuthService, GuardIsLoggedUser]
 })
 export class AppModule { }
