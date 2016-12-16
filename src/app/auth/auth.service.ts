@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
 const REGISTER_URL: string = 'http://localhost:8080/auth/register';
 const LOGIN_URL: string = 'http://localhost:8080/auth/login';
 const LOGOUT_URL: string = 'http://localhost:8080/auth/logout';
-const VERIFY_LOGIN_URL: string = 'http://localhost:8080/auth/verifyLogin';
+const VERIFY_LOGIN_URL: string = 'http://localhost:8080/auth/verify';
 
 @Injectable()
 export class AuthService {
@@ -44,25 +44,47 @@ export class AuthService {
             .map((response: Response) => response.json());
     }
 
-    logoutUser() {
-        return this._http
-            .post(LOGOUT_URL, '');
+    logoutUser(): void {
+        localStorage.clear();
     }
 
-    isLoggedIn() {
-        let userDataString = localStorage.getItem('user');
+    isLoggedIn(): Observable<boolean> | boolean {
+        let userDataString: string = localStorage.getItem('user');
         if (!userDataString) {
             return false;
         }
 
-        return true;
+        let token: string = JSON.parse(userDataString).result.token;
+        console.log("TOKEN " + token);
+        let options = this._getRequestOptions(true, token);
+
+        return this._http
+            .post(VERIFY_LOGIN_URL, '', options)
+            .map((response: Response) => {
+                console.log(response.text())
+                let result = JSON.parse(response.text());
+                if (result.success) {
+                    return true;
+                }
+
+                return false;
+            });
     }
 
-    private _getRequestOptions(sendData: boolean): RequestOptions {
+    private _getRequestOptions(sendData: boolean, token?: string): RequestOptions {
+        let headersObject = {};
+
         if (sendData) {
-            let headers: Headers = new Headers({ 'Content-Type': 'application/json' });
-            let options: RequestOptions = new RequestOptions({ headers: headers });
-            return options;
+            headersObject['Content-Type'] = 'application/json';
         }
+
+        if (token) {
+            headersObject['Authorization'] = token;
+        }
+
+        console.log(headersObject);
+        let headers: Headers = new Headers(headersObject);
+        let options: RequestOptions = new RequestOptions({ headers: headers });
+        return options;
     }
 }
