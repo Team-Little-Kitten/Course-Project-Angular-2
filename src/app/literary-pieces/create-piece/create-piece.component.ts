@@ -20,27 +20,37 @@ export class CreatePieceComponent implements OnInit {
     private _notificationService: NotificationsService;
     private _pieceService: LiteraryPiecesService;
 
-
-    public pieceBodyText: string = "Nqkiv asdasd";
+    public pieceBodyText: string = 'Write your piece here.';
+    public username: string;
+    
     public createPieceForm: FormGroup;
     public formBuilder: FormBuilder;
     public options: Object;
 
-    constructor(formBuilder: FormBuilder, router: Router, notificationService: NotificationsService, pieceService: LiteraryPiecesService) {
+    constructor(formBuilder: FormBuilder, router: Router, notificationService: NotificationsService,
+        pieceService: LiteraryPiecesService) {
         this._formBuilder = formBuilder;
         this._router = router;
         this._notificationService = notificationService;
         this._pieceService = pieceService;
+        this.username = JSON.parse(localStorage.getItem('user')).result.username;
     }
 
     ngOnInit() {
         let titleValidator = [Validators.required, Validators.minLength(MIN_TITLE_LENGHT), Validators.maxLength(MAX_TITLE_LENGHT)];
-        let subTitleValidator = [Validators.required, Validators.minLength(MIN_SUBTITLE_LENGHT), Validators.maxLength(MAX_SUBTITLE_LENGHT)]
+        let subTitleValidator = [Validators.required, Validators.minLength(MIN_SUBTITLE_LENGHT), Validators.maxLength(MAX_SUBTITLE_LENGHT)];
         this.createPieceForm = this._formBuilder.group({
-            title: ["Piece Title", Validators.compose(titleValidator)],
-            pieceBody: [this.pieceBodyText, Validators.compose(titleValidator)]
+            title: ['Piece Title', Validators.compose(titleValidator)],
+            subtitle: ["Piece Subtitle", Validators.compose(subTitleValidator)],
+            pieceBody: [this.pieceBodyText, Validators.compose(titleValidator)],
+            author: [this.username, Validators.required],
+            genre:["", Validators.required]
         });
     };
+
+    onChange(value) {
+        this.pieceBodyText = value;
+    }
 
     createPiece() {
         this._pieceService

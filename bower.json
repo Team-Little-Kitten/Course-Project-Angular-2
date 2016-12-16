@@ -21,6 +21,7 @@
     "tests"
   ],
   "dependencies": {
-    "tinymce": "^4.5.1"
+    "tinymce": "^4.5.1",
+    "material-kit": "^1.1.0"
   }
 }
