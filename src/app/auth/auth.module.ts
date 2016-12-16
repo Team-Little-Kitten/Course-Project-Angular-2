@@ -9,6 +9,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 
 import { AuthService } from './auth.service';
+import { HttpOptionsService } from '../common-services';
 
 @NgModule({
     declarations: [RegisterComponent, LoginComponent],
@@ -20,6 +21,6 @@ import { AuthService } from './auth.service';
         SimpleNotificationsModule,
         CommonModule],
     exports: [],
-    providers: [AuthService, NotificationsService]
+    providers: [AuthService, NotificationsService, HttpOptionsService]
 })
 export class AuthModule { }
