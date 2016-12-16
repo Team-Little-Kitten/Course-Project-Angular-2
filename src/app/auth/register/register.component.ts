@@ -31,7 +31,7 @@ export class RegisterComponent implements OnInit {
         this.options = { timeOut: 1500, showProgressBar: true, animate: 'scale', position: ['right', 'bottom'] };
     }
 
-    ngOnInit() {
+    ngOnInit(): void {
         let namesValidators = [Validators.required, Validators.minLength(MIN_NAME_LENGTH), Validators.maxLength(MAX_NAME_LENGTH)];
         this.form = this.fb.group({
             username: ["", Validators.compose(namesValidators)],
@@ -42,7 +42,7 @@ export class RegisterComponent implements OnInit {
         });
     }
 
-    register() {
+    register(): void {
         this._authService
             .registerUser(this.form.value)
             .subscribe(

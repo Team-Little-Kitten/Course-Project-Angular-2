@@ -26,19 +26,19 @@ export class LoginComponent implements OnInit {
         this.options = { timeOut: 1500, showProgressBar: true, animate: 'scale', position: ['right', 'bottom'] };
     }
 
-    ngOnInit() {
+    ngOnInit(): void {
         this.form = this.fb.group({
             username: ["", Validators.required],
             password: ["", Validators.required]
         });
     }
 
-    login() {
+    login(): void {
         this._authService
             .loginUser(this.form.value)
             .subscribe(
-            response => {
-                let result = (typeof (response) === 'string') ? JSON.parse(response) : response;
+            (response: any) => {
+                let result: any = (typeof (response) === 'string') ? JSON.parse(response) : response;
 
                 if (result.error) {
                     this._notificationService.create('Login failed!', 'Please try again.', 'error')
@@ -49,6 +49,6 @@ export class LoginComponent implements OnInit {
                     setTimeout(() => this._router.navigateByUrl('/profile'), 1500);
                 }
             },
-            err => this._notificationService.create('Login failed!', 'Please try again.', 'error'));
+            () => this._notificationService.create('Login failed!', 'Please try again.', 'error'));
     }
 }

@@ -6,17 +6,16 @@ import { HomeService } from './home.service';
     templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit {
-
-    private homeService: HomeService;
+    private _homeService: HomeService;
 
     public pieces: any[];
 
     constructor(homeService: HomeService) {
-        this.homeService = homeService;
+        this._homeService = homeService;
     }
 
-    ngOnInit() {
-        this.homeService.getHomeData()
+    ngOnInit(): void {
+        this._homeService.getHomeData()
             .subscribe(
             pieces => this.pieces = JSON.parse(pieces._body),
             error => console.log(error)

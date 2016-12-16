@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { HttpOptionsService } from '../common-services';
 
-const GET_USER_DATA_URL = 'http://localhost:8080/user/';
+const USER_URL = 'http://localhost:8080/users/';
 
 @Injectable()
 export class UserService {
@@ -17,7 +17,14 @@ export class UserService {
     }
 
     getUserData(userId: string): Observable<string> {
-        let url = `${GET_USER_DATA_URL}${userId}`;
+        let url = `${USER_URL}${userId}`;
         return this._http.get(url).map((response: Response) => response.json());
+    }
+
+    updateUserDate(userId: string, updateData: Object): Observable<string> {
+        let url = `${USER_URL}${userId}`;
+        let requestOptions = this._httpOptionsService.getRequestOptions(true);
+        let data = JSON.stringify(updateData);
+        return  this._http.post(url, data, requestOptions).map((response: Response) => response.json());
     }
 }
