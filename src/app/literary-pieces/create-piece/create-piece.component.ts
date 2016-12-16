@@ -22,13 +22,12 @@ export class CreatePieceComponent implements OnInit {
 
     public pieceBodyText: string = 'Write your piece here.';
     public username: string;
-    
+
     public createPieceForm: FormGroup;
     public formBuilder: FormBuilder;
     public options: Object;
 
-    constructor(formBuilder: FormBuilder, router: Router, notificationService: NotificationsService,
-        pieceService: LiteraryPiecesService) {
+    constructor(formBuilder: FormBuilder, router: Router, notificationService: NotificationsService, pieceService: LiteraryPiecesService) {
         this._formBuilder = formBuilder;
         this._router = router;
         this._notificationService = notificationService;
@@ -36,7 +35,7 @@ export class CreatePieceComponent implements OnInit {
         this.username = JSON.parse(localStorage.getItem('user')).result.username;
     }
 
-    ngOnInit() {
+    ngOnInit(): void {
         let titleValidator = [Validators.required, Validators.minLength(MIN_TITLE_LENGHT), Validators.maxLength(MAX_TITLE_LENGHT)];
         let subTitleValidator = [Validators.required, Validators.minLength(MIN_SUBTITLE_LENGHT), Validators.maxLength(MAX_SUBTITLE_LENGHT)];
         this.createPieceForm = this._formBuilder.group({
@@ -44,15 +43,15 @@ export class CreatePieceComponent implements OnInit {
             subtitle: ["Piece Subtitle", Validators.compose(subTitleValidator)],
             pieceBody: [this.pieceBodyText, Validators.compose(titleValidator)],
             author: [this.username, Validators.required],
-            genre:["", Validators.required]
+            genre: ["", Validators.required]
         });
     };
 
-    onChange(value) {
+    onChange(value: string): void {
         this.pieceBodyText = value;
     }
 
-    createPiece() {
+    createPiece(): void {
         this._pieceService
             .createPiece(this.createPieceForm.value)
             .subscribe(

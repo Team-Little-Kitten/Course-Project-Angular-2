@@ -15,7 +15,7 @@ const CUSTOM_VALUE_ACCESSOR = {
     providers: [CUSTOM_VALUE_ACCESSOR]
 })
 export class TinymceEditorDirective implements AfterViewInit, ControlValueAccessor {
-    private val: any = " ";
+    private val: string = " ";
 
     //selector string: Id of the host element
     @Input() selector: string;
@@ -26,7 +26,7 @@ export class TinymceEditorDirective implements AfterViewInit, ControlValueAccess
         return this.val;
     }
 
-    set ngModel(val) {
+    set ngModel(val: string) {
         this.val = val;
     }
 
@@ -67,11 +67,11 @@ export class TinymceEditorDirective implements AfterViewInit, ControlValueAccess
 
     //Update the component tree only when blur event happens. Otherwise following bug will occur.
     //Cursor position changes to 0 or the begining of the editor after every event.
-    valueChange() {
+    valueChange(): void {
         this.valueOnChange(false);
     }
 
-    valueOnChange(change: boolean) {
+    valueOnChange(change: boolean): void {
         this.val = tinymce.activeEditor.getContent();
         this.ngModelChange.emit(this.val);
         if (change) {
@@ -79,7 +79,7 @@ export class TinymceEditorDirective implements AfterViewInit, ControlValueAccess
         }
     }
 
-    ngAfterViewInit() {
+    ngAfterViewInit(): void {
         let that = this;
         let options: any = this.options;
 

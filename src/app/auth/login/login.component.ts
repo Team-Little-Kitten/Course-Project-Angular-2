@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 import { Router } from '@angular/router';
 
 import { AuthService } from '../auth.service';
+import { UserService } from '../../common-services';
 import { NotificationsService } from '../../../../node_modules/angular2-notifications';
 
 @Component({
@@ -13,12 +14,19 @@ export class LoginComponent implements OnInit {
     private _router: Router;
     private _authService: AuthService;
     private _notificationService: NotificationsService;
+    private _userService: UserService;
 
     public form: FormGroup;
     public fb: FormBuilder;
     public options: Object;
 
-    constructor(fb: FormBuilder, authService: AuthService, router: Router, notificationsService: NotificationsService) {
+    constructor(
+        fb: FormBuilder,
+        authService: AuthService,
+        router: Router,
+        notificationsService: NotificationsService,
+        userService: UserService) {
+        this._userService = userService;
         this.fb = fb;
         this._authService = authService;
         this._router = router;
@@ -44,7 +52,7 @@ export class LoginComponent implements OnInit {
                     this._notificationService.create('Login failed!', 'Please try again.', 'error')
                 } else {
                     localStorage.setItem('user', JSON.stringify(result));
-                    this._authService.setIsUserLogged();
+                    this._userService.setIsUserLogged();
                     this._notificationService.create('Login successful!', 'Welcome.', 'success');
                     setTimeout(() => this._router.navigateByUrl('/profile'), 1500);
                 }

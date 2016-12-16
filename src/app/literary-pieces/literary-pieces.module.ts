@@ -11,7 +11,6 @@ import { LiteraryPiecesService } from './literary-pieces.service';
 
 import { HttpOptionsService, UserService } from '../common-services';
 
-
 @NgModule({
     declarations: [CreatePieceComponent, TinymceEditorDirective],
     imports: [
@@ -24,5 +23,4 @@ import { HttpOptionsService, UserService } from '../common-services';
     exports: [],
     providers: [LiteraryPiecesService, NotificationsService, HttpOptionsService, UserService]
 })
-
 export class LiteraryPieceModule { }
