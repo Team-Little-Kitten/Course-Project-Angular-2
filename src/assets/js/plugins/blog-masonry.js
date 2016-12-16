@@ -1,1 +1,23 @@
-var MasonryBox=function(){return{initMasonryBox:function(){var b,a=document.querySelector(".masonry-box");imagesLoaded(a,function(){b=new Masonry(a)});var b=new Masonry(a,{itemSelector:".masonry-box-in",masonry:{gutterWidth:20,columnWidth:100}})}}}();
+var MasonryBox = function () {
+
+    return {
+
+     	// Masonry Box
+       	initMasonryBox: function () {
+	   		var container = document.querySelector('.masonry-box');
+   			var msnry;
+   			// initialize Masonry after all images have loaded
+   			imagesLoaded( container, function() {
+     			msnry = new Masonry( container );
+   			});
+	   
+		   	var msnry = new Masonry( container, {
+		      	itemSelector: '.masonry-box-in',
+		      	masonry: {
+		           	gutterWidth: 20,
+		           	columnWidth: 100
+		       	}
+		   	});
+  		}
+	};
+}();
