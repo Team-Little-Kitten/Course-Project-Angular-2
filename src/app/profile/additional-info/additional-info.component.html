@@ -1,1 +1,12 @@
-<h1>ADDITIONAL INFO</h1>
+<section id="additional-info-container">
+    <h3>Name</h3>
+    <p>{{user.firstname}} {{user.lastname}}</p>
+
+    <h3>About</h3>
+    <p *ngIf="!user.about">Nothing here.</p>
+    <p *ngIf="user.about">{{user.about}}</p>
+
+    <h3>Signature</h3>
+    <p *ngIf="!user.signature">Nothing here.</p>
+    <p *ngIf="user.signature">{{user.signature}}</p>
+</section>

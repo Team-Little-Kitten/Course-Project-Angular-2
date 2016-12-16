@@ -2,20 +2,23 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
+import { HttpOptionsService } from '../common-services';
 
 const REGISTER_URL: string = 'http://localhost:8080/auth/register';
 const LOGIN_URL: string = 'http://localhost:8080/auth/login';
 const LOGOUT_URL: string = 'http://localhost:8080/auth/logout';
-const VERIFY_LOGIN_URL: string = 'http://localhost:8080/auth/verifyLogin';
+const VERIFY_LOGIN_URL: string = 'http://localhost:8080/auth/verify';
 
 @Injectable()
 export class AuthService {
     private _http: Http;
+    private _httpOptionsService: HttpOptionsService;
     private _isLogged: boolean;
     private _subject: Subject<boolean>;
 
-    constructor(http: Http) {
+    constructor(http: Http, httpOptionsService: HttpOptionsService) {
         this._http = http;
+        this._httpOptionsService = httpOptionsService;
         this._subject = new Subject<boolean>();
     }
 
@@ -30,7 +33,7 @@ export class AuthService {
 
     registerUser(data: Object) {
         let userToCreate: string = JSON.stringify(data);
-        let options: RequestOptions = this._getRequestOptions(true);
+        let options: RequestOptions = this._httpOptionsService.getRequestOptions(true);
         return this._http
             .post(REGISTER_URL, userToCreate, options)
             .map((response: Response) => response.json());
@@ -38,31 +41,34 @@ export class AuthService {
 
     loginUser(data: Object) {
         let userToLogin: string = JSON.stringify(data);
-        let options: RequestOptions = this._getRequestOptions(true);
+        let options: RequestOptions = this._httpOptionsService.getRequestOptions(true);
         return this._http
             .post(LOGIN_URL, userToLogin, options)
             .map((response: Response) => response.json());
     }
 
-    logoutUser() {
-        return this._http
-            .post(LOGOUT_URL, '');
+    logoutUser(): void {
+        localStorage.clear();
     }
 
-    isLoggedIn() {
-        let userDataString = localStorage.getItem('user');
+    isLoggedIn(): Observable<boolean> | boolean {
+        let userDataString: string = localStorage.getItem('user');
         if (!userDataString) {
             return false;
         }
 
-        return true;
-    }
+        let token: string = JSON.parse(userDataString).result.token;
+        let options = this._httpOptionsService.getRequestOptions(true, token);
 
-    private _getRequestOptions(sendData: boolean): RequestOptions {
-        if (sendData) {
-            let headers: Headers = new Headers({ 'Content-Type': 'application/json' });
-            let options: RequestOptions = new RequestOptions({ headers: headers });
-            return options;
-        }
+        return this._http
+            .post(VERIFY_LOGIN_URL, '', options)
+            .map((response: Response) => {
+                let result = JSON.parse(response.text());
+                if (result.success) {
+                    return true;
+                }
+
+                return false;
+            });
     }
 }
