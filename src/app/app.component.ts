@@ -9,11 +9,11 @@ import { AuthService } from './auth';
     templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
+    public isUserLoggedIn: boolean;
+
     private _userService: UserService;
     private _router: Router;
     private _authService: AuthService;
-
-    public isUserLoggedIn: boolean;
 
     constructor(userService: UserService, router: Router, authService: AuthService) {
         this._userService = userService;
@@ -22,13 +22,13 @@ export class AppComponent implements OnInit {
         this.isUserLoggedIn = !!localStorage.getItem('user');
     }
 
-    ngOnInit() {
+    public ngOnInit() {
         this._userService
             .getIsUserLoggedIn()
             .subscribe((isLogged: boolean) => this.isUserLoggedIn = isLogged);
     }
 
-    logout() {
+    public logout() {
         this._authService.logoutUser();
         this._router.navigateByUrl('/');
         this._userService.setIsUserLogged();

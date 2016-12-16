@@ -18,7 +18,7 @@ export class AuthService {
         this._httpOptionsService = httpOptionsService;
     }
 
-    registerUser(data: Object) : Observable<string> {
+    public registerUser(data: Object) : Observable<string> {
         let userToCreate: string = JSON.stringify(data);
         let options: RequestOptions = this._httpOptionsService.getRequestOptions(true);
         return this._http
@@ -26,7 +26,7 @@ export class AuthService {
             .map((response: Response) => response.json());
     }
 
-    loginUser(data: Object): Observable<string> {
+    public loginUser(data: Object): Observable<string> {
         let userToLogin: string = JSON.stringify(data);
         let options: RequestOptions = this._httpOptionsService.getRequestOptions(true);
         return this._http
@@ -34,11 +34,11 @@ export class AuthService {
             .map((response: Response) => response.json());
     }
 
-    logoutUser(): void {
+    public logoutUser(): void {
         localStorage.clear();
     }
 
-    isLoggedIn(): Observable<boolean> | boolean {
+    public isLoggedIn(): Observable<boolean> | boolean {
         let userDataString: string = localStorage.getItem('user');
         if (!userDataString) {
             return false;

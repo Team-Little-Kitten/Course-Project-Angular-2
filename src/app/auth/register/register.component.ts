@@ -15,13 +15,13 @@ const MAX_PASSWORD_LENGTH = 30;
     styleUrls: ['../auth.common.css']
 })
 export class RegisterComponent implements OnInit {
+    public form: FormGroup;
+    public fb: FormBuilder;
+    public options: Object;
+
     private _authService: AuthService;
     private _router: Router;
     private _notificationService: NotificationsService;
-
-    form: FormGroup;
-    fb: FormBuilder;
-    options: Object;
 
     constructor(fb: FormBuilder, authService: AuthService, router: Router, notificationsService: NotificationsService) {
         this.fb = fb;
@@ -31,18 +31,18 @@ export class RegisterComponent implements OnInit {
         this.options = { timeOut: 1500, showProgressBar: true, animate: 'scale', position: ['right', 'bottom'] };
     }
 
-    ngOnInit(): void {
+    public ngOnInit(): void {
         let namesValidators = [Validators.required, Validators.minLength(MIN_NAME_LENGTH), Validators.maxLength(MAX_NAME_LENGTH)];
         this.form = this.fb.group({
-            username: ["", Validators.compose(namesValidators)],
-            firstname: ["", Validators.compose(namesValidators)],
-            lastname: ["", Validators.compose(namesValidators)],
-            password: ["", Validators.compose([Validators.required, Validators.minLength(MIN_PASSWORD_LENGTH), Validators.maxLength(MAX_PASSWORD_LENGTH)])],
-            confirmPassword: ["", Validators.required]
+            username: ['', Validators.compose(namesValidators)],
+            firstname: ['', Validators.compose(namesValidators)],
+            lastname: ['', Validators.compose(namesValidators)],
+            password: ['', Validators.compose([Validators.required, Validators.minLength(MIN_PASSWORD_LENGTH), Validators.maxLength(MAX_PASSWORD_LENGTH)])],
+            confirmPassword: ['', Validators.required]
         });
     }
 
-    register(): void {
+    public register(): void {
         this._authService
             .registerUser(this.form.value)
             .subscribe(

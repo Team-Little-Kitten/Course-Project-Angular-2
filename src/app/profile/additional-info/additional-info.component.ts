@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
 import { UserService } from '../../common-services/user.service';
+import { NotificationsService } from '../../../../node_modules/angular2-notifications';
 
 const MIN_STRING_LENGTH = 5;
 
@@ -10,26 +11,30 @@ const MIN_STRING_LENGTH = 5;
     styleUrls: ['./additional-info.component.css']
 })
 export class AdditionalInfoComponent {
-    private _userService: UserService;
-
     public user: Object;
     public isInEditMode: boolean;
     public form: FormGroup;
     public fb: FormBuilder;
+    public options: Object;
 
-    constructor(fb: FormBuilder, userService: UserService) {
+    private _userService: UserService;
+    private _notificationService: NotificationsService;
+
+    constructor(fb: FormBuilder, userService: UserService, notificationService: NotificationsService) {
         this.fb = fb;
         this._userService = userService;
+        this._notificationService = notificationService;
         this.isInEditMode = false;
-        this.form = this.fb.group({ about: [""], signature: [""] });
+        this.form = this.fb.group({ about: [''], signature: [''] });
+        this.options = { timeOut: 1500, showProgressBar: true, animate: 'scale', position: ['right', 'bottom'] };
         this._setUser();
     }
 
-    toggleEditMode(): void {
+    public toggleEditMode(): void {
         this.isInEditMode = !this.isInEditMode;
     }
 
-    updateAdditionalInfo(): void {
+    public updateAdditionalInfo(): void {
         let userId = JSON.parse(localStorage.getItem('user')).result._id;
         this._userService
             .updateUserDate(userId, this.form.value)
@@ -38,6 +43,7 @@ export class AdditionalInfoComponent {
                     localStorage.setItem('user', JSON.stringify(x));
                     this._setUser();
                     this.toggleEditMode();
+                    this._notificationService.create('Success!', 'Profile updated.', 'success');
                 }
             }, console.log);
     }

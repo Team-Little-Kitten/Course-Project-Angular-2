@@ -11,14 +11,14 @@ import { NotificationsService } from '../../../../node_modules/angular2-notifica
     styleUrls: ['../auth.common.css']
 })
 export class LoginComponent implements OnInit {
+    public form: FormGroup;
+    public fb: FormBuilder;
+    public options: Object;
+
     private _router: Router;
     private _authService: AuthService;
     private _notificationService: NotificationsService;
     private _userService: UserService;
-
-    public form: FormGroup;
-    public fb: FormBuilder;
-    public options: Object;
 
     constructor(
         fb: FormBuilder,
@@ -34,14 +34,14 @@ export class LoginComponent implements OnInit {
         this.options = { timeOut: 1500, showProgressBar: true, animate: 'scale', position: ['right', 'bottom'] };
     }
 
-    ngOnInit(): void {
+    public ngOnInit(): void {
         this.form = this.fb.group({
-            username: ["", Validators.required],
-            password: ["", Validators.required]
+            username: ['', Validators.required],
+            password: ['', Validators.required]
         });
     }
 
-    login(): void {
+    public login(): void {
         this._authService
             .loginUser(this.form.value)
             .subscribe(

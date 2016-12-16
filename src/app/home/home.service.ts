@@ -8,14 +8,14 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 class HomeService {
-    private http: Http;
+    private _http: Http;
 
     constructor(http: Http) {
-        this.http = http;
+        this._http = http;
     }
 
-    getHomeData(): Observable<any> {
-        return this.http.get('http://localhost:8080/api/pieces/all')
+    public getHomeData(): Observable<any> {
+        return this._http.get('http://localhost:8080/api/pieces/all')
             .map((response: Response) => response)
             .catch(this.handleError);
     }

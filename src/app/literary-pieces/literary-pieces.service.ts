@@ -18,7 +18,7 @@ export class LiteraryPiecesService {
         this._httpOptionsService = httpOptionsService;
     }
 
-    createPiece(data: Object): Observable<string> {
+    public createPiece(data: Object): Observable<string> {
         let pieceToCreate: string = JSON.stringify(data);
         let options: RequestOptions = this._httpOptionsService.getRequestOptions(true);
         return this._http

@@ -20,21 +20,21 @@ export class UserService {
         this._subject = new Subject<boolean>();
     }
 
-    setIsUserLogged(): void {
+    public setIsUserLogged(): void {
         this._isLogged = !!localStorage.getItem('user');
         this._subject.next(this._isLogged);
     }
 
-    getIsUserLoggedIn(): Observable<boolean> {
+    public getIsUserLoggedIn(): Observable<boolean> {
         return this._subject.asObservable();
     }
 
-    getUserData(userId: string): Observable<string> {
+    public getUserData(userId: string): Observable<string> {
         let url = `${USER_URL}${userId}`;
         return this._http.get(url).map((response: Response) => response.json());
     }
 
-    updateUserDate(userId: string, updateData: Object): Observable<string> {
+    public updateUserDate(userId: string, updateData: Object): Observable<string> {
         let url = `${USER_URL}${userId}`;
         let requestOptions = this._httpOptionsService.getRequestOptions(true);
         let data = JSON.stringify(updateData);

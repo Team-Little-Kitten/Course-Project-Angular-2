@@ -10,22 +10,20 @@ const MAX_TITLE_LENGHT = 35;
 const MIN_SUBTITLE_LENGHT = 10;
 const MAX_SUBTITLE_LENGHT = 100;
 
-
 @Component({
     templateUrl: './create-piece.component.html'
 })
 export class CreatePieceComponent implements OnInit {
+    public pieceBodyText: string = 'Write your piece here.';
+    public username: string;
+    public createPieceForm: FormGroup;
+    public formBuilder: FormBuilder;
+    public options: Object;
+
     private _formBuilder: FormBuilder;
     private _router: Router;
     private _notificationService: NotificationsService;
     private _pieceService: LiteraryPiecesService;
-
-    public pieceBodyText: string = 'Write your piece here.';
-    public username: string;
-
-    public createPieceForm: FormGroup;
-    public formBuilder: FormBuilder;
-    public options: Object;
 
     constructor(formBuilder: FormBuilder, router: Router, notificationService: NotificationsService, pieceService: LiteraryPiecesService) {
         this._formBuilder = formBuilder;
@@ -35,23 +33,23 @@ export class CreatePieceComponent implements OnInit {
         this.username = JSON.parse(localStorage.getItem('user')).result.username;
     }
 
-    ngOnInit(): void {
+    public ngOnInit(): void {
         let titleValidator = [Validators.required, Validators.minLength(MIN_TITLE_LENGHT), Validators.maxLength(MAX_TITLE_LENGHT)];
         let subTitleValidator = [Validators.required, Validators.minLength(MIN_SUBTITLE_LENGHT), Validators.maxLength(MAX_SUBTITLE_LENGHT)];
         this.createPieceForm = this._formBuilder.group({
             title: ['Piece Title', Validators.compose(titleValidator)],
-            subtitle: ["Piece Subtitle", Validators.compose(subTitleValidator)],
+            subtitle: ['Piece Subtitle', Validators.compose(subTitleValidator)],
             pieceBody: [this.pieceBodyText, Validators.compose(titleValidator)],
             author: [this.username, Validators.required],
-            genre: ["", Validators.required]
+            genre: ['', Validators.required]
         });
     };
 
-    onChange(value: string): void {
+    public onChange(value: string): void {
         this.pieceBodyText = value;
     }
 
-    createPiece(): void {
+    public createPiece(): void {
         this._pieceService
             .createPiece(this.createPieceForm.value)
             .subscribe(
