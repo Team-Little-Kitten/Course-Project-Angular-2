@@ -1,0 +1,1 @@
+export { CreatePieceComponent } from './create-piece/create-piece.component.ts';

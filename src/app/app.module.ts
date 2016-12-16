@@ -13,6 +13,10 @@ import { HomeService } from './home/home.service';
 import { AuthService } from './auth/auth.service';
 import { GuardIsLoggedUser } from './route-guards';
 
+import { LiteraryPieceModule } from './literary-pieces/literary-pieces.module';
+import { LiteraryPiecesService } from './literary-pieces/literary-pieces.service';
+
+
 @NgModule({
     bootstrap: [AppComponent],
     declarations: [AppComponent, HomeComponent],
@@ -20,8 +24,9 @@ import { GuardIsLoggedUser } from './route-guards';
         BrowserModule,
         RouterModule.forRoot(APP_ROUTES),
         AuthModule,
-        ProfileModule
+        ProfileModule,
+        LiteraryPieceModule
     ],
-    providers: [HomeService, AuthService, GuardIsLoggedUser]
+    providers: [HomeService, AuthService, LiteraryPiecesService, GuardIsLoggedUser]
 })
 export class AppModule { }

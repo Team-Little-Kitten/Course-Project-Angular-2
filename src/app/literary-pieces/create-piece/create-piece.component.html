@@ -1,0 +1,55 @@
+<form [formGroup]="createPieceForm" (ngSubmit)="createPiece()" class="auth-form">
+    <div class="form-group" [ngClass]="{'has-error':!createPieceForm.controls['title'].valid && createPieceForm.controls['title'].touched}">
+        <label for="tb-title">Title</label>
+        <br />
+        <input type="text" id="tb-title" formControlName="title" class="form-control">
+        <br />
+        <div class="alert alert-danger" *ngIf="!createPieceForm.controls['title'].valid && createPieceForm.controls['title'].touched">
+            Title must be between 3 and 20 characters.
+        </div>
+    </div>
+    <div class="form-group" [ngClass]="{'has-error':!createPieceForm.controls['subtitle'].valid && createPieceForm.controls['title'].touched}">
+        <label for="tb-subtitle">Subtitle</label>
+        <br />
+        <input type="text" id="tb-subtitle" formControlName="subtitle" class="form-control">
+        <br />
+        <div class="alert alert-danger" *ngIf="!createPieceForm.controls['subtitle'].valid && createPieceForm.controls['subtitle'].touched">
+            Subtitle must be between 3 and 20 characters.
+        </div>
+    </div>
+    <div class="form-group" [ngClass]="{'has-error':!createPieceForm.controls['genre'].valid && createPieceForm.controls['title'].touched}">
+        <section>
+            <label class="label">Select</label>
+            <label class="select state-success">
+												<select id="tb-genre" formControlName="genre" >
+													<option value="0">Choose ganre</option>
+													<option value="1">Alexandra</option>
+													<option value="2">Alice</option>
+													<option value="3" selected>Anastasia</option>
+													<option value="4">Avelina</option>
+												</select>
+												<i></i>
+											</label>
+            <div class="note note-success">Thanks for your selection.</div>
+        </section>
+        <label for="tb-genre">Genre</label>
+        <br />
+        <input type="text" class="form-control">
+        <br />
+        <div class="alert alert-danger" *ngIf="!createPieceForm.controls['genre'].valid && createPieceForm.controls['genre'].touched">
+            Genre must be between 3 and 20 characters.
+        </div>
+    </div>
+    <input type="hidden" value="{{username}}" formControlName="author" />
+    <div class="form-group" [ngClass]="{'has-error':!createPieceForm.controls['pieceBody'].valid && createPieceForm.controls['pieceBody'].touched}">
+        <label for="tb-title">Piece Body</label>
+        <br />
+        <textarea formControlName="pieceBody" id="yourId" [tinyEditor] [selector]="'yourId'" [(ngModel)]="pieceBodyText" (ngModelChange)="onChange($event)"></textarea>
+        <br />
+        <div class="alert alert-danger" *ngIf="!createPieceForm.controls['pieceBody'].valid && createPieceForm.controls['pieceBody'].touched">
+            Piece body must be between x and y characters.
+        </div>
+    </div>
+    <button class=" btn-reg-log btn-u btn-u-md btn-u-bg-default btn-u-upper " type="submit " [disabled]="!createPieceForm.valid ">Create</button>
+
+</form>

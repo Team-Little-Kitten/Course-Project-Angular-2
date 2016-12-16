@@ -9,6 +9,7 @@ export class HomeComponent implements OnInit {
     private _homeService: HomeService;
 
     public pieces: any[];
+    public tinymce: any;
 
     constructor(homeService: HomeService) {
         this._homeService = homeService;
