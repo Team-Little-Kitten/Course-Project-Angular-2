@@ -3,3 +3,25 @@
     width: 400px;
     margin: 0 auto;
 }
+
+#btn-edit {
+    border: none;
+    background-color: transparent;
+}
+
+#input-avatar {
+    margin-bottom: 15px;
+}
+
+#additional-info-edit {
+    margin-bottom: 100px;
+}
+
+#form-btn-group {
+    display: inline-block;
+    margin: 0 auto;
+}
+
+#input-avatar {
+    margin-bottom: 15px;
+}

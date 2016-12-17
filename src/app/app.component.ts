@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { UserService } from './common-services';
 import { AuthService } from './auth';
 
+declare let $: any;
 @Component({
     selector: 'body',
     templateUrl: './app.component.html'

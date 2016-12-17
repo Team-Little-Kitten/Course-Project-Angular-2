@@ -3,6 +3,7 @@ import { Http } from '@angular/http';
 import { IUser } from './user';
 import { UserService } from '../common-services';
 
+declare let $: any;
 @Component({
     templateUrl: './profile.component.html',
     styleUrls: ['./profile.component.css']
