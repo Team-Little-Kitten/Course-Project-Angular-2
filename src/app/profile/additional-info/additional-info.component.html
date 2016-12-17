@@ -1,5 +1,7 @@
 <section *ngIf="!isInEditMode" id="additional-info-container">
-    <button (click)="toggleEditMode()">Edit</button>
+    <button (click)="toggleEditMode()" id="btn-edit">
+        <i class="material-icons">border_color</i>
+    </button>
     <h3>Name</h3>
     <p>{{user.firstname}} {{user.lastname}}</p>
 
@@ -11,8 +13,9 @@
 </section>
 
 <section *ngIf="isInEditMode" id="additional-info-edit">
-    <label for="input-avatar"></label>
-    <input type="file" (change)="onFileUpload($event)" id="input-avatar">
+    <label for="input-avatar">Upload avatar</label>
+    <input type="file" (change)="onFileUpload($event)" id="input-avatar" class="form-control">
+
     <form [formGroup]="form" (ngSubmit)="updateAdditionalInfo()">
         <label for="tb-about">About</label>
         <br />
@@ -24,8 +27,10 @@
         <input type="text" id="tb-signature" formControlName="signature" class="form-control" placeholder="It was a bright cold day in April, and the clocks were striking thirteen.">
         <br />
 
-        <button type="submit" class="btn-u btn-u-md btn-u-bg-default btn-u-upper">Save</button>
+        <div id="form-btn-group">
+            <button type="submit" class="btn btn-success">Save</button>
+            <button (click)="toggleEditMode()" class="btn btn-info" type="button">Cancel</button>
+        </div>
     </form>
-    <button (click)="toggleEditMode()" class="btn-u btn-u-md btn btn-danger btn-u-upper">Cancel</button>
 </section>
 <simple-notifications [options]="options"></simple-notifications>
