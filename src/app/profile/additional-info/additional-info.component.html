@@ -1,4 +1,8 @@
 <section *ngIf="!isInEditMode" id="additional-info-container">
+    <div>
+        <input type="file" (change)="onFileUpload($event)">
+    </div>
+
     <button (click)="toggleEditMode()">Edit</button>
     <h3>Name</h3>
     <p>{{user.firstname}} {{user.lastname}}</p>

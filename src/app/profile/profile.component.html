@@ -1,5 +1,5 @@
-<h1 style="text-align: center;">Welcome {{username}}</h1>
-
+<h1 style="text-align: center;">Welcome {{user.username}}</h1>
+<img src="{{user.imageDataUrl}}" alt="{{user.username}}" id="avatar-img" class="img-circle img-responsive">
 <nav id="profile-navigation">
     <a [routerLink]="['works']">
         <img src="/assets/images/profile-images/works.png" alt="Works" class="profile-nav-btn-img">

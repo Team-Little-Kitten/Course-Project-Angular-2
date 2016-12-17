@@ -12,21 +12,35 @@ export class UserService {
     private _http: Http;
     private _httpOptionsService: HttpOptionsService;
     private _isLogged: boolean;
-    private _subject: Subject<boolean>;
+    private _isLoggedSubject: Subject<boolean>;
+    private _isUserObjectUpdated: boolean;
+    private _isUserObjectUpdatedSubject: Subject<boolean>;
 
     constructor(http: Http, httpOptionsService: HttpOptionsService) {
         this._http = http;
         this._httpOptionsService = httpOptionsService;
-        this._subject = new Subject<boolean>();
+        this._isLoggedSubject = new Subject<boolean>();
+        this._isUserObjectUpdatedSubject = new Subject<boolean>();
+        this._isUserObjectUpdated = false;
     }
 
     public setIsUserLogged(): void {
         this._isLogged = !!localStorage.getItem('user');
-        this._subject.next(this._isLogged);
+        this._isLoggedSubject.next(this._isLogged);
     }
 
     public getIsUserLoggedIn(): Observable<boolean> {
-        return this._subject.asObservable();
+        return this._isLoggedSubject.asObservable();
+    }
+
+    public setIsUserObjectUpdated(): void {
+        this._isUserObjectUpdated = true;
+        this._isUserObjectUpdatedSubject.next(this._isUserObjectUpdated);
+        this._isUserObjectUpdated = false;
+    }
+
+    public getIsUserObjectUpdated(): Observable<boolean> {
+        return this._isUserObjectUpdatedSubject.asObservable();
     }
 
     public getUserData(userId: string): Observable<string> {
@@ -34,7 +48,7 @@ export class UserService {
         return this._http.get(url).map((response: Response) => response.json());
     }
 
-    public updateUserDate(userId: string, updateData: Object): Observable<string> {
+    public updateUserData(userId: string, updateData: Object): Observable<any> {
         let url = `${USER_URL}${userId}`;
         let requestOptions = this._httpOptionsService.getRequestOptions(true);
         let data = JSON.stringify(updateData);
