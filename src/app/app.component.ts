@@ -1,33 +1,36 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AuthService } from './auth/auth.service';
+import { UserService } from './common-services';
+import { AuthService } from './auth';
 
 @Component({
     selector: 'body',
     templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
-    private _authService: AuthService;
-    private _router: Router;
-    
     public isUserLoggedIn: boolean;
 
-    constructor(authService: AuthService, router: Router) {
-        this._authService = authService;
+    private _userService: UserService;
+    private _router: Router;
+    private _authService: AuthService;
+
+    constructor(userService: UserService, router: Router, authService: AuthService) {
+        this._userService = userService;
         this._router = router;
+        this._authService = authService;
         this.isUserLoggedIn = !!localStorage.getItem('user');
     }
 
-    ngOnInit() {
-        this._authService
+    public ngOnInit() {
+        this._userService
             .getIsUserLoggedIn()
             .subscribe((isLogged: boolean) => this.isUserLoggedIn = isLogged);
     }
 
-    logout() {
+    public logout() {
         this._authService.logoutUser();
         this._router.navigateByUrl('/');
-        this._authService.setIsUserLogged();
+        this._userService.setIsUserLogged();
     }
 }

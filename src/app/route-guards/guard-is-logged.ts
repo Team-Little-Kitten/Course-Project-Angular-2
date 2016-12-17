@@ -10,7 +10,7 @@ export class GuardIsLoggedUser implements CanActivate {
         this._authService = authService;
     }
 
-    canActivate() {
+    public canActivate() {
         return this._authService.isLoggedIn();
     }
 }

@@ -6,15 +6,14 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
 import { APP_ROUTES } from './app.routes';
-import { AuthModule } from './auth/auth.module';
+import { AuthModule, AuthService } from './auth';
 import { ProfileModule } from './profile';
 
 import { HomeService } from './home/home.service';
-import { AuthService } from './auth/auth.service';
+import { UserService } from './common-services';
 import { GuardIsLoggedUser } from './route-guards';
 
-import { LiteraryPieceModule } from './literary-pieces/literary-pieces.module';
-import { LiteraryPiecesService } from './literary-pieces/literary-pieces.service';
+import { LiteraryPieceModule, LiteraryPiecesService } from './literary-pieces';
 
 
 @NgModule({
@@ -27,6 +26,6 @@ import { LiteraryPiecesService } from './literary-pieces/literary-pieces.service
         ProfileModule,
         LiteraryPieceModule
     ],
-    providers: [HomeService, AuthService, LiteraryPiecesService, GuardIsLoggedUser]
+    providers: [HomeService, AuthService, UserService, LiteraryPiecesService, GuardIsLoggedUser]
 })
 export class AppModule { }

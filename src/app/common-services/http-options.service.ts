@@ -3,7 +3,7 @@ import { Headers, RequestOptions } from '@angular/http';
 
 @Injectable()
 export class HttpOptionsService {
-    getRequestOptions(sendData: boolean, token?: string): RequestOptions {
+    public getRequestOptions(sendData: boolean, token?: string): RequestOptions {
         let headersObject = {};
 
         if (sendData) {
