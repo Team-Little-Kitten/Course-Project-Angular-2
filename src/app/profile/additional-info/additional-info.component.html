@@ -1,8 +1,4 @@
 <section *ngIf="!isInEditMode" id="additional-info-container">
-    <div>
-        <input type="file" (change)="onFileUpload($event)">
-    </div>
-
     <button (click)="toggleEditMode()">Edit</button>
     <h3>Name</h3>
     <p>{{user.firstname}} {{user.lastname}}</p>
@@ -15,6 +11,8 @@
 </section>
 
 <section *ngIf="isInEditMode" id="additional-info-edit">
+    <label for="input-avatar"></label>
+    <input type="file" (change)="onFileUpload($event)" id="input-avatar">
     <form [formGroup]="form" (ngSubmit)="updateAdditionalInfo()">
         <label for="tb-about">About</label>
         <br />

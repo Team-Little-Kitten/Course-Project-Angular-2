@@ -14,3 +14,16 @@
     display: block;
     margin: 0 auto;
 }
+
+#profile-content {
+    width: 90%;
+    display: block;
+    position: absolute;
+    left: 2.8%;
+    top: 400px;
+}
+
+.header {
+    width: 100%;
+    height: 500px;
+}
