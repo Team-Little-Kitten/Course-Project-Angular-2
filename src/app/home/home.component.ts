@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 
 import { HomeService } from './home.service';
 
@@ -8,7 +8,7 @@ import { HomeService } from './home.service';
 export class HomeComponent implements OnInit {
 
     private homeService: HomeService;
-
+    
     public pieces: any[];
     public tinymce: any;
 

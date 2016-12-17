@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from './auth/auth.service';
 
 @Component({
-    selector: 'app',
+    selector: 'body',
     templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {

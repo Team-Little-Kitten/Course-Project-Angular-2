@@ -1,62 +1,37 @@
-<div class="header-v8 header-sticky">
-    <!-- Topbar blog -->
-    <div class="blog-topbar">
-        <div class="topbar-search-block">
-            <div class="container">
-                <form action="">
-                    <input type="text" class="form-control" placeholder="Search">
-                    <div class="search-close"><i class="icon-close"></i></div>
-                </form>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row" *ngIf="!isUserLoggedIn">
-                <div class="clearfix">
-                    <i class="fa fa-search search-btn pull-right"></i>
-                    <ul class="topbar-list topbar-log_reg pull-right visible-sm-block visible-md-block visible-lg-block">
-                        <li class="cd-log_reg home"><a class="cd-signin" [routerLink]="['/login']">Login</a></li>
-                        <li class="cd-log_reg"><a class="cd-signup" [routerLink]="['/register']">Register</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row" *ngIf="isUserLoggedIn">
-                <div class="clearfix">
-                    <i class="fa fa-search search-btn pull-right"></i>
-                    <ul class="topbar-list topbar-log_reg pull-right visible-sm-block visible-md-block visible-lg-block">
-                        <li class="cd-log_reg home"><a class="cd-signin" [routerLink]="['/profile']">Profile</a></li>                      
-                        <li class="cd-log_reg home"><a class="cd-signin" [routerLink]="['/logout']" (click)="logout()">Logout</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="navbar mega-menu" role="navigation">
-        <div class="container">
-
-            <div class="res-container">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-
-                <div class="navbar-brand">
-                    <a [routerLink]="['/']">
-                        <img src="/assets/images/logo.png" alt="Logo">
-                    </a>
-                </div>
-            </div>
-            <div class="collapse navbar-collapse navbar-responsive-collapse">
-                <div class="res-container">
-                    <ul class="nav navbar-nav">
-                        <li><a [routerLink]="['/']">Home</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+<nav class="navbar navbar-transparent navbar-fixed-top navbar-color-on-scroll">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-index">
+	        	<span class="sr-only">Toggle navigation</span>
+	        	<span class="icon-bar"></span>
+	        	<span class="icon-bar"></span>
+	        	<span class="icon-bar"></span>
+	    	</button>
+            <a [routerLink]="['/']">
+                <div class="logo-container">
+                    <div class="logo">
+                        <img src="./../assets/images/logo.png" alt="Writter# Logo" rel="tooltip" title="Writter#" data-placement="bottom" data-html="true"
+                            style="max-height: 30px">
 </div>
-<div class="container">
+<div class="brand">
+    Writter#
+</div>
+</div>
+</a>
+</div>
+
+<div class="collapse navbar-collapse" id="navigation-index">
+    <ul class="nav navbar-nav navbar-right" *ngIf="!isUserLoggedIn">
+        <li class="cd-log_reg home"><a class="cd-signin" [routerLink]="['/login']">Login</a></li>
+        <li class="cd-log_reg"><a class="cd-signup" [routerLink]="['/register']">Register</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right" *ngIf="isUserLoggedIn">
+        <li class="cd-log_reg home"><a class="cd-signin" [routerLink]="['/profile']">Profile</a></li>
+        <li class="cd-log_reg home"><a class="cd-signin" [routerLink]="['/logout']" (click)="logout()">Logout</a></li>
+    </ul>
+</div>
+</div>
+</nav>
+<div class="wrapper">
     <router-outlet></router-outlet>
 </div>
