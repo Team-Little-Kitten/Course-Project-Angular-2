@@ -10,6 +10,7 @@ import { ILiteraryPiece } from './literary-piece';
 const CREATE_PIECE_URL: string = 'http://localhost:8080/api/pieces/create';
 const GET_PIECES_BY_AUTHOR_URL: string = 'http://localhost:8080/api/pieces/byAuthor';
 const GET_PIECE_BY_ID_URL: string = 'http://localhost:8080/api/pieces/byId';
+const GET_PIECES_FOR_HOMEPAGE_URL: string = 'http://localhost:8080/api/pieces/all';
 
 @Injectable()
 export class LiteraryPiecesService {
@@ -47,5 +48,11 @@ export class LiteraryPiecesService {
         return this._http
             .get(url, options)
             .map((response: Response) => <ILiteraryPiece>response.json()[0]);
+    }
+
+    public getPiecesForHomepage(): Observable<ILiteraryPiece[]> {
+        return this._http
+            .get(GET_PIECES_FOR_HOMEPAGE_URL)
+            .map((response: Response) => response.json());
     }
 }

@@ -6,20 +6,29 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SimpleNotificationsModule, NotificationsService } from '../../../node_modules/angular2-notifications';
 
 import { TinymceEditorDirective } from './../directives/tiny-editor.directive';
-import { EditPieceComponent, LiteraryPiecesService, CreatePieceComponent, LiterayPieceDetailedComponent } from './';
+import { EditPieceComponent, LiteraryPiecesService, CreatePieceComponent, LiterayPieceDetailedComponent, SinglePieceComponent, PiecesListComponent } from './';
 
 import { HttpOptionsService, UserService } from '../common-services';
 
 @NgModule({
-    declarations: [CreatePieceComponent, EditPieceComponent, LiterayPieceDetailedComponent, TinymceEditorDirective],
+    declarations: [
+        CreatePieceComponent,
+        EditPieceComponent,
+        LiterayPieceDetailedComponent,
+        SinglePieceComponent,
+        PiecesListComponent,
+
+        TinymceEditorDirective
+    ],
     imports: [
         HttpModule,
         FormsModule,
         ReactiveFormsModule,
         RouterModule,
         SimpleNotificationsModule,
-        CommonModule],
-    exports: [],
+        CommonModule
+    ],
+    exports: [PiecesListComponent],
     providers: [LiteraryPiecesService, NotificationsService, HttpOptionsService, UserService]
 })
 export class LiteraryPieceModule { }
