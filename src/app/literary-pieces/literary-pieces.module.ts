@@ -6,13 +6,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SimpleNotificationsModule, NotificationsService } from '../../../node_modules/angular2-notifications';
 
 import { TinymceEditorDirective } from './../directives/tiny-editor.directive';
-import { CreatePieceComponent } from './create-piece/create-piece.component';
-import { LiteraryPiecesService } from './literary-pieces.service';
+import { EditPieceComponent, LiteraryPiecesService, CreatePieceComponent, LiterayPieceDetailedComponent } from './';
 
 import { HttpOptionsService, UserService } from '../common-services';
 
 @NgModule({
-    declarations: [CreatePieceComponent, TinymceEditorDirective],
+    declarations: [CreatePieceComponent, EditPieceComponent, LiterayPieceDetailedComponent, TinymceEditorDirective],
     imports: [
         HttpModule,
         FormsModule,

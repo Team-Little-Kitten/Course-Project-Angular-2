@@ -7,11 +7,12 @@ import { SimpleNotificationsModule, NotificationsService } from '../../../node_m
 
 import { AdditionalInfoComponent, FriendsComponent, ProfileComponent, WorksComponent } from './';
 import { UserService } from '../common-services';
+import { LiteraryPiecesService } from './../literary-pieces/literary-pieces.service';
 
 @NgModule({
     declarations: [AdditionalInfoComponent, FriendsComponent, ProfileComponent, WorksComponent],
     imports: [RouterModule, HttpModule, BrowserModule, FormsModule, ReactiveFormsModule, SimpleNotificationsModule],
     exports: [],
-    providers: [UserService, NotificationsService]
+    providers: [UserService, NotificationsService, LiteraryPiecesService]
 })
 export class ProfileModule { }

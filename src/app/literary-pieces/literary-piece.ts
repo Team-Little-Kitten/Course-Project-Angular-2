@@ -3,4 +3,5 @@ export interface ILiteraryPiece {
     subtitle: string;
     body: string;
     author: string;
+    genre: string;
 }
