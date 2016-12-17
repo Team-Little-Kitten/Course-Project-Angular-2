@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
         this._authService = authService;
         this._router = router;
         this._notificationService = notificationsService;
-        this.options = { timeOut: 1500, showProgressBar: true, animate: 'scale', position: ['right', 'bottom'] };
+        this.options = { timeOut: 1500, pauseOnHover: true, showProgressBar: true, animate: 'scale', position: ['right', 'bottom'] };
     }
 
     public ngOnInit(): void {
@@ -50,14 +50,14 @@ export class LoginComponent implements OnInit {
                 let result: any = (typeof (response) === 'string') ? JSON.parse(response) : response;
 
                 if (result.error) {
-                    this._notificationService.create('Login failed!', 'Please try again.', 'error')
+                    this._notificationService.error('Login failed!', 'Please try again.');
                 } else {
                     localStorage.setItem('user', JSON.stringify(result));
                     this._userService.setIsUserLogged();
-                    this._notificationService.create('Login successful!', 'Welcome.', 'success');
+                    this._notificationService.success('Login successful!', 'Welcome.');
                     setTimeout(() => this._router.navigateByUrl('/profile'), 1500);
                 }
             },
-            () => this._notificationService.create('Login failed!', 'Please try again.', 'error'));
+            () => this._notificationService.error('Login failed!', 'Please try again.'));
     }
 }

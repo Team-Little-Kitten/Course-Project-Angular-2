@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit {
         this._authService = authService;
         this._router = router;
         this._notificationService = notificationsService;
-        this.options = { timeOut: 1500, showProgressBar: true, animate: 'scale', position: ['right', 'bottom'] };
+        this.options = { timeOut: 1500, pauseOnHover: true, showProgressBar: true, animate: 'scale', position: ['right', 'bottom'] };
     }
 
     public ngOnInit(): void {
@@ -49,9 +49,9 @@ export class RegisterComponent implements OnInit {
             .subscribe(
             response => {
                 if (response.message) {
-                    this._notificationService.create('Registration failed.', 'User with this username already exists.', 'error');
+                    this._notificationService.error('Registration failed.', 'User with this username already exists.');
                 } else {
-                    this._notificationService.create('Registration successful.', 'Now you can log in.', 'success');
+                    this._notificationService.success('Registration successful.', 'Now you can log in.');
                     setTimeout(() => this._router.navigateByUrl('/login'), 1500);
                 }
             },

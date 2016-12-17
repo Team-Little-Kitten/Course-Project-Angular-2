@@ -31,6 +31,7 @@ export class CreatePieceComponent implements OnInit {
         this._notificationService = notificationService;
         this._pieceService = pieceService;
         this.username = JSON.parse(localStorage.getItem('user')).result.username;
+        this.options = { timeOut: 1500, pauseOnHover: true, showProgressBar: true, animate: 'scale', position: ['right', 'bottom'] };
     }
 
     public ngOnInit(): void {
@@ -47,6 +48,7 @@ export class CreatePieceComponent implements OnInit {
 
     public onChange(value: string): void {
         this.pieceBodyText = value;
+        // console.log(this.pieceBodyText);
     }
 
     public createPiece(): void {
@@ -54,8 +56,8 @@ export class CreatePieceComponent implements OnInit {
             .createPiece(this.createPieceForm.value)
             .subscribe(
             response => {
-                if (response.message) {
-                    this._notificationService.create('Title', 'neshto', 'error');
+                if (response.message.type === 'error') {
+                    this._notificationService.create('Error', `${response.message.text}`, 'error');
                 } else {
                     this._notificationService.create('Title', 'drugo', 'success');
                     // setTimeout(() => this._router.navigateByUrl('/login'), 1500);
