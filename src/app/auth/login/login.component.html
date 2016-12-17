@@ -1,13 +1,47 @@
-<form [formGroup]="form" (ngSubmit)="login()" class="auth-form">
-    <label for="tb-username">Username</label>
-    <br />
-    <input type="text" id="tb-username" class="form-control" formControlName="username">
-    <br />
-    
-    <label for="tb-password">Password</label>
-    <br />
-    <input type="password" id="tb-password" class="form-control" formControlName="password">
-    <br />
-    <button class="btn-reg-log btn-u btn-u-md btn-u-bg-default btn-u-upper">Login</button>
-</form>
-<simple-notifications [options]="options"></simple-notifications>
+<div class="header header-filter" style="background-image: url('https://images.unsplash.com/photo-1423655156442-ccc11daa4e99?crop=entropy&dpr=2&fit=crop&fm=jpg&h=750&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1450');">
+<div class="section section-full-screen section-signup" style="background-image: url('assets/img/city.jpg'); background-size: cover; background-position: top center; min-height: 700px;">
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="card card-signup">
+                <form [formGroup]="form" (ngSubmit)="login()">
+                    <div class="header header-primary text-center">
+                        <h4>Sign Up</h4>
+                        <div class="social-line">
+                            <a href="#pablo" class="btn btn-simple btn-just-icon">
+                                <i class="fa fa-facebook-square"></i>
+                            </a>
+                            <a href="#pablo" class="btn btn-simple btn-just-icon">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                            <a href="#pablo" class="btn btn-simple btn-just-icon">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <p class="text-divider">Or Be Classical</p>
+                    <div class="content">
+                        <div class="form-group label-floating" [ngClass]="{'has-error':!form.controls['username'].valid && form.controls['username'].touched}">
+                            <label class="control-label" for="tb-username">Username</label>
+                            <input type="text" id="tb-username" formControlName="username" class="form-control">
+                            <span class="text-danger" *ngIf="!form.controls['username'].valid && form.controls['username'].touched">Username is required.</span>
+                        </div>
+                        <div class="form-group label-floating" [ngClass]="{'has-error':!form.controls['password'].valid && form.controls['password'].touched}">
+                            <label class="control-label" for="tb-password">Password</label>
+                            <input type="password" id="tb-password" formControlName="password" class="form-control">
+                            <span class="text-danger" *ngIf="!form.controls['password'].valid && form.controls['password'].touched">
+										Password is required.
+									</span>
+                        </div>
+                    </div>
+                    <div class="footer text-center">
+                        <button class="btn btn-primary btn-lg" type="submit" [disabled]="!form.valid">Login</button>
+                    </div>
+                </form>
+                <simple-notifications [options]="options"></simple-notifications>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>

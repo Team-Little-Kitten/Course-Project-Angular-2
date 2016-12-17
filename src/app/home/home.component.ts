@@ -6,12 +6,9 @@ import { HomeService } from './home.service';
     templateUrl: './home.component.html'
 })
 export class HomeComponent implements OnInit {
-<<<<<<< HEAD
-
+    @HostBinding('class') classes = 'landing-page';
     private homeService: HomeService;
     
-=======
->>>>>>> 8263fdb141eb12b30359da36af051b2bad0fe854
     public pieces: any[];
     public tinymce: any;
 

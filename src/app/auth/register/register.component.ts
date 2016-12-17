@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NotificationsService } from '../../../../node_modules/angular2-notifications';
@@ -15,6 +15,7 @@ const MAX_PASSWORD_LENGTH = 30;
     styleUrls: ['../auth.common.css']
 })
 export class RegisterComponent implements OnInit {
+    @HostBinding('class') classes = 'signup-page';
     public form: FormGroup;
     public fb: FormBuilder;
     public options: Object;
