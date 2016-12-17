@@ -6,7 +6,8 @@ import { LiteraryPiecesService } from '../literary-pieces.service';
 
 @Component({
     selector: 'pieces-list',
-    templateUrl: './pieces-list.component.html'
+    templateUrl: './pieces-list.component.html',
+    styleUrls: ['./pieces-list.component.css']
 })
 
 // should be on init

@@ -1,0 +1,8 @@
+.single-piece-container {
+    display: inline-block;
+    margin: 20px;
+}
+h2 {
+    font-size: 36px;
+    text-align: center;
+}
