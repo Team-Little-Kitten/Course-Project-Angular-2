@@ -23,7 +23,9 @@ export class LiteraryPiecesService {
         this._http = http;
         this._userService = userService;
         this._httpOptionsService = httpOptionsService;
-        this._username = JSON.parse(localStorage.getItem('user')).result.username;
+        if (localStorage.getItem('user')){
+            this._username = JSON.parse(localStorage.getItem('user')).result.username;
+        }
     }
 
     public getAllPiecesByAuthorForLoggedInUser(): Observable<ILiteraryPiece[]> {
