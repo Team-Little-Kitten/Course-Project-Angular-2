@@ -4,4 +4,5 @@ export interface ILiteraryPiece {
     body: string;
     author: string;
     genre: string;
+    comments: any[];
 }

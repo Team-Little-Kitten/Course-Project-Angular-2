@@ -9,7 +9,7 @@ import { ILiteraryPiece } from './literary-piece';
 
 const CREATE_PIECE_URL: string = 'http://localhost:8080/api/pieces/create';
 const GET_PIECES_BY_AUTHOR_URL: string = 'http://localhost:8080/api/pieces/byAuthor';
-const GET_PIECE_BY_ID_URL: string = 'http://localhost:8080/api/pieces/byId';
+const GET_PIECE_BY_ID_URL: string = 'http://localhost:8080/api/pieces/detailed/:id';
 const GET_PIECES_FOR_HOMEPAGE_URL: string = 'http://localhost:8080/api/pieces/filtered-for-homepage';
 
 @Injectable()
@@ -44,17 +44,24 @@ export class LiteraryPiecesService {
             .map((response: Response) => response.json());
     }
 
-    public getPieceById(id: string): Observable<ILiteraryPiece> {
-        let url = `${GET_PIECE_BY_ID_URL}?id=${id}`;
-        let options: RequestOptions = this._httpOptionsService.getRequestOptions(false);
-        return this._http
-            .get(url, options)
-            .map((response: Response) => <ILiteraryPiece>response.json()[0]);
-    }
+    // sorry stef
+    // public getPieceById(id: string):Observable<ILiteraryPiece> {
+    //     let url = `${GET_PIECE_BY_ID_URL}?id=${id}`;
+    //     let options: RequestOptions = this._httpOptionsService.getRequestOptions(false);
+    //     return this._http
+    //         .get(url, options)
+    //         .map((response: Response) => <ILiteraryPiece>response.json()[0]);
+    // }
 
     public getPiecesForHomepage(): Observable<ILiteraryPiece[]> {
         return this._http
             .get(GET_PIECES_FOR_HOMEPAGE_URL)
+            .map((response: Response) => response.json());
+    }
+
+    public getPieceById(): Observable<ILiteraryPiece> {
+        return this._http
+            .get(GET_PIECE_BY_ID_URL)
             .map((response: Response) => response.json());
     }
 }
