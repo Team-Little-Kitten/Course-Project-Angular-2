@@ -1,15 +1,20 @@
-<div id="search-result-container">
-    <div id="result-users-container">
-        <h1>Users</h1>
-        <div>
-            <found-user *ngFor="let user of searchResult.users" [user]="user"></found-user>
-        </div>
-    </div>
+<div class="header header-filter" style="background-image: url('/assets/images/bg2.jpeg');">
 
-    <div id="result-literary-pieces-container">
-        <h1>Literary Pieces</h1>
-        <div>
-            <found-literary-piece *ngFor="let literaryPiece of searchResult.literaryPieces" [literaryPiece]="literaryPiece"></found-literary-piece>
+</div>
+<div class="main main-raised" id="search-content">
+    <div id="search-result-container">
+        <div id="result-users-container">
+            <h1 class="result-heading">Users</h1>
+            <div>
+                <found-user *ngFor="let user of searchResult.users" [user]="user"></found-user>
+            </div>
+        </div>
+
+        <div id="result-literary-pieces-container">
+            <h1 class="result-heading">Literary Pieces</h1>
+            <div>
+                <found-literary-piece *ngFor="let literaryPiece of searchResult.literaryPieces" [literaryPiece]="literaryPiece"></found-literary-piece>
+            </div>
         </div>
     </div>
 </div>

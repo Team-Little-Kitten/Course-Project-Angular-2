@@ -1,5 +1,5 @@
-<div class="found-literary-piece-container">
-    <a>{{literaryPiece.title}}</a> <!-- TODO: redirect to more information route -->
+<div class="found-literary-piece-container navbar navbar-info">
+    <a class="title-link" routerLink="/pieces/detailed/{{literaryPiece._id}}">{{literaryPiece.title}}</a> <!-- TODO: redirect to more information route -->
     <p>Genre: {{literaryPiece.genre}}</p>
     <p>Author: {{literaryPiece.author}}</p>
 </div>
