@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent, AdditionalInfoComponent, FriendsComponent, WorksComponent } from './profile';
 import { GuardIsLoggedUser } from './route-guards';
 import { CreatePieceComponent, EditPieceComponent, LiterayPieceDetailedComponent } from './literary-pieces';
+import { LoggedInUserWorksComponent } from './profile/works/logged-in-user-works.component';
 
 export const APP_ROUTES: Routes = [
     { path: '', component: HomeComponent },
@@ -20,7 +21,8 @@ export const APP_ROUTES: Routes = [
                 path: 'works', component: WorksComponent,
                 children: [
                     { path: 'create', component: CreatePieceComponent },
-                    { path: 'edit/:id', component: EditPieceComponent }
+                    { path: 'edit/:id', component: EditPieceComponent },
+                    { path: 'my-works', component: LoggedInUserWorksComponent }
                 ]
             }
         ]
