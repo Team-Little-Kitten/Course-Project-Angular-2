@@ -8,7 +8,4 @@ export class HomeComponent {
 
     public pieces: any[];
     public tinymce: any;
-
-    constructor() {
-    }
 }

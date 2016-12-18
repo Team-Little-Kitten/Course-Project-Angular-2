@@ -46,8 +46,7 @@ export class RegisterComponent implements OnInit {
     public register(): void {
         this._authService
             .registerUser(this.form.value)
-            .subscribe(
-            response => {
+            .subscribe(response => {
                 if (response.message) {
                     this._notificationService.error('Registration failed.', 'User with this username already exists.');
                 } else {

@@ -45,10 +45,9 @@ export class LoginComponent implements OnInit {
     public login(): void {
         this._authService
             .loginUser(this.form.value)
-            .subscribe(
-            (response: any) => {
+            .subscribe((response: any) => {
                 let result: any = (typeof (response) === 'string') ? JSON.parse(response) : response;
-
+                console.log(result);
                 if (result.error) {
                     this._notificationService.error('Login failed!', 'Please try again.');
                 } else {

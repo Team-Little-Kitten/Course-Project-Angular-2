@@ -8,9 +8,14 @@ import { ILiteraryPiece } from './literary-piece';
     templateUrl: './literary-piece-detailed.component.html'
 })
 export class LiterayPieceDetailedComponent {
+    public id: string;
+    public title: string;
+    public subtitle: string;
+    public pieceBody: string;
+    public genre: string;
+
     private _route: ActivatedRoute;
     private _literaryService: LiteraryPiecesService;
-
     private _piece: ILiteraryPiece;
 
     constructor(route: ActivatedRoute, literaryService: LiteraryPiecesService) {
@@ -18,20 +23,12 @@ export class LiterayPieceDetailedComponent {
         this._literaryService = literaryService;
     }
 
-    public id: string;
-
-    public title: string;
-    public subtitle: string;
-    public pieceBody: string;
-    public genre: string;
-
     // MB observable
-    ngOnInit() {
+    public ngOnInit(): void {
         this._route.params
-            .map(params => params["id"])
+            .map(params => params['id'])
             .subscribe((id) => {
                 this.id = id;
-
                 this._literaryService.getPieceById(id)
                     .subscribe(piece => {
                         this._piece = piece;

@@ -18,20 +18,20 @@ export class AuthService {
         this._httpOptionsService = httpOptionsService;
     }
 
-    public registerUser(data: Object) : Observable<string> {
+    public registerUser(data: Object): Observable<any> {
         let userToCreate: string = JSON.stringify(data);
         let options: RequestOptions = this._httpOptionsService.getRequestOptions(true);
         return this._http
             .post(REGISTER_URL, userToCreate, options)
-            .map((response: Response) => response.json());
+            .map((res: Response) => res.json());
     }
 
-    public loginUser(data: Object): Observable<string> {
+    public loginUser(data: Object): Observable<any> {
         let userToLogin: string = JSON.stringify(data);
         let options: RequestOptions = this._httpOptionsService.getRequestOptions(true);
         return this._http
             .post(LOGIN_URL, userToLogin, options)
-            .map((response: Response) => response.json());
+            .map((res: Response) => res.json());
     }
 
     public logoutUser(): void {

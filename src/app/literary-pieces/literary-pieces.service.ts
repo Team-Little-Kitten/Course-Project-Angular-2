@@ -23,7 +23,7 @@ export class LiteraryPiecesService {
         this._http = http;
         this._userService = userService;
         this._httpOptionsService = httpOptionsService;
-        if (localStorage.getItem('user')){
+        if (localStorage.getItem('user')) {
             this._username = JSON.parse(localStorage.getItem('user')).result.username;
         }
     }
@@ -44,7 +44,7 @@ export class LiteraryPiecesService {
             .map((response: Response) => response.json());
     }
 
-    public getPieceById(id: string):Observable<ILiteraryPiece> {
+    public getPieceById(id: string): Observable<ILiteraryPiece> {
         let url = `${GET_PIECE_BY_ID_URL}?id=${id}`;
         let options: RequestOptions = this._httpOptionsService.getRequestOptions(false);
         return this._http

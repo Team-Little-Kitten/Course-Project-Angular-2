@@ -23,8 +23,6 @@ export class PiecesListComponent {
     public ngOnInit(): void {
         this._pieceService
             .getPiecesForHomepage()
-            .subscribe(resultPieces => {
-                this.pieces = resultPieces;
-            }, error => console.log(error));
+            .subscribe(resultPieces => this.pieces = resultPieces, error => console.log(error));
     }
 }
