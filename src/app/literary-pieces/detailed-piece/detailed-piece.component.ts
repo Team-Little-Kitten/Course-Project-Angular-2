@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { ILiteraryPiece } from '../literary-piece';
 
@@ -10,14 +11,16 @@ import { LiteraryPiecesService } from '../literary-pieces.service';
     styleUrls: []
 })
 
-// should be on init
 export class DetailedPieceComponent {
-    private _pieceService: LiteraryPiecesService;
+    private _id: string;
     private _title: string;
 
+    private _pieceService: LiteraryPiecesService;
+    private _route: ActivatedRoute;
 
-    constructor(pieceService: LiteraryPiecesService) {
+    constructor(pieceService: LiteraryPiecesService, route: ActivatedRoute) {
         this._pieceService = pieceService;
+        this._route = route;
     }
 
     get title() {
@@ -25,10 +28,14 @@ export class DetailedPieceComponent {
     }
 
     public ngOnInit(): void {
-        this._pieceService
-            .getPieceById()
-            .subscribe(resultPieces => {
-                this._title = resultPieces.title;
-            }, error => console.log(error));
+        this._route.params
+            .map(params => params['id'])
+            .subscribe((id) => {
+                this._id = id;
+                this._pieceService.getPieceById(id)
+                    .subscribe(piece => {
+                        this._title = piece.title;
+                    });
+            });
     }
 }

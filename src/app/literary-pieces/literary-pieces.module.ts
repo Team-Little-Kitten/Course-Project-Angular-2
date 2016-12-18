@@ -8,7 +8,7 @@ import { SimpleNotificationsModule, NotificationsService } from '../../../node_m
 
 import { TinyEditorComponent } from './tiny-editor.component';
 import { TinymceEditorDirective } from './../directives/tiny-editor.directive';
-import { EditPieceComponent, LiteraryPiecesService, CreatePieceComponent, LiterayPieceDetailedComponent, SinglePieceComponent, PiecesListComponent } from './';
+import { EditPieceComponent, LiteraryPiecesService, CreatePieceComponent, LiterayPieceDetailedComponent, SinglePieceComponent, PiecesListComponent, DetailedPieceComponent } from './';
 
 import { HttpOptionsService, UserService } from '../common-services';
 
@@ -19,6 +19,8 @@ import { HttpOptionsService, UserService } from '../common-services';
         LiterayPieceDetailedComponent,
         SinglePieceComponent,
         PiecesListComponent,
+        DetailedPieceComponent,
+
         TinyEditorComponent
     ],
     imports: [

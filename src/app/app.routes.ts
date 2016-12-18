@@ -3,7 +3,7 @@ import { RegisterComponent, LoginComponent } from './auth';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent, AdditionalInfoComponent, FriendsComponent, WorksComponent } from './profile';
 import { GuardIsLoggedUser } from './route-guards';
-import { CreatePieceComponent, EditPieceComponent, LiterayPieceDetailedComponent } from './literary-pieces';
+import { CreatePieceComponent, EditPieceComponent, LiterayPieceDetailedComponent, DetailedPieceComponent } from './literary-pieces';
 
 export const APP_ROUTES: Routes = [
     { path: '', component: HomeComponent },
@@ -25,5 +25,5 @@ export const APP_ROUTES: Routes = [
             }
         ]
     },
-    { path: 'pieces/detailed/:id', component: LiterayPieceDetailedComponent }
+    { path: 'pieces/detailed/:id', component: DetailedPieceComponent }
 ];
