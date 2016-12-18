@@ -8,5 +8,6 @@ import { ILiteraryPiece } from '../literary-piece';
 })
 
 export class SinglePieceComponent {
-    @Input() piece: ILiteraryPiece;
+    @Input() public piece: ILiteraryPiece;
+    @Input() public pieceUrl: string;
 }
