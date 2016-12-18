@@ -58,7 +58,6 @@ export class LiteraryPiecesService {
             .map((response: Response) => response.json());
     }
 
-    // sorry stef
     public getPieceById(id: string): Observable<ILiteraryPiece> {
         let url = `${GET_PIECE_BY_ID_URL}?id=${id}`;
         let options: RequestOptions = this._httpOptionsService.getRequestOptions(false);
@@ -67,16 +66,15 @@ export class LiteraryPiecesService {
             .map((response: Response) => <ILiteraryPiece>response.json()[0]);
     }
 
-    public getPiecesForHomepage(): Observable<ILiteraryPiece[]> {
-        return this._http
-            .get(GET_PIECES_FOR_HOMEPAGE_URL)
-            .map((response: Response) => response.json());
-    }
-
     // sorry joro
     // public getPieceById(): Observable<ILiteraryPiece> {
     //     return this._http
     //         .get(GET_PIECE_BY_ID_URL)
     //         .map((response: Response) => response.json());
     // }
+    public getPiecesForHomepage(): Observable<ILiteraryPiece[]> {
+        return this._http
+            .get(GET_PIECES_FOR_HOMEPAGE_URL)
+            .map((response: Response) => response.json());
+    }
 }
