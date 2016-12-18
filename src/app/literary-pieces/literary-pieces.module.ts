@@ -5,13 +5,15 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SimpleNotificationsModule, NotificationsService } from '../../../node_modules/angular2-notifications';
 
+
+import { TinyEditorComponent } from './tiny-editor.component';
 import { TinymceEditorDirective } from './../directives/tiny-editor.directive';
 import { EditPieceComponent, LiteraryPiecesService, CreatePieceComponent, LiterayPieceDetailedComponent } from './';
 
 import { HttpOptionsService, UserService } from '../common-services';
 
 @NgModule({
-    declarations: [CreatePieceComponent, EditPieceComponent, LiterayPieceDetailedComponent, TinymceEditorDirective],
+    declarations: [CreatePieceComponent, TinyEditorComponent, EditPieceComponent, LiterayPieceDetailedComponent, TinymceEditorDirective],
     imports: [
         HttpModule,
         FormsModule,

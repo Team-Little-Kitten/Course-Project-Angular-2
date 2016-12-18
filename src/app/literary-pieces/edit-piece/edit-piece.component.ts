@@ -83,10 +83,21 @@ export class EditPieceComponent implements OnInit, AfterViewInit {
 
     public onChange(value: string): void {
         this.pieceBodyText = value;
-        console.log(this.pieceBodyText)
+    }
+
+    public keyupHandlerFunction(value: string): void {
+        this.pieceBodyText = value;
     }
 
     public savePiece(): void {
-        console.log(this.editPieceForm.value);
+        this._literaryService.updatePiece(this.id, this.editPieceForm.value).subscribe(response => {
+            if (response.message.type === 'error') {
+                this._notificationService.error('Error', `${response.message.text}`);
+            } else {
+                this._notificationService.success('Success', `${response.message.text}`);
+                // setTimeout(() => this._router.navigateByUrl('/login'), 1500);
+            }
+        },
+            err => console.log(err));
     }
 }

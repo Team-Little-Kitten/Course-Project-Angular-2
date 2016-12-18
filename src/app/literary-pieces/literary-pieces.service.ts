@@ -10,6 +10,7 @@ import { ILiteraryPiece } from './literary-piece';
 const CREATE_PIECE_URL: string = 'http://localhost:8080/api/pieces/create';
 const GET_PIECES_BY_AUTHOR_URL: string = 'http://localhost:8080/api/pieces/byAuthor';
 const GET_PIECE_BY_ID_URL: string = 'http://localhost:8080/api/pieces/byId';
+const POST_PIECE_UPDATE: string = 'http://localhost:8080/api/pieces/update';
 
 @Injectable()
 export class LiteraryPiecesService {
@@ -41,7 +42,19 @@ export class LiteraryPiecesService {
             .map((response: Response) => response.json());
     }
 
-    public getPieceById(id: string):Observable<ILiteraryPiece> {
+    public updatePiece(id: string, piece: Object): Observable<string> {
+        let url = `${POST_PIECE_UPDATE}?id=${id}`;
+        let data: string = JSON.stringify(piece);
+        let options: RequestOptions = this._httpOptionsService.getRequestOptions(true);
+
+        console.log(data)
+
+        return this._http
+            .post(url, data, options)
+            .map((response: Response) => response.json());
+    }
+
+    public getPieceById(id: string): Observable<ILiteraryPiece> {
         let url = `${GET_PIECE_BY_ID_URL}?id=${id}`;
         let options: RequestOptions = this._httpOptionsService.getRequestOptions(false);
         return this._http

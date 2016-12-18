@@ -38,7 +38,11 @@
                 <div class="form-group" [ngClass]="{'has-error':!editPieceForm.controls['pieceBody'].valid && editPieceForm.controls['pieceBody'].touched}">
                     <label for="tb-title">Piece Body</label>
                     <br />
-                    <textarea formControlName="pieceBody" id="yourId" [tinyEditor] [selector]="'yourId'" [(ngModel)]="pieceBodyText" (ngModelChange)="onChange($event)"></textarea>
+                    <simple-tiny [elementId]="'my-editor-id'" formControlName="pieceBody" ngDefaultControl 
+                    [(ngModel)]="pieceBodyText"
+                     (ngModelChange)="onChange($event)"
+                     (onEditorKeyup)="keyupHandlerFunction($event)">
+                    </simple-tiny>
                     <br />
                     <div class="alert alert-danger" *ngIf="!editPieceForm.controls['pieceBody'].valid && editPieceForm.controls['pieceBody'].touched">
                         Piece body must be between x and y characters.
