@@ -4,6 +4,10 @@
     <h2 id="piece-title">{{title}}</h2>
     <p id="piece-body">{{body}}</p>
     <span id="piece-author">by <strong>{{author}}</strong></span>
+    <div id="comments-holder">
+        <span class="left">Comments: {{comments.length}}</span>
+        <button *ngIf=isUserLoggedIn type="submit" class="right">Make comment</button>
+    </div>
 </div>
 
 

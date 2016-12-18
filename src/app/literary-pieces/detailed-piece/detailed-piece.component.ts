@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ILiteraryPiece } from '../literary-piece';
 
 import { LiteraryPiecesService } from '../literary-pieces.service';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
     selector: 'detailed-piece',
@@ -18,13 +19,18 @@ export class DetailedPieceComponent {
     private _genre: string;
     private _body: string;
     private _comments: string[];
+    private _isUserLoggedIn: boolean;
 
     private _pieceService: LiteraryPiecesService;
+    private _authService: AuthService;
     private _route: ActivatedRoute;
 
-    constructor(pieceService: LiteraryPiecesService, route: ActivatedRoute) {
+    constructor(authService: AuthService, pieceService: LiteraryPiecesService, route: ActivatedRoute) {
+        this._authService = authService;
         this._pieceService = pieceService;
         this._route = route;
+
+        this._comments = [];
     }
 
     get title() {
@@ -45,6 +51,10 @@ export class DetailedPieceComponent {
 
     get comments() {
         return this._comments;
+    }
+
+    get isUserLoggedIn() {
+        return this._authService.isLoggedIn();
     }
 
     public ngOnInit(): void {

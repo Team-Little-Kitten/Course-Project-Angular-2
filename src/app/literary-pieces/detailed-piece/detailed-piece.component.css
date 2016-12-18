@@ -13,6 +13,23 @@
 #piece-body {
     margin: 20px 0px;
 }
+
 #piece-author {
+    margin-bottom: 20px;
+}
+
+.right {
     float: right;
+}
+
+.left {
+    float: left;
+}
+
+#comments-holder {
+    margin-top: 20px;
+}
+
+#comments-holder span {
+    font-size: 18px;
 }
