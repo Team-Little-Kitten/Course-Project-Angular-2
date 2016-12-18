@@ -8,3 +8,4 @@ export { DetailedPieceComponent } from './detailed-piece/detailed-piece.componen
 export { LiteraryPiecesService } from './literary-pieces.service';
 
 export { LiteraryPieceModule } from './literary-pieces.module';
+export { ILiteraryPiece } from './literary-piece';

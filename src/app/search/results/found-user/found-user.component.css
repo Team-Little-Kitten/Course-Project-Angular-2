@@ -1,0 +1,8 @@
+.found-user-container img {
+    width: 50px;
+}
+
+.found-user-container a:hover {
+    text-decoration: none;
+    color: black;
+}

@@ -28,7 +28,7 @@ export class SearchComponent {
             this.isInputVisible = true;
         } else {
             let searchValue: string = $('#tb-search').val();
-            this._router.navigateByUrl(`/search?value=${searchValue}`);
+            this._router.navigateByUrl(`/search-results?value=${searchValue}`);
         }
     }
 }

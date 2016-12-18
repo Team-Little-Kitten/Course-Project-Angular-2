@@ -5,12 +5,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SimpleNotificationsModule, NotificationsService } from '../../../node_modules/angular2-notifications';
 
-import { AdditionalInfoComponent, FriendsComponent, ProfileComponent, WorksComponent } from './';
+import { AdditionalInfoComponent, FriendsComponent, ProfileComponent, WorksComponent, LoggedInUserWorksComponent } from './';
 import { UserService } from '../common-services';
 import { LiteraryPiecesService } from './../literary-pieces/literary-pieces.service';
 
 @NgModule({
-    declarations: [AdditionalInfoComponent, FriendsComponent, ProfileComponent, WorksComponent],
+    declarations: [AdditionalInfoComponent, FriendsComponent, ProfileComponent, WorksComponent, LoggedInUserWorksComponent],
     imports: [RouterModule, HttpModule, BrowserModule, FormsModule, ReactiveFormsModule, SimpleNotificationsModule],
     exports: [],
     providers: [UserService, NotificationsService, LiteraryPiecesService]

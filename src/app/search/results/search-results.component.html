@@ -1,0 +1,15 @@
+<div id="search-result-container">
+    <div id="result-users-container">
+        <h1>Users</h1>
+        <div>
+            <found-user *ngFor="let user of searchResult.users" [user]="user"></found-user>
+        </div>
+    </div>
+
+    <div id="result-literary-pieces-container">
+        <h1>Literary Pieces</h1>
+        <div>
+            <found-literary-piece *ngFor="let literaryPiece of searchResult.literaryPieces" [literaryPiece]="literaryPiece"></found-literary-piece>
+        </div>
+    </div>
+</div>
