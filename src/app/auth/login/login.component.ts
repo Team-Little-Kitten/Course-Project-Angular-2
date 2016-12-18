@@ -11,7 +11,7 @@ import { NotificationsService } from '../../../../node_modules/angular2-notifica
     styleUrls: ['../auth.common.css']
 })
 export class LoginComponent implements OnInit {
-    @HostBinding('class') classes = 'signup-page';
+    @HostBinding('class') public classes = 'signup-page';
     public form: FormGroup;
     public fb: FormBuilder;
     public options: Object;
@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
             .loginUser(this.form.value)
             .subscribe((response: any) => {
                 let result: any = (typeof (response) === 'string') ? JSON.parse(response) : response;
-                console.log(result);
+
                 if (result.error) {
                     this._notificationService.error('Login failed!', 'Please try again.');
                 } else {
@@ -58,5 +58,11 @@ export class LoginComponent implements OnInit {
                 }
             },
             () => this._notificationService.error('Login failed!', 'Please try again.'));
+    }
+
+    public facebookLogin(): void {
+        this._authService
+            .facebookLogin()
+            .subscribe(console.log, console.log);
     }
 }

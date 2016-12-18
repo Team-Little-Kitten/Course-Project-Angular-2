@@ -7,6 +7,7 @@ const REGISTER_URL: string = 'http://localhost:8080/auth/register';
 const LOGIN_URL: string = 'http://localhost:8080/auth/login';
 const LOGOUT_URL: string = 'http://localhost:8080/auth/logout';
 const VERIFY_LOGIN_URL: string = 'http://localhost:8080/auth/verify';
+const FACEBOOK_LOGIN_URL: string = 'http://localhost:8080/auth/facebook';
 
 @Injectable()
 export class AuthService {
@@ -57,5 +58,11 @@ export class AuthService {
 
                 return false;
             });
+    }
+
+    public facebookLogin(): Observable<any> {
+        return this._http
+            .get(FACEBOOK_LOGIN_URL)
+            .map((res: Response) => res.json());
     }
 }
