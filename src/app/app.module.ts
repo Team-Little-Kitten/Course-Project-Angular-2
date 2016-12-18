@@ -8,12 +8,12 @@ import { APP_ROUTES } from './app.routes';
 import { HomeModule } from './home';
 import { AuthModule, AuthService } from './auth';
 import { ProfileModule } from './profile';
+import { SearchModule } from './search';
 
 import { UserService } from './common-services';
 import { GuardIsLoggedUser } from './route-guards';
 
 import { LiteraryPieceModule, LiteraryPiecesService } from './literary-pieces';
-
 
 @NgModule({
     bootstrap: [AppComponent],
@@ -24,7 +24,8 @@ import { LiteraryPieceModule, LiteraryPiecesService } from './literary-pieces';
         HomeModule,
         AuthModule,
         ProfileModule,
-        LiteraryPieceModule
+        LiteraryPieceModule,
+        SearchModule
     ],
     providers: [AuthService, UserService, LiteraryPiecesService, GuardIsLoggedUser]
 })

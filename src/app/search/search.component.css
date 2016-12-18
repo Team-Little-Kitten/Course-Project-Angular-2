@@ -1,0 +1,11 @@
+#search-container {
+    width: 300px;
+    display: inline-block;
+    margin: 0;
+    margin-left: 50px;
+}
+
+#tb-search {
+    display: inline-block;
+    width: 200px;
+}

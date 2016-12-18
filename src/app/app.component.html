@@ -13,14 +13,12 @@
                         <img src="./../assets/images/logo.png" alt="Writter# Logo" rel="tooltip" title="Writter#" data-placement="bottom" data-html="true"
                             style="max-height: 30px">
 </div>
-<div class="brand">
-    
-</div>
 </div>
 </a>
 </div>
 
 <div class="collapse navbar-collapse" id="navigation-index">
+    <search></search>
     <ul class="nav navbar-nav navbar-right" *ngIf="!isUserLoggedIn">
         <li class="cd-log_reg home"><a class="cd-signin" [routerLink]="['/login']">Login</a></li>
         <li class="cd-log_reg"><a class="cd-signup" [routerLink]="['/register']">Register</a></li>

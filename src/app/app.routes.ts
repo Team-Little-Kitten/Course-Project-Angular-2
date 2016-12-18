@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent, AdditionalInfoComponent, FriendsComponent, WorksComponent } from './profile';
 import { GuardIsLoggedUser } from './route-guards';
 import { CreatePieceComponent, EditPieceComponent, LiterayPieceDetailedComponent } from './literary-pieces';
+import { SearchResultsComponent } from './search';
 
 export const APP_ROUTES: Routes = [
     { path: '', component: HomeComponent },
@@ -25,5 +26,6 @@ export const APP_ROUTES: Routes = [
             }
         ]
     },
-    { path: 'pieces/detailed/:id', component: LiterayPieceDetailedComponent }
+    { path: 'pieces/detailed/:id', component: LiterayPieceDetailedComponent },
+    { path: 'search-results', component: SearchResultsComponent }
 ];

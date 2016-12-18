@@ -1,0 +1,12 @@
+<div class="form-group is-empty" id="search-container">
+    <form>
+        <span *ngIf="isInputVisible">
+            <input type="text" value="" placeholder="Search" class="form-control" id="tb-search">
+            <span class="material-input"></span>
+        </span>
+        <button class="btn btn-info btn-fab btn-fab-mini btn-round" id="btn-search" (click)="searchBtnClick()" type="button">
+			<i class="material-icons">search</i>
+			<div class="ripple-container"></div>
+        </button>
+    </form>
+</div>
