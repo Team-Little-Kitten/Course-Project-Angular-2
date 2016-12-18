@@ -1,5 +1,6 @@
 
-<h4><a>{{piece.title}}</a></h4>
+<h4><a href="detailed/{{piece._id}}">{{piece.title}}</a></h4>
 <h5>{{piece.subtitle}}</h5>
-<p>{{piece.body.substring(0, 100)}}...</p>
-<span>by <strong>{{piece.author}}</strong></span>
+<p>{{piece.body.substring(0, 200)}}...</p>
+<span class="left-span">comments: {{piece.comments.length}}</span>
+<span class="right-span">{{piece.genre}} by: <strong>{{piece.author}}</strong></span>

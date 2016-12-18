@@ -2,3 +2,11 @@ a {
     cursor: pointer;
     text-decoration: none
 }
+.left-span {
+    margin-top: 30px;
+    float: left;
+}
+.right-span {
+    margin-top: 30px;
+    float: right;
+}

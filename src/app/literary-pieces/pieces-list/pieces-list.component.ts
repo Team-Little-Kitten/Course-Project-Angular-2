@@ -24,10 +24,6 @@ export class PiecesListComponent {
         this._pieceService
             .getPiecesForHomepage()
             .subscribe(resultPieces => {
-                // resultPieces.map((piece: any) => {
-                //     let currentPiece = { title: piece.title, genre: piece.genre, body: piece.body, author: piece.author };
-                //     this.pieces.push(currentPiece);
-                // });
                 this.pieces = resultPieces;
             }, error => console.log(error));
     }
