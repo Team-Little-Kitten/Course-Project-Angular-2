@@ -31,6 +31,10 @@ export class PiecePreviewComponent {
         this._comments = [];
     }
 
+    get id() {
+        return this._id;
+    }
+
     get title() {
         return this._title;
     }

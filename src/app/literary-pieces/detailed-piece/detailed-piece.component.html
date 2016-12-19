@@ -2,7 +2,7 @@
 </div>
 <div class="main main-raised" id="details-content">
     <h2 id="piece-title">{{title}}</h2>
-    <p id="piece-body">{{body}}</p>
+    <p id="piece-body" [innerHtml]="body"></p>
     <span id="piece-author">by <strong>{{author}}</strong></span>
     <div id="comments-holder">
         <span class="left">Comments: {{comments.length}}</span>
