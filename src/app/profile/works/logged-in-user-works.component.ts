@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 import { ILiteraryPiece } from './../../literary-pieces/literary-piece';
 import { LiteraryPiecesService } from './../../literary-pieces/literary-pieces.service';
+
 @Component({
-    templateUrl: './logged-in-user-works.component.html'
+    templateUrl: './logged-in-user-works.component.html',
+    styleUrls: ['./logged-in-user-works.component.css']
 })
 export class LoggedInUserWorksComponent implements OnInit {
     public pieces: ILiteraryPiece[];
@@ -14,12 +16,9 @@ export class LoggedInUserWorksComponent implements OnInit {
         this._literaryPiecesService = literaryPiecesService;
     }
 
-
     ngOnInit() {
         this._literaryPiecesService
             .getAllPiecesByAuthorForLoggedInUser()
-            .subscribe(pieces => {
-                this.pieces = pieces;
-            });
+            .subscribe(pieces => this.pieces = pieces);
     }
 }

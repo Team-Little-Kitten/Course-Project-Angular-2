@@ -1,0 +1,40 @@
+.logged-user-work {
+    width: 40%;
+    height: 190px;
+    overflow: hidden;
+    margin-left: 30%;
+}
+
+.logged-user-work .header {
+    height: 110px !important;
+}
+
+.work-title {
+    color: white;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+.work-title:hover {
+    cursor: pointer;
+}
+
+.work-title h3 {
+    color: white;
+    text-align: center;   
+    overflow: hidden;
+}
+
+.btn-edit {
+    display: block;
+    background: transparent;
+    border: none;
+}
+
+.logged-user-work .content {
+    padding-bottom: 10px;
+}
+
+#my-works-container {
+    padding-bottom: 20px;
+}

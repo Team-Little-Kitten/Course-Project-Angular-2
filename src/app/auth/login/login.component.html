@@ -5,7 +5,7 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="card card-signup">
                 <form [formGroup]="form" (ngSubmit)="login()">
-                    <div class="header header-primary text-center">
+                    <div class="header header-info text-center">
                         <h4>Sign Up</h4>
                         <div class="social-line">
                             <button type="button" class="btn btn-simple btn-just-icon" (click)="facebookLogin()">
@@ -35,7 +35,7 @@
                         </div>
                     </div>
                     <div class="footer text-center">
-                        <button class="btn btn-primary btn-lg" type="submit" [disabled]="!form.valid">Login</button>
+                        <button class="btn btn-info btn-lg" type="submit" [disabled]="!form.valid">Login</button>
                     </div>
                 </form>
                 <simple-notifications [options]="options"></simple-notifications>

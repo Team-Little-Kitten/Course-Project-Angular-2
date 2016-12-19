@@ -14,7 +14,7 @@
 
 <section *ngIf="isInEditMode" id="additional-info-edit">
     <label for="input-avatar">Upload avatar</label>
-    <input type="file" (change)="onFileUpload($event)" id="input-avatar" class="form-control">
+    <input type="file" (change)="onFileUpload($event)" id="input-avatar">
 
     <form [formGroup]="form" (ngSubmit)="updateAdditionalInfo()">
         <label for="tb-about">About</label>

@@ -3,3 +3,9 @@
     display: block;
     margin: 0 auto;
 }
+
+.btn-container {
+    display: inline-block;
+    margin-left: 42%;
+    margin-bottom: 10px;
+}
