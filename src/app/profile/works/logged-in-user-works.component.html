@@ -1,6 +1,6 @@
 <ul>
     <li *ngFor="let piece of pieces">
-        <a [routerLink]="['/profile/works/edit', piece._id]">{{piece.title}}</a>
+        <a [routerLink]="['/profile/works/preview', piece._id]">{{piece.title}}</a>
          <a class="btn btn-warning btm-xs" [routerLink]="['/profile/works/edit', piece._id]">Edit</a>
     </li>
 </ul>

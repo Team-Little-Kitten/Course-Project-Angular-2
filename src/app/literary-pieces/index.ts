@@ -4,6 +4,7 @@ export { LiterayPieceDetailedComponent } from './literary-piece-detailed.compone
 export { PiecesListComponent } from './pieces-list/pieces-list.component';
 export { SinglePieceComponent } from './single-piece/single-piece.component';
 export { DetailedPieceComponent } from './detailed-piece/detailed-piece.component';
+export { PiecePreviewComponent } from './piece-preview/piece-preview.component.ts'
 
 export { LiteraryPiecesService } from './literary-pieces.service';
 

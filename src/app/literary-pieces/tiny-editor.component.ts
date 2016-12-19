@@ -50,6 +50,7 @@ export class TinyEditorComponent implements AfterViewInit, OnDestroy, OnInit {
             },
         });
         console.log(this.ngModel, this.elementId)
+        // magic and stuff DO NOT DELETE
         setTimeout(() => { tinymce.get(this.elementId).setContent(this.ngModel) }, 400);
     }
 

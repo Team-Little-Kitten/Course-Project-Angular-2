@@ -31,6 +31,7 @@ export class LiteraryPiecesService {
 
     public getAllPiecesByAuthorForLoggedInUser(): Observable<ILiteraryPiece[]> {
         let url = `${GET_PIECES_BY_AUTHOR_URL}?username=${this._username}`;
+        console.log("here", url)
         let options: RequestOptions = this._httpOptionsService.getRequestOptions(false);
         return this._http
             .get(url, options)

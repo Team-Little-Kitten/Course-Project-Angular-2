@@ -4,7 +4,13 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent, AdditionalInfoComponent, FriendsComponent, WorksComponent } from './profile';
 import { GuardIsLoggedUser } from './route-guards';
 import { LoggedInUserWorksComponent } from './profile/works/logged-in-user-works.component';
-import { CreatePieceComponent, EditPieceComponent, LiterayPieceDetailedComponent, DetailedPieceComponent } from './literary-pieces';
+import {
+    CreatePieceComponent,
+    EditPieceComponent,
+    LiterayPieceDetailedComponent,
+    DetailedPieceComponent,
+    PiecePreviewComponent
+} from './literary-pieces';
 import { SearchResultsComponent } from './search';
 
 export const APP_ROUTES: Routes = [
@@ -23,7 +29,8 @@ export const APP_ROUTES: Routes = [
                 children: [
                     { path: 'create', component: CreatePieceComponent },
                     { path: 'edit/:id', component: EditPieceComponent },
-                    { path: 'my-works', component: LoggedInUserWorksComponent }
+                    { path: 'my-works', component: LoggedInUserWorksComponent },
+                    { path: 'preview/:id', component: PiecePreviewComponent }
                 ]
             }
         ]

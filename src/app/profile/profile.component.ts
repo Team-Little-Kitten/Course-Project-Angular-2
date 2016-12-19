@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 import { Http } from '@angular/http';
 import { IUser } from './user';
 import { UserService } from '../common-services';
@@ -10,6 +10,8 @@ declare let $: any;
 })
 export class ProfileComponent implements OnInit {
     public user: IUser;
+
+    @HostBinding('class') classes = 'profile-page';
 
     private _userService: UserService;
 

@@ -1,56 +1,50 @@
-<div class="main main-raised">
-    <div class="section">
-        <div class="container">
-            <form [formGroup]="createPieceForm" (ngSubmit)="createPiece()" class="auth-form">
-                <div class="form-group" [ngClass]="{'has-error':!createPieceForm.controls['title'].valid && createPieceForm.controls['title'].touched}">
-                    <label for="tb-title">Title</label>
-                    <br />
-                    <input type="text" id="tb-title" formControlName="title" class="form-control">
-                    <br />
-                    <div class="alert alert-danger" *ngIf="!createPieceForm.controls['title'].valid && createPieceForm.controls['title'].touched">
-                        Title must be between 3 and 20 characters.
-                    </div>
-                </div>
-                <div class="form-group" [ngClass]="{'has-error':!createPieceForm.controls['subtitle'].valid && createPieceForm.controls['title'].touched}">
-                    <label for="tb-subtitle">Subtitle</label>
-                    <br />
-                    <input type="text" id="tb-subtitle" formControlName="subtitle" class="form-control">
-                    <br />
-                    <div class="alert alert-danger" *ngIf="!createPieceForm.controls['subtitle'].valid && createPieceForm.controls['subtitle'].touched">
-                        Subtitle must be between 3 and 20 characters.
-                    </div>
-                </div>
-                <div class="form-group" [ngClass]="{'has-error':!createPieceForm.controls['genre'].valid && createPieceForm.controls['title'].touched}">
-                    <section>
-                        <select id="tb-genre" formControlName="genre">
+<div class="container-fluid">
+    <form [formGroup]="createPieceForm" (ngSubmit)="createPiece()" class="auth-form">
+        <div class="form-group" [ngClass]="{'has-error':!createPieceForm.controls['title'].valid && createPieceForm.controls['title'].touched}">
+            <label for="tb-title">Title</label>
+            <br />
+            <input type="text" id="tb-title" formControlName="title" class="form-control">
+            <br />
+            <div class="alert alert-danger" *ngIf="!createPieceForm.controls['title'].valid && createPieceForm.controls['title'].touched">
+                Title must be between 3 and 20 characters.
+            </div>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error':!createPieceForm.controls['subtitle'].valid && createPieceForm.controls['title'].touched}">
+            <label for="tb-subtitle">Subtitle</label>
+            <br />
+            <input type="text" id="tb-subtitle" formControlName="subtitle" class="form-control">
+            <br />
+            <div class="alert alert-danger" *ngIf="!createPieceForm.controls['subtitle'].valid && createPieceForm.controls['subtitle'].touched">
+                Subtitle must be between 3 and 20 characters.
+            </div>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error':!createPieceForm.controls['genre'].valid && createPieceForm.controls['title'].touched}">
+            <section>
+                <select id="tb-genre" formControlName="genre">
 													<option value="0" selected>Choose genre</option>
 													<option value="drama">Drama</option>
 													<option value="poetry">Poetry</option>
 													<option value="story">Story</option>
 													<option value="telrikMyth">Telerik Myth</option>
 												</select>
-                    </section>
-                    <div class="alert alert-danger" *ngIf="!createPieceForm.controls['genre'].valid && createPieceForm.controls['genre'].touched">
-                        Genre is required.
-                    </div>
-                </div>
-                <input type="hidden" value="{{username}}" formControlName="author" />
-                <div class="form-group" [ngClass]="{'has-error':!createPieceForm.controls['pieceBody'].valid && createPieceForm.controls['pieceBody'].touched}">
-                    <label for="tb-title">Piece Body</label>
-                    <br />
-                    <simple-tiny [elementId]="'my-editor-id'" formControlName="pieceBody" ngDefaultControl 
-                    [(ngModel)]="pieceBodyText"
-                     (ngModelChange)="onChange($event)"
-                     (onEditorKeyup)="keyupHandlerFunction($event)">
-                    </simple-tiny>
-                    <br />
-                    <div class="alert alert-danger" *ngIf="!createPieceForm.controls['pieceBody'].valid && createPieceForm.controls['pieceBody'].touched">
-                        Piece body must be between x and y characters.
-                    </div>
-                </div>
-                <button class=" btn-reg-log btn-u btn-u-md btn-u-bg-default btn-u-upper " type="submit">Create</button>
-            </form>
-            <simple-notifications [options]="options"></simple-notifications>
+            </section>
+            <div class="alert alert-danger" *ngIf="!createPieceForm.controls['genre'].valid && createPieceForm.controls['genre'].touched">
+                Genre is required.
+            </div>
         </div>
-    </div>
+        <input type="hidden" value="{{username}}" formControlName="author" />
+        <div class="form-group" [ngClass]="{'has-error':!createPieceForm.controls['pieceBody'].valid && createPieceForm.controls['pieceBody'].touched}">
+            <label for="tb-title">Piece Body</label>
+            <br />
+            <simple-tiny [elementId]="'my-editor-id'" formControlName="pieceBody" ngDefaultControl [(ngModel)]="pieceBodyText" (ngModelChange)="onChange($event)"
+                (onEditorKeyup)="keyupHandlerFunction($event)">
+            </simple-tiny>
+            <br />
+            <div class="alert alert-danger" *ngIf="!createPieceForm.controls['pieceBody'].valid && createPieceForm.controls['pieceBody'].touched">
+                Piece body must be between x and y characters.
+            </div>
+        </div>
+        <button class=" btn-reg-log btn-u btn-u-md btn-u-bg-default btn-u-upper " type="submit">Create</button>
+    </form>
+    <simple-notifications [options]="options"></simple-notifications>
 </div>
