@@ -1,0 +1,25 @@
+#user-avatar {
+    width: 300px;
+    display: block;
+    margin: 0 auto;
+}
+
+#user-container {
+    width: 60%;
+    display: block;
+    margin: 0 auto;
+    margin-top: 200px;
+}
+
+#user-container h1 {
+    text-align: center;
+}
+
+#user-container button {
+    display: block;
+    margin: 0 auto;
+}
+
+#user-container h4 {
+    text-align: center;    
+}

@@ -6,3 +6,4 @@ export { LoggedInUserWorksComponent } from './works/logged-in-user-works.compone
 
 export { ProfileModule } from './profile.module';
 export { IUser } from './user';
+export { OtherUserProfileComponent } from './other-user-profile/other-user-profile.component';
