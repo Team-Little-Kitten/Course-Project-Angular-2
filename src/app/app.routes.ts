@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { RegisterComponent, LoginComponent } from './auth';
 import { HomeComponent } from './home/home.component';
-import { ProfileComponent, AdditionalInfoComponent, FriendsComponent, WorksComponent } from './profile';
+import { ProfileComponent, AdditionalInfoComponent, FriendsComponent, WorksComponent, OtherUserProfileComponent } from './profile';
 import { GuardIsLoggedUser } from './route-guards';
 import { LoggedInUserWorksComponent } from './profile/works/logged-in-user-works.component';
 import {
@@ -36,5 +36,6 @@ export const APP_ROUTES: Routes = [
         ]
     },
     { path: 'pieces/detailed/:id', component: DetailedPieceComponent },
-    { path: 'search-results', component: SearchResultsComponent }
+    { path: 'search-results', component: SearchResultsComponent },
+    { path: 'user/:id', component: OtherUserProfileComponent }
 ];
