@@ -14,7 +14,7 @@ declare var tinymce: any;
     selector: 'simple-tiny',
     template: `<textarea id="{{elementId}}" [(ngModel)]="pieceBodyText"></textarea>`
 })
-export class TinyEditorComponent implements AfterViewInit, OnDestroy, OnInit {
+export class TinyEditorComponent implements AfterViewInit, OnDestroy {
     @Input() elementId: String;
     @Input() ngModel: String;
     @Output() onEditorKeyup = new EventEmitter<any>();
@@ -42,16 +42,15 @@ export class TinyEditorComponent implements AfterViewInit, OnDestroy, OnInit {
             skin_url: './../../assets/bower_components/tinymce/skins/lightgray',
             setup: editor => {
                 this.editor = editor;
-                editor.on('')
                 editor.on('keyup', () => {
                     const content = editor.getContent();
                     this.onEditorKeyup.emit(content);
                 });
             },
         });
-        console.log(this.ngModel, this.elementId)
+        console.log(this.ngModel, this.elementId);
         // magic and stuff DO NOT DELETE
-        setTimeout(() => { tinymce.get(this.elementId).setContent(this.ngModel) }, 400);
+        setTimeout(() => { tinymce.get(this.elementId).setContent(this.ngModel); }, 400);
     }
 
     ngOnDestroy() {
