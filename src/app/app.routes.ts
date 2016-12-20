@@ -29,7 +29,7 @@ export const APP_ROUTES: Routes = [
                 children: [
                     { path: 'create', component: CreatePieceComponent },
                     { path: 'edit/:id', component: EditPieceComponent },
-                    { path: 'my-works', component: LoggedInUserWorksComponent },
+                    { path: 'my-works/:page/:pageSize', component: LoggedInUserWorksComponent },
                     { path: 'preview/:id', component: PiecePreviewComponent }
                 ]
             }

@@ -1,12 +1,6 @@
-.logged-user-work {
-    width: 40%;
-    height: 190px;
-    overflow: hidden;
-    margin-left: 30%;
-}
-
 .logged-user-work .header {
-    height: 110px !important;
+    height: 90px !important;
+    padding: 5px !important;
 }
 
 .work-title {

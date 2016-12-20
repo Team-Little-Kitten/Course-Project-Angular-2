@@ -6,6 +6,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SimpleNotificationsModule, NotificationsService } from '../../../node_modules/angular2-notifications';
 import { OtherUserProfileComponent } from './other-user-profile/other-user-profile.component';
 
+import { ToNumberArrayPaginationPipe } from './../pipes/to-number-array.pipe';
+
 import { AdditionalInfoComponent, FriendsComponent, ProfileComponent, WorksComponent, LoggedInUserWorksComponent } from './';
 import { UserService } from '../common-services';
 import { LiteraryPiecesService } from './../literary-pieces/literary-pieces.service';
@@ -17,8 +19,9 @@ import { LiteraryPiecesService } from './../literary-pieces/literary-pieces.serv
         FriendsComponent,
         ProfileComponent,
         WorksComponent,
+        ToNumberArrayPaginationPipe,
         LoggedInUserWorksComponent],
-    imports: [RouterModule, HttpModule, BrowserModule, FormsModule, ReactiveFormsModule, SimpleNotificationsModule],
+    imports: [RouterModule, HttpModule, BrowserModule, FormsModule,  ReactiveFormsModule, SimpleNotificationsModule],
     exports: [],
     providers: [UserService, NotificationsService, LiteraryPiecesService]
 })
