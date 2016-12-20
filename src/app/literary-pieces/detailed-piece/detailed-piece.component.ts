@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
+import { TinyEditorComponent } from './../tiny-editor.component';
 import { ILiteraryPiece } from '../literary-piece';
 import { LiteraryPiecesService } from '../literary-pieces.service';
 import { AuthService } from '../../auth/auth.service';
@@ -105,6 +106,7 @@ export class DetailedPieceComponent {
                 } else {
                     this._notificationService.create('Title', 'You have successfully added comment', 'success');
                     this._comments = response.updatedComments;
+                    this.toggleCommentSection();
                     // setTimeout(() => this._router.navigateByUrl('/login'), 1500);
                 }
             },

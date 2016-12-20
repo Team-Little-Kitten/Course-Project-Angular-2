@@ -28,12 +28,12 @@
                     <label for="tb-genre">Genre</label>
                     <section>
                         <select id="tb-genre" formControlName="genre">
-													<option value="0" selected>Choose genre</option>
-													<option value="drama">Drama</option>
-													<option value="poetry">Poetry</option>
-													<option value="story">Story</option>
-													<option value="telrikMyth">Telerik Myth</option>
-												</select>
+                            <option value="0" selected>Choose genre</option>
+                            <option value="drama">Drama</option>
+                            <option value="poetry">Poetry</option>
+                            <option value="story">Story</option>
+                            <option value="telrikMyth">Telerik Myth</option>
+                        </select>
                     </section>
                     <div class="alert alert-danger" *ngIf="!createPieceForm.controls['genre'].valid && createPieceForm.controls['genre'].touched">
                         Genre is required.
@@ -45,8 +45,6 @@
                 <input #pictureInput type="file" (change)="onFileUpload($event)" id="input-picture">
             </div>
         </div>
-
-
 
         <input type="hidden" value="{{username}}" formControlName="author" />
         <div class="form-group" [ngClass]="{'has-error':!createPieceForm.controls['pieceBody'].valid && createPieceForm.controls['pieceBody'].touched}">

@@ -6,11 +6,14 @@
     <span id="piece-author">by <strong>{{author}}</strong></span>
     <div id="comments-holder">
         <span class="left">Comments: {{comments.length}}</span>
-        <button *ngIf="isUserLoggedIn" type="submit" class="right btn btn-success btn-round"  (click)="toggleCommentSection()">
+        <button *ngIf="isUserLoggedIn" type="submit" class="right btn btn-success btn-round" (click)="toggleCommentSection()">
             <i class="material-icons">comment</i> Leave comment 
         </button>
         <form [formGroup]="commentForm" *ngIf="showCommentSection" id="create-comment-form" class="clearfix" (ngSubmit)="leaveComment()">
             <h3>Leave your comment here: </h3>
+            <!--<simple-tiny [elementId]="'my-editor-id'" formControlName="commentBody" ngDefaultControl [(ngModel)]="commentBodyText" (ngModelChange)="onChange($event)"
+                (onEditorKeyup)="keyupHandlerFunction($event)">
+            </simple-tiny>-->
             <div class="form-group">
                 <textarea id="comment-body" cols="90" rows="10" formControlName="commentBody" ngDefaultControl [(ngModel)]="commentBodyText" (ngModelChange)="onChange($event)" (onEditorKeyup)="keyupHandlerFunction($event)"></textarea>
             </div>
