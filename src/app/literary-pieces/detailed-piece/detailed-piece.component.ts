@@ -66,7 +66,7 @@ export class DetailedPieceComponent {
     get showCommentSection() {
         return this._showCommentSection;
     }
-    
+
     get isUserLoggedIn() {
         return this._authService.isLoggedIn();
     }
@@ -75,8 +75,8 @@ export class DetailedPieceComponent {
         return this._comments.length !== 0;
     }
 
-    public toggleLeaveComment() {
-
+    public toggleCommentSection(): void {
+        this._showCommentSection = !this._showCommentSection;
     }
 
     // public leaveComment(): void {
