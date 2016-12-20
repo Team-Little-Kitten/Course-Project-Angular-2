@@ -6,8 +6,18 @@
     <span id="piece-author">by <strong>{{author}}</strong></span>
     <div id="comments-holder">
         <span class="left">Comments: {{comments.length}}</span>
-        <button *ngIf=isUserLoggedIn type="submit" class="right btn btn-success btn-round">
+        <button *ngIf="isUserLoggedIn" type="submit" class="right btn btn-success btn-round"  (click)="toggleCommentSection()">
             <i class="material-icons">comment</i> Leave comment 
         </button>
+        <form *ngIf="showCommentSection" id="create-comment-form" class="clearfix">
+            <h3>Leave your comment here: </h3>
+            <textarea name="" id="" cols="30" rows="10"></textarea>
+        </form>
+        <div *ngIf="isPieceCommented" id="comments-list" >
+            <div *ngFor="let comment of comments" class="single-comment card">
+                <p [innerHtml]="comment.body"></p>
+                <span>by <strong>{{comment.author}}</strong></span>
+            </div>
+        </div>
     </div>
 </div>

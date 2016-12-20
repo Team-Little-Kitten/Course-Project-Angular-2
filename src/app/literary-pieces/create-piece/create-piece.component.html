@@ -23,6 +23,7 @@
                     </div>
                 </div>
             </div>
+<<<<<<< HEAD
             <div class="col-md-6">
                 <div class="form-group" [ngClass]="{'has-error':!createPieceForm.controls['genre'].valid && createPieceForm.controls['title'].touched}">
                     <label for="tb-genre">Genre</label>
@@ -43,6 +44,22 @@
             <div class="col-md-6">
                 <label for="input-picture">Upload avatar</label>
                 <input #pictureInput type="file" (change)="onFileUpload($event)" id="input-picture">
+=======
+        </div>
+        <div class="form-group" [ngClass]="{'has-error':!createPieceForm.controls['genre'].valid && createPieceForm.controls['title'].touched}">
+            <label for="tb-genre">Genre</label>
+            <section>
+                <select id="tb-genre" formControlName="genre">
+                    <option value="0" selected>Choose genre</option>
+                    <option value="drama">Drama</option>
+                    <option value="poetry">Poetry</option>
+                    <option value="story">Story</option>
+                    <option value="telrikMyth">Telerik Myth</option>
+                </select>
+            </section>
+            <div class="alert alert-danger" *ngIf="!createPieceForm.controls['genre'].valid && createPieceForm.controls['genre'].touched">
+                Genre is required.
+>>>>>>> f579755a148c36a03e8872f10b7d2ed3076a641b
             </div>
         </div>
 

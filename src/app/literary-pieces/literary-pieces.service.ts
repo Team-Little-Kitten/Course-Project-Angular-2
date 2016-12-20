@@ -74,4 +74,14 @@ export class LiteraryPiecesService {
             .get(GET_PIECES_FOR_HOMEPAGE_URL)
             .map((response: Response) => response.json());
     }
+
+    public leaveComment(data: Object): Observable<string> {
+        console.log(data);
+        let newComment: string = JSON.stringify(data);
+        console.log(newComment);
+        let options: RequestOptions = this._httpOptionsService.getRequestOptions(true);
+        return this._http
+            .post("", newComment, options)
+            .map((response: Response) => response.json());
+    }
 }
