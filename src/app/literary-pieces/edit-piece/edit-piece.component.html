@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid edit-piece-container main main-raised">
     <form [formGroup]="editPieceForm" (ngSubmit)="savePiece()" class="auth-form">
         <div class="form-group" [ngClass]="{'has-error':!editPieceForm.controls['title'].valid && editPieceForm.controls['title'].touched}">
             <label for="tb-title">Title</label>
@@ -44,7 +44,9 @@
                 Piece body must be between x and y characters.
             </div>
         </div>
-        <button class=" btn-reg-log btn-u btn-u-md btn-u-bg-default btn-u-upper " type="submit">Save</button>
+        <button class="btn btn-success btn-round" type="submit">
+            <i class="material-icons">done</i> Edit
+        </button>
     </form>
     <simple-notifications [options]="options"></simple-notifications>
 </div>

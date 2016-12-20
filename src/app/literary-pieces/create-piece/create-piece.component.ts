@@ -12,7 +12,8 @@ const MIN_SUBTITLE_LENGHT = 10;
 const MAX_SUBTITLE_LENGHT = 100;
 
 @Component({
-    templateUrl: './create-piece.component.html'
+    templateUrl: './create-piece.component.html',
+    styleUrls: ['./create-piece.component.css']
 })
 export class CreatePieceComponent implements OnInit {
     public pieceBodyText: string = 'Write your piece here.';

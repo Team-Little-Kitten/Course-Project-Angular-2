@@ -7,7 +7,8 @@ import { LiteraryPiecesService } from '../literary-pieces.service';
 import { AuthService } from '../../auth/auth.service';
 
 @Component({
-    templateUrl: './piece-preview.component.html'
+    templateUrl: './piece-preview.component.html',
+    styleUrls: ['./piece-preview.component.css']
 })
 
 export class PiecePreviewComponent {

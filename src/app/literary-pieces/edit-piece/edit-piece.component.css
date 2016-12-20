@@ -1,0 +1,12 @@
+.edit-piece-container {
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.edit-piece-container button {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    padding: 10px 15px 10px 15px;
+}

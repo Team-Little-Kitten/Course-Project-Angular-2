@@ -1,0 +1,12 @@
+.create-piece-container {
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.create-piece-container button[type='submit'] {
+    padding: 10px 15px 10px 10px;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}

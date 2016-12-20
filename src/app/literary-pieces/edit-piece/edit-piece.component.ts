@@ -14,7 +14,8 @@ const MIN_SUBTITLE_LENGHT = 10;
 const MAX_SUBTITLE_LENGHT = 100;
 
 @Component({
-    templateUrl: './edit-piece.component.html'
+    templateUrl: './edit-piece.component.html',
+    styleUrls: ['./edit-piece.component.css']
 })
 export class EditPieceComponent implements OnInit, AfterViewInit {
     public id: string;
