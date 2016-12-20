@@ -1,0 +1,10 @@
+#forum-threads-container {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+}
+
+#forum-threads-container a {
+    display: block;
+    font-size: 20px;
+}

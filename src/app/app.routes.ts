@@ -12,6 +12,7 @@ import {
     PiecePreviewComponent
 } from './literary-pieces';
 import { SearchResultsComponent } from './search';
+import { ForumComponent, CreateThreadComponent } from './forum';
 
 export const APP_ROUTES: Routes = [
     { path: '', component: HomeComponent },
@@ -37,5 +38,7 @@ export const APP_ROUTES: Routes = [
     },
     { path: 'pieces/detailed/:id', component: DetailedPieceComponent },
     { path: 'search-results', component: SearchResultsComponent },
-    { path: 'user/:id', component: OtherUserProfileComponent }
+    { path: 'user/:id', component: OtherUserProfileComponent },
+    { path: 'forum', component: ForumComponent },
+    { path: 'forum/threads/create', component: CreateThreadComponent }
 ];
