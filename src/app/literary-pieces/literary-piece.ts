@@ -5,5 +5,6 @@ export interface ILiteraryPiece {
     author: string;
     genre: string;
     comments: any[];
+    ratings: any[];
     _id: string;
 }

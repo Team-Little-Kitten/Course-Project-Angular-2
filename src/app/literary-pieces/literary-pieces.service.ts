@@ -77,7 +77,7 @@ export class LiteraryPiecesService {
             .map((response: Response) => response.json());
     }
 
-    public leaveComment(data: Object): Observable<any> {
+    public addComment(data: Object): Observable<any> {
         let newComment: string = JSON.stringify(data);
         let options: RequestOptions = this._httpOptionsService.getRequestOptions(true);
         return this._http

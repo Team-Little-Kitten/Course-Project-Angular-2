@@ -16,6 +16,11 @@ import { NotificationsService } from '../../../../node_modules/angular2-notifica
 
 export class DetailedPieceComponent {
     public commentForm: FormGroup;
+    public averageStory: number = 0;
+    public averageCharacters: number = 0;
+    public averageDialogue: number = 0;
+    public averageStyle: number = 0;
+    public averageFeel: number = 0;
 
     private _id: string;
     private _title: string;
@@ -23,6 +28,7 @@ export class DetailedPieceComponent {
     private _genre: string;
     private _body: string;
     private _comments: string[];
+    private _ratings: any[];
     private _isUserLoggedIn: boolean;
     private _showCommentSection: boolean;
     private _commentBodyText: string;
@@ -49,6 +55,7 @@ export class DetailedPieceComponent {
 
         this._username = JSON.parse(localStorage.getItem('user')).result.username;
         this._comments = [];
+        this._ratings = [];
         this._showCommentSection = false;
     }
 
@@ -96,9 +103,9 @@ export class DetailedPieceComponent {
         this._commentBodyText = value;
     }
 
-    public leaveComment(): void {
+    public addComment(): void {
         this._pieceService
-            .leaveComment(this.commentForm.value)
+            .addComment(this.commentForm.value)
             .subscribe(
             response => {
                 if (response.message.type === 'error') {
@@ -125,6 +132,8 @@ export class DetailedPieceComponent {
                         this._author = piece.author;
                         this._genre = piece.genre;
                         this._comments = piece.comments;
+                        this._ratings = piece.ratings;
+                        this.calculateAverageRatins();
                     });
             });
 
@@ -133,5 +142,34 @@ export class DetailedPieceComponent {
             commentBody: this._commentBodyText,
             author: this._username
         });
+    }
+
+    private calculateAverageRatins(): void {
+        this.averageStory = 0;
+        this.averageCharacters = 0;
+        this.averageDialogue = 0;
+        this.averageStyle = 0;
+        this.averageFeel = 0;
+
+        let len = this._ratings.length;
+        for (let i = 0; i < len; i += 1) {
+            this.averageStory += +this._ratings[i].story;
+            this.averageCharacters += +this._ratings[i].characters;
+            this.averageDialogue += +this._ratings[i].dialogue;
+            this.averageStyle += +this._ratings[i].style;
+            this.averageFeel += +this._ratings[i].feel;
+        }
+
+        this.averageStory /= len;
+        this.averageCharacters /= len;
+        this.averageDialogue /= len;
+        this.averageStyle /= len;
+        this.averageFeel /= len;
+
+        this.averageStory = Math.round(this.averageStory * 10 ) / 10;
+        this.averageCharacters = Math.round(this.averageCharacters * 10 ) / 10;
+        this.averageDialogue = Math.round(this.averageDialogue * 10 ) / 10;
+        this.averageStyle = Math.round(this.averageStyle * 10 ) / 10;
+        this.averageFeel = Math.round(this.averageFeel * 10 ) / 10;
     }
 }
