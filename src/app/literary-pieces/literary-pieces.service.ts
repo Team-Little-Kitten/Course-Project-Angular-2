@@ -49,8 +49,9 @@ export class LiteraryPiecesService {
             .map((response: Response) => response.json());
     }
 
-    public updatePiece(id: string, piece: Object): Observable<string> {
+    public updatePiece(id: string, piece: Object, pieceImageDataUrl: string): Observable<string> {
         let url = `${POST_PIECE_UPDATE}?id=${id}`;
+        piece.imageDataUrl = pieceImageDataUrl;
         let data: string = JSON.stringify(piece);
         let options: RequestOptions = this._httpOptionsService.getRequestOptions(true);
 
