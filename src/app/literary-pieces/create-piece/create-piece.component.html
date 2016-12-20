@@ -1,38 +1,53 @@
 <div class="container-fluid create-piece-container main main-raised">
     <form [formGroup]="createPieceForm" (ngSubmit)="createPiece()" class="auth-form">
-        <div class="form-group" [ngClass]="{'has-error':!createPieceForm.controls['title'].valid && createPieceForm.controls['title'].touched}">
-            <label for="tb-title">Title</label>
-            <br />
-            <input type="text" id="tb-title" formControlName="title" class="form-control">
-            <br />
-            <div class="alert alert-danger" *ngIf="!createPieceForm.controls['title'].valid && createPieceForm.controls['title'].touched">
-                Title must be between 3 and 20 characters.
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group" [ngClass]="{'has-error':!createPieceForm.controls['title'].valid && createPieceForm.controls['title'].touched}">
+                    <label for="tb-title">Title</label>
+                    <br />
+                    <input type="text" id="tb-title" formControlName="title" class="form-control">
+                    <br />
+                    <div class="alert alert-danger" *ngIf="!createPieceForm.controls['title'].valid && createPieceForm.controls['title'].touched">
+                        Title must be between 3 and 20 characters.
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="form-group" [ngClass]="{'has-error':!createPieceForm.controls['subtitle'].valid && createPieceForm.controls['title'].touched}">
-            <label for="tb-subtitle">Subtitle</label>
-            <br />
-            <input type="text" id="tb-subtitle" formControlName="subtitle" class="form-control">
-            <br />
-            <div class="alert alert-danger" *ngIf="!createPieceForm.controls['subtitle'].valid && createPieceForm.controls['subtitle'].touched">
-                Subtitle must be between 3 and 20 characters.
+            <div class="col-md-6">
+                <div class="form-group" [ngClass]="{'has-error':!createPieceForm.controls['subtitle'].valid && createPieceForm.controls['title'].touched}">
+                    <label for="tb-subtitle">Subtitle</label>
+                    <br />
+                    <input type="text" id="tb-subtitle" formControlName="subtitle" class="form-control">
+                    <br />
+                    <div class="alert alert-danger" *ngIf="!createPieceForm.controls['subtitle'].valid && createPieceForm.controls['subtitle'].touched">
+                        Subtitle must be between 3 and 20 characters.
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="form-group" [ngClass]="{'has-error':!createPieceForm.controls['genre'].valid && createPieceForm.controls['title'].touched}">
-            <label for="tb-genre">Genre</label>
-            <section>
-                <select id="tb-genre" formControlName="genre">
+            <div class="col-md-6">
+                <div class="form-group" [ngClass]="{'has-error':!createPieceForm.controls['genre'].valid && createPieceForm.controls['title'].touched}">
+                    <label for="tb-genre">Genre</label>
+                    <section>
+                        <select id="tb-genre" formControlName="genre">
 													<option value="0" selected>Choose genre</option>
 													<option value="drama">Drama</option>
 													<option value="poetry">Poetry</option>
 													<option value="story">Story</option>
 													<option value="telrikMyth">Telerik Myth</option>
 												</select>
-            </section>
-            <div class="alert alert-danger" *ngIf="!createPieceForm.controls['genre'].valid && createPieceForm.controls['genre'].touched">
-                Genre is required.
+                    </section>
+                    <div class="alert alert-danger" *ngIf="!createPieceForm.controls['genre'].valid && createPieceForm.controls['genre'].touched">
+                        Genre is required.
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="input-picture">Upload avatar</label>
+                <input #pictureInput type="file" (change)="onFileUpload($event)" id="input-picture">
             </div>
         </div>
+
+
+
         <input type="hidden" value="{{username}}" formControlName="author" />
         <div class="form-group" [ngClass]="{'has-error':!createPieceForm.controls['pieceBody'].valid && createPieceForm.controls['pieceBody'].touched}">
             <label for="tb-title">Piece Body</label>

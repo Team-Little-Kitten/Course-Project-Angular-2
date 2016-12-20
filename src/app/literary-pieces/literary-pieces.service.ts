@@ -39,7 +39,9 @@ export class LiteraryPiecesService {
             .map((response: Response) => response.json());
     }
 
-    public createPiece(data: Object): Observable<string> {
+    public createPiece(data: Object, pieceImageDataUrl: string): Observable<string> {
+        data.imageDataUrl = pieceImageDataUrl;
+        console.log(data);
         let pieceToCreate: string = JSON.stringify(data);
         let options: RequestOptions = this._httpOptionsService.getRequestOptions(true);
         return this._http
