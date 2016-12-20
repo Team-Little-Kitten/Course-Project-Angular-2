@@ -14,6 +14,8 @@ import { NotificationsService } from '../../../../node_modules/angular2-notifica
 })
 
 export class DetailedPieceComponent {
+    public commentForm: FormGroup;
+
     private _id: string;
     private _title: string;
     private _author: string;
@@ -22,23 +24,29 @@ export class DetailedPieceComponent {
     private _comments: string[];
     private _isUserLoggedIn: boolean;
     private _showCommentSection: boolean;
+    private _commentBodyText: string;
+    private _username: string;
 
     private _pieceService: LiteraryPiecesService;
     private _authService: AuthService;
     private _notificationService: NotificationsService;
     private _route: ActivatedRoute;
+    private _formBuilder: FormBuilder;
 
-    constructor(
+    constructor (
         authService: AuthService,
         pieceService: LiteraryPiecesService,
         notificationService: NotificationsService,
-        route: ActivatedRoute)
+        route: ActivatedRoute,
+        formBuilder: FormBuilder)
     {
         this._authService = authService;
         this._pieceService = pieceService;
         this._notificationService = notificationService;
         this._route = route;
+        this._formBuilder = formBuilder;
 
+        this._username = JSON.parse(localStorage.getItem('user')).result.username;
         this._comments = [];
         this._showCommentSection = false;
     }
@@ -79,20 +87,29 @@ export class DetailedPieceComponent {
         this._showCommentSection = !this._showCommentSection;
     }
 
-    // public leaveComment(): void {
-    //     this._pieceService
-    //         .leaveComment(""// add value)
-    //         .subscribe(
-    //         response => {
-    //             if (response.message.type === 'error') {
-    //                 this._notificationService.create('Error', `${response.message.text}`, 'error');
-    //             } else {
-    //                 this._notificationService.create('Title', 'You have successfully added comment', 'success');
-    //                 // setTimeout(() => this._router.navigateByUrl('/login'), 1500);
-    //             }
-    //         },
-    //         err => console.log(err)));
-    // };
+    public keyupHandlerFunction(value: string): void {
+        this._commentBodyText = value;
+    }
+
+    public onChange(value: string): void {
+        this._commentBodyText = value;
+    }
+
+    public leaveComment(): void {
+        this._pieceService
+            .leaveComment(this.commentForm.value)
+            .subscribe(
+            response => {
+                if (response.message.type === 'error') {
+                    this._notificationService.create('Error', `${response.message.text}`, 'error');
+                } else {
+                    this._notificationService.create('Title', 'You have successfully added comment', 'success');
+                    this._comments = response.updatedComments;
+                    // setTimeout(() => this._router.navigateByUrl('/login'), 1500);
+                }
+            },
+            err => console.log(err));
+    };
 
     public ngOnInit(): void {
         this._route.params
@@ -108,5 +125,11 @@ export class DetailedPieceComponent {
                         this._comments = piece.comments;
                     });
             });
+
+        this.commentForm = this._formBuilder.group({
+            id: this._id,
+            commentBody: this._commentBodyText,
+            author: this._username
+        });
     }
 }

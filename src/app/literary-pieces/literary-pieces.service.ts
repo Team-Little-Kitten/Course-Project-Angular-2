@@ -12,6 +12,7 @@ const GET_PIECES_BY_AUTHOR_URL: string = 'http://localhost:8080/api/pieces/byAut
 const GET_PIECE_BY_ID_URL: string = 'http://localhost:8080/api/pieces/byId';
 const POST_PIECE_UPDATE: string = 'http://localhost:8080/api/pieces/update';
 const GET_PIECES_FOR_HOMEPAGE_URL: string = 'http://localhost:8080/api/pieces/filtered-for-homepage';
+const ADD_COMMENT_URL: string = 'http://localhost:8080/api/pieces/add-comment';
 
 @Injectable()
 export class LiteraryPiecesService {
@@ -73,13 +74,11 @@ export class LiteraryPiecesService {
             .map((response: Response) => response.json());
     }
 
-    public leaveComment(data: Object): Observable<string> {
-        console.log(data);
+    public leaveComment(data: Object): Observable<any> {
         let newComment: string = JSON.stringify(data);
-        console.log(newComment);
         let options: RequestOptions = this._httpOptionsService.getRequestOptions(true);
         return this._http
-            .post("", newComment, options)
+            .post(ADD_COMMENT_URL, newComment, options)
             .map((response: Response) => response.json());
     }
 }
