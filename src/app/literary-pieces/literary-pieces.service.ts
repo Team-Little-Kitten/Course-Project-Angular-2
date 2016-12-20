@@ -40,7 +40,9 @@ export class LiteraryPiecesService {
             .map((response: Response) => response.json());
     }
 
-    public createPiece(data: Object): Observable<string> {
+    public createPiece(data: Object, pieceImageDataUrl: string): Observable<string> {
+        data.imageDataUrl = pieceImageDataUrl;
+        console.log(data);
         let pieceToCreate: string = JSON.stringify(data);
         let options: RequestOptions = this._httpOptionsService.getRequestOptions(true);
         return this._http
@@ -48,8 +50,9 @@ export class LiteraryPiecesService {
             .map((response: Response) => response.json());
     }
 
-    public updatePiece(id: string, piece: Object): Observable<string> {
+    public updatePiece(id: string, piece: Object, pieceImageDataUrl: string): Observable<string> {
         let url = `${POST_PIECE_UPDATE}?id=${id}`;
+        piece.imageDataUrl = pieceImageDataUrl;
         let data: string = JSON.stringify(piece);
         let options: RequestOptions = this._httpOptionsService.getRequestOptions(true);
 

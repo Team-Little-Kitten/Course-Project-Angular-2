@@ -16,6 +16,7 @@
                     </div>
                 </div>
                 <div class="content">
+                    <img src="{{piece.imageDataUrl}}" alt="">
                     <div class="tab-content text-center">
                         <p innerHtml={{piece.subtitle}}></p>
                     </div>
@@ -24,7 +25,6 @@
         </div>
     </div>
     <ul class="pagination pagination-primary">
-        <h3>{{pages}}</h3>
         <li *ngFor="let page of pages | toNumberPaginationArray">
             <a [ngClass]="{'active': 'currentPage' === 'page'}" [routerLink]="['/profile/works/my-works', page, pageSize]">{{page}}</a>
         </li>

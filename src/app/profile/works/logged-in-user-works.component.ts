@@ -20,6 +20,7 @@ export class LoggedInUserWorksComponent implements OnInit {
 
     private _literaryPiecesService: LiteraryPiecesService;
     private _username: string;
+
     constructor(literaryPiecesService: LiteraryPiecesService, route: ActivatedRoute) {
 
         if (localStorage.getItem('user')) {
