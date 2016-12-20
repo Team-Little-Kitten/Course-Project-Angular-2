@@ -22,12 +22,12 @@
             <label for="tb-genre">Genre</label>
             <section>
                 <select id="tb-genre" formControlName="genre">
-													<option value="0" selected>Choose genre</option>
-													<option value="drama">Drama</option>
-													<option value="poetry">Poetry</option>
-													<option value="story">Story</option>
-													<option value="telrikMyth">Telerik Myth</option>
-												</select>
+                    <option value="0" selected>Choose genre</option>
+                    <option value="drama">Drama</option>
+                    <option value="poetry">Poetry</option>
+                    <option value="story">Story</option>
+                    <option value="telrikMyth">Telerik Myth</option>
+                </select>
             </section>
             <div class="alert alert-danger" *ngIf="!createPieceForm.controls['genre'].valid && createPieceForm.controls['genre'].touched">
                 Genre is required.

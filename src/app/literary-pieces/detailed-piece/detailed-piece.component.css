@@ -26,10 +26,19 @@
     float: left;
 }
 
+.clearfix {
+    clear: both;
+}
+
 #comments-holder {
     margin-top: 20px;
 }
 
 #comments-holder span {
     font-size: 18px;
+}
+
+.single-comment {
+    margin: 10px 0px;
+    padding: 10px;
 }
