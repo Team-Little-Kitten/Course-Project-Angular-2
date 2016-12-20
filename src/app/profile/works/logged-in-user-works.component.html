@@ -1,24 +1,32 @@
-<div id="my-works-container">
-    <div *ngFor="let piece of pieces">
-        <div class="card card-nav-tabs logged-user-work">
-            <div class="header header-info">
-                <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
-                <div class="nav-tabs-navigation">
-                    <div class="nav-tabs-wrapper">
-                        <a [routerLink]="['/profile/works/preview', piece._id]" class="work-title">
-                            <h3>{{piece.title}}</h3>
-                        </a>
-                        <a [routerLink]="['/profile/works/edit', piece._id]" class="btn btn-info btn-xs btn-edit" data-toggle="tab">
-                            <i class="material-icons">build</i> 
-                        </a>
+<div class="container-fluid">
+    <div id="my-works-container" class="row">
+        <div *ngFor="let piece of pieces" class="col-md-4">
+            <div class="card card-nav-tabs logged-user-work">
+                <div class="header header-info">
+                    <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+                    <div class="nav-tabs-navigation">
+                        <div class="nav-tabs-wrapper">
+                            <a [routerLink]="['/profile/works/preview', piece._id]" class="work-title">
+                                <h3>{{piece.title}}</h3>
+                            </a>
+                            <a [routerLink]="['/profile/works/edit', piece._id]" class="btn btn-info btn-xs btn-edit" data-toggle="tab">
+                                <i class="material-icons">build</i>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="content">
-                <div class="tab-content text-center">
-                    <p innerHtml={{piece.body}}></p>
+                <div class="content">
+                    <div class="tab-content text-center">
+                        <p innerHtml={{piece.subtitle}}></p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <ul class="pagination pagination-primary">
+        <h3>{{pages}}</h3>
+        <li *ngFor="let page of pages | toNumberPaginationArray">
+            <a [ngClass]="{'active': 'currentPage' === 'page'}" [routerLink]="['/profile/works/my-works', page, pageSize]">{{page}}</a>
+        </li>
+    </ul>
 </div>
