@@ -15,3 +15,29 @@
 #single-thread-container .username-link:hover {
     text-decoration: none;
 }
+
+#single-thread-container hr {
+    background-color: lightgray;
+    width: 95%;
+}
+
+.thread-links {
+    margin-left: 50px;
+}
+
+.thread-links a {
+    margin-right: 20px;
+}
+
+#single-thread-container .comments-container {
+    padding: 10px;
+    padding-top: 20px;
+    margin-bottom: 10px;
+    margin-top: 30px;
+}
+
+.comments-container hr {
+    width: 95%;
+    height: 2px;
+    background-color: lightgray;
+}
