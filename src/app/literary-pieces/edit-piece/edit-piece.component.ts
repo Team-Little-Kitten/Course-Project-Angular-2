@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { ViewChild, Component, OnInit, AfterViewInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { ILiteraryPiece } from './../literary-piece';
@@ -18,6 +18,9 @@ const MAX_SUBTITLE_LENGHT = 100;
     styleUrls: ['./edit-piece.component.css']
 })
 export class EditPieceComponent implements OnInit, AfterViewInit {
+    @ViewChild('pictureInput')
+    pictureInputVar: any;
+
     public id: string;
     public options: Object;
     public username: string;
@@ -36,6 +39,7 @@ export class EditPieceComponent implements OnInit, AfterViewInit {
     private _notificationService: NotificationsService;
     private _pieceService: LiteraryPiecesService;
     private _piece: ILiteraryPiece;
+    private _pieceImageDataUrl: string;
 
     constructor(formBuilder: FormBuilder, route: ActivatedRoute, literaryService: LiteraryPiecesService, router: Router, notificationService: NotificationsService, pieceService: LiteraryPiecesService) {
         this._formBuilder = formBuilder;
@@ -90,15 +94,35 @@ export class EditPieceComponent implements OnInit, AfterViewInit {
         this.pieceBodyText = value;
     }
 
-    public savePiece(): void {
-        this._literaryService.updatePiece(this.id, this.editPieceForm.value).subscribe(response => {
-            if (response.message.type === 'error') {
-                this._notificationService.error('Error', `${response.message.text}`);
+    public onFileUpload(event: any): void {
+        let file = event.target.files[0];
+        let reader: FileReader = new FileReader();
+        reader.readAsDataURL(file);
+
+        reader.onload = () => {
+            if (file.type !== 'image/png') {
+                this._notificationService.error('Error', 'Image cannot be a different format from .png');
+                this.resetFileInput();
             } else {
-                this._notificationService.success('Success', `${response.message.text}`);
-                // setTimeout(() => this._router.navigateByUrl('/login'), 1500);
+                this._pieceImageDataUrl = reader.result;
             }
-        },
+        };
+    }
+
+    public savePiece(): void {
+        this._literaryService.updatePiece(this.id, this.editPieceForm.value, this._pieceImageDataUrl)
+            .subscribe(response => {
+                if (response.message.type === 'error') {
+                    this._notificationService.error('Error', `${response.message.text}`);
+                } else {
+                    this._notificationService.success('Success', `${response.message.text}`);
+                    // setTimeout(() => this._router.navigateByUrl('/login'), 1500);
+                }
+            },
             err => console.log(err));
+    }
+
+    resetFileInput() {
+        this.pictureInputVar.nativeElement.value = "";
     }
 }
