@@ -1,0 +1,25 @@
+#threads-list {
+    margin-top: 100px; 
+}
+
+.thread-container {
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 20px; 
+}
+
+.thread-container h3 {
+    display: inline-block;
+    color: white;
+    margin-left: 20px;
+    margin-bottom: 0;
+}
+
+.thread-container h3:hover {
+    text-decoration: none;
+}
+
+.thread-container p {
+    text-align: right;
+    padding-right: 10px;
+}

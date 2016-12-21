@@ -1,0 +1,13 @@
+<div id="threads-list">
+    <h1>{{categoryName}}</h1>
+    <div *ngFor="let thread of threads" class="navbar navbar-info thread-container">
+        <div>
+            <i class="material-icons">library_books</i>
+            <!-- routerLink="/forum/threads/{{thread._id}} -->
+            <a>
+                <h3>{{thread.title}}</h3>
+            </a>
+            <p><a routerLink="{{user/thread.author._id}}">{{thread.author.username}}</a></p>
+        </div>
+    </div>
+</div>

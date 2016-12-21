@@ -15,6 +15,7 @@ import { GuardIsLoggedUser } from './route-guards';
 
 import { LiteraryPieceModule, LiteraryPiecesService } from './literary-pieces';
 import { ForumModule } from './forum';
+import { HttpOptionsService } from './common-services/http-options.service';
 
 @NgModule({
     bootstrap: [AppComponent],
@@ -29,6 +30,6 @@ import { ForumModule } from './forum';
         SearchModule,
         ForumModule
     ],
-    providers: [AuthService, UserService, LiteraryPiecesService, GuardIsLoggedUser]
+    providers: [AuthService, UserService, LiteraryPiecesService, GuardIsLoggedUser, HttpOptionsService]
 })
 export class AppModule { }
