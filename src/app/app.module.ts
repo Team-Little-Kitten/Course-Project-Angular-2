@@ -14,6 +14,7 @@ import { UserService } from './common-services';
 import { GuardIsLoggedUser } from './route-guards';
 
 import { LiteraryPieceModule, LiteraryPiecesService } from './literary-pieces';
+import { ForumModule } from './forum';
 
 @NgModule({
     bootstrap: [AppComponent],
@@ -25,7 +26,8 @@ import { LiteraryPieceModule, LiteraryPiecesService } from './literary-pieces';
         AuthModule,
         ProfileModule,
         LiteraryPieceModule,
-        SearchModule
+        SearchModule,
+        ForumModule
     ],
     providers: [AuthService, UserService, LiteraryPiecesService, GuardIsLoggedUser]
 })
