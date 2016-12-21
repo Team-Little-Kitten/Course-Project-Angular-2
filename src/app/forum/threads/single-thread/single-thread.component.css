@@ -1,0 +1,17 @@
+#single-thread-container {
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+#single-thread-container h3 {
+    text-align: center;
+}
+
+#single-thread-container .username-link {
+    color: white;
+}
+
+#single-thread-container .username-link:hover {
+    text-decoration: none;
+}

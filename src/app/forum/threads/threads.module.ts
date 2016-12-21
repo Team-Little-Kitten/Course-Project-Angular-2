@@ -7,9 +7,10 @@ import { ThreadComponent } from './thread.component';
 import { CreateThreadComponent } from './create-thread/create-thread.component';
 import { ThreadsListComponent } from './threads-list/threads-list.component';
 import { ThreadsService } from './threads.service';
+import { SingleThreadComponent } from './single-thread/single-thread.component';
 
 @NgModule({
-    declarations: [ThreadComponent, CreateThreadComponent, ThreadsListComponent],
+    declarations: [ThreadComponent, CreateThreadComponent, ThreadsListComponent, SingleThreadComponent],
     imports: [FormsModule, ReactiveFormsModule, CommonModule, RouterModule],
     exports: [ThreadComponent, CreateThreadComponent],
     providers: [ThreadsService]
