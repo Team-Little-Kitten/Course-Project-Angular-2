@@ -12,7 +12,7 @@ import {
     PiecePreviewComponent
 } from './literary-pieces';
 import { SearchResultsComponent } from './search';
-import { ForumComponent, CreateThreadComponent } from './forum';
+import { ForumComponent, CreateThreadComponent, ThreadsListComponent } from './forum';
 
 export const APP_ROUTES: Routes = [
     { path: '', component: HomeComponent },
@@ -40,5 +40,6 @@ export const APP_ROUTES: Routes = [
     { path: 'search-results', component: SearchResultsComponent },
     { path: 'user/:id', component: OtherUserProfileComponent },
     { path: 'forum', component: ForumComponent },
-    { path: 'forum/threads/create', component: CreateThreadComponent }
+    { path: 'forum/threads/create', component: CreateThreadComponent },
+    { path: 'forum/threads/:categoryName', component: ThreadsListComponent }
 ];

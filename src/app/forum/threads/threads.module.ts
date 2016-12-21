@@ -1,14 +1,17 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 import { ThreadComponent } from './thread.component';
 import { CreateThreadComponent } from './create-thread/create-thread.component';
+import { ThreadsListComponent } from './threads-list/threads-list.component';
+import { ThreadsService } from './threads.service';
 
 @NgModule({
-    declarations: [ThreadComponent, CreateThreadComponent],
-    imports: [FormsModule, ReactiveFormsModule, CommonModule],
+    declarations: [ThreadComponent, CreateThreadComponent, ThreadsListComponent],
+    imports: [FormsModule, ReactiveFormsModule, CommonModule, RouterModule],
     exports: [ThreadComponent, CreateThreadComponent],
-    providers: []
+    providers: [ThreadsService]
 })
 export class ThreadsModule { }
