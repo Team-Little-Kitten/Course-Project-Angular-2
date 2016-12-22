@@ -60,7 +60,12 @@ td {
 #ratings-table {
     display: inline-block;
     border-collapse: collapse;
-    background-color: #F4F4F4;
     font-size: 26px;
     text-align: center;
+}
+
+.rating-selector {
+    width: 60px;
+    display: inline-block;
+    border: 1px solid lightgrey;
 }

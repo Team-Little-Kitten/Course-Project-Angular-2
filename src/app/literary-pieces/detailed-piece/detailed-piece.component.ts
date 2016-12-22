@@ -33,6 +33,11 @@ export class DetailedPieceComponent {
     private _showCommentSection: boolean;
     private _commentBodyText: string;
     private _username: string;
+    private _storyRating: string;
+    private _charactersRating: string;
+    private _dialogueRating: string;
+    private _styleRating: string;
+    private _feelRating: string;
 
     private _pieceService: LiteraryPiecesService;
     private _authService: AuthService;
@@ -99,10 +104,29 @@ export class DetailedPieceComponent {
         this._commentBodyText = value;
     }
 
-    public onChange(value: string): void {
+    public onChangeCommentBodyText(value: string): void {
         this._commentBodyText = value;
     }
 
+    public onChangeStory(value: string): void {
+        this._storyRating = value;
+    }
+
+    public onChangeCharacters(value: string): void {
+        this._charactersRating = value;
+    }
+
+    public onChangeDialgue(value: string): void {
+        this._dialogueRating = value;
+    }
+
+    public onChangeStyle(value: string): void {
+        this._styleRating = value;
+    }
+
+    public onChangeFeel(value: string): void {
+        this._feelRating = value;
+    }
     public addComment(): void {
         this._pieceService
             .addComment(this.commentForm.value)
@@ -113,8 +137,9 @@ export class DetailedPieceComponent {
                 } else {
                     this._notificationService.create('Title', 'You have successfully added comment', 'success');
                     this._comments = response.updatedComments;
+                    this._ratings = response.updatedRatings;
+                    this.calculateAverageRatins();
                     this.toggleCommentSection();
-                    // setTimeout(() => this._router.navigateByUrl('/login'), 1500);
                 }
             },
             err => console.log(err));
@@ -140,7 +165,12 @@ export class DetailedPieceComponent {
         this.commentForm = this._formBuilder.group({
             id: this._id,
             commentBody: this._commentBodyText,
-            author: this._username
+            author: this._username,
+            storyRating: this._storyRating,
+            charactersRating: this._charactersRating,
+            dialogueRating: this._dialogueRating,
+            styleRating: this._styleRating,
+            feelRating: this._feelRating
         });
     }
 
