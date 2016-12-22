@@ -15,7 +15,7 @@
                     <td>Feel</td>
                 </tr>
                 <tr>
-                    <td>{{averageStory  | formatRatingPipe}}</td>
+                    <td>{{averageStory | formatRatingPipe}}</td>
                     <td>{{averageCharacters | formatRatingPipe}}</td>
                     <td>{{averageDialogue | formatRatingPipe}}</td>
                     <td>{{averageStyle | formatRatingPipe}}</td>
@@ -23,7 +23,7 @@
                 </tr>
             </tbody>
         </table>
-    </div>  
+    </div>
     <div id="comments-holder">
         <span class="left">Comments: {{comments.length}}</span>
         <button *ngIf="canUserComment" type="submit" class="right btn btn-success btn-round" (click)="toggleCommentSection()">
@@ -31,12 +31,9 @@
         </button>
         <form [formGroup]="commentForm" *ngIf="showCommentSection" id="create-comment-form" class="clearfix" (ngSubmit)="addComment()">
             <h3>Leave your comment here: </h3>
-            <simple-tiny [elementId]="detailed-piece-editor" formControlName="commentBody" ngDefaultControl [(ngModel)]="commentBodyText" (ngModelChange)="onChange($event)"
-                (onEditorKeyup)="keyupHandlerFunction($event)">
+            <simple-tiny [elementId]="detailed-piece-editor" formControlName="commentBody" ngDefaultControl [(ngModel)]="pieceBodyText"
+                (ngModelChange)="onChange($event)" (onEditorKeyup)="keyupHandlerFunction($event)">
             </simple-tiny>
-            <div class="form-group">
-                <textarea id="comment-body" cols="90" rows="10" formControlName="commentBody" ngDefaultControl [(ngModel)]="commentBodyText" (ngModelChange)="onChangeCommentBodyText($event)" (onEditorKeyup)="keyupHandlerFunction($event)"></textarea>
-            </div>
             <label>Story:</label>
             <select formControlName="storyRating" [(ngModel)]="storyRating" class="rating-selector form-control">
                 <option value="1">1</option>
@@ -88,7 +85,7 @@
             </button>
         </form>
         <simple-notifications [options]="notificationOptions"></simple-notifications>
-        <div *ngIf="isPieceCommented" id="comments-list" >
+        <div *ngIf="isPieceCommented" id="comments-list">
             <div *ngFor="let comment of comments" class="single-comment card">
                 <p [innerHtml]="comment.content"></p>
                 <span class="left">by {{comment.author}}</span>
