@@ -7,7 +7,6 @@ import { SimpleNotificationsModule, NotificationsService } from '../../../node_m
 
 
 import { SharedModule } from './../shared/shared.module';
-import { TinyEditorComponent } from './../shared/tiny-editor.component'
 
 import {
     EditPieceComponent,
@@ -30,9 +29,7 @@ import { HttpOptionsService, UserService } from '../common-services';
         SinglePieceComponent,
         PiecesListComponent,
         DetailedPieceComponent,
-        PiecePreviewComponent,
-
-      //  TinyEditorComponent
+        PiecePreviewComponent
     ],
     imports: [
         HttpModule,
@@ -41,7 +38,7 @@ import { HttpOptionsService, UserService } from '../common-services';
         RouterModule,
         SimpleNotificationsModule,
         CommonModule,
-        //SharedModule
+        SharedModule
     ],
     exports: [PiecesListComponent],
     providers: [LiteraryPiecesService, NotificationsService, HttpOptionsService, UserService]

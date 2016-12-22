@@ -11,7 +11,7 @@ export class CreateThreadComponent implements OnInit {
     public options: Object;
     public username: string;
 
-    public pieceBodyText: string;
+    public pieceBodyText: string = "Magic";
 
     constructor(formBuilder: FormBuilder) {
         this.fb = formBuilder;

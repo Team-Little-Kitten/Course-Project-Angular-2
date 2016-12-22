@@ -35,7 +35,6 @@ import { SharedModule } from './shared/shared.module';
         LiteraryPieceModule,
         SearchModule,
         ForumModule,
-        SharedModule
     ],
     providers: [AuthService, UserService, LiteraryPiecesService, GuardIsLoggedUser, HttpOptionsService],
     // exports: [TinyEditorComponent]
