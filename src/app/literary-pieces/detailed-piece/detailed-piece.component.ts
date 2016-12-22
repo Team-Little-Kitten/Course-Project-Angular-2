@@ -85,6 +85,16 @@ export class DetailedPieceComponent {
         return this.comments.length !== 0;
     }
 
+    public likeComment(ev): void {
+        ev.target.style.display = 'none';
+        ev.target.parentNode.children[1].style.display = 'block';
+    }
+
+    public dislikeComment(ev): void {
+        ev.target.style.display = 'none';
+        ev.target.parentNode.children[0].style.display = 'block';
+    }
+
     public toggleCommentSection(): void {
         this.showCommentSection = !this.showCommentSection;
     }

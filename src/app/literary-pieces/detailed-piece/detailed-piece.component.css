@@ -69,3 +69,7 @@ td {
     display: inline-block;
     border: 1px solid lightgrey;
 }
+
+.average-rating, .comment-author {
+    margin: 10px;
+}

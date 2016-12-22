@@ -34,6 +34,7 @@
             <simple-tiny [elementId]="detailed-piece-editor" formControlName="commentBody" ngDefaultControl [(ngModel)]="pieceBodyText"
                 (ngModelChange)="onChange($event)" (onEditorKeyup)="keyupHandlerFunction($event)">
             </simple-tiny>
+            <br>
             <label>Story:</label>
             <select formControlName="storyRating" [(ngModel)]="storyRating" class="rating-selector form-control">
                 <option value="1">1</option>
@@ -88,8 +89,18 @@
         <div *ngIf="isPieceCommented" id="comments-list">
             <div *ngFor="let comment of comments" class="single-comment card">
                 <p [innerHtml]="comment.content"></p>
-                <span class="left">by {{comment.author}}</span>
-                <span class="right">average rating: {{comment.averageRating | formatRatingPipe}}</span>
+                <div class="comment-footer">
+                    <span class="comment-author left">by {{comment.author}}</span>
+                    <span class="average-rating right">Rating: {{comment.averageRating | formatRatingPipe}}</span>
+                    <div class="buttons-holder right">
+                        <button *ngIf=!isLiked class="btn btn-success btn-round" (click)="likeComment($event)">
+                            Like
+                        </button>
+                        <button *ngIf=!isDisliked class="btn btn-danger btn-round" (click)="dislikeComment($event)">
+                            Dislike
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
