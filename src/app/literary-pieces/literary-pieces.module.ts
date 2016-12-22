@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SimpleNotificationsModule, NotificationsService } from '../../../node_modules/angular2-notifications';
 
-
+import { FormatRatingPipe } from './../pipes/format-rating.pipe';
 import { SharedModule } from './../shared/shared.module';
 
 import {
@@ -29,7 +29,8 @@ import { HttpOptionsService, UserService } from '../common-services';
         SinglePieceComponent,
         PiecesListComponent,
         DetailedPieceComponent,
-        PiecePreviewComponent
+        PiecePreviewComponent,
+        FormatRatingPipe
     ],
     imports: [
         HttpModule,

@@ -16,28 +16,29 @@ import { NotificationsService } from '../../../../node_modules/angular2-notifica
 
 export class DetailedPieceComponent {
     public commentForm: FormGroup;
+
     public averageStory: number = 0;
     public averageCharacters: number = 0;
     public averageDialogue: number = 0;
     public averageStyle: number = 0;
     public averageFeel: number = 0;
 
-    private _id: string;
-    private _title: string;
-    private _author: string;
-    private _genre: string;
-    private _body: string;
-    private _comments: any[];
-    private _ratings: any[];
-    private _isUserLoggedIn: boolean;
-    private _showCommentSection: boolean;
-    private _commentBodyText: string;
-    private _username: string = null;
-    private _storyRating: string;
-    private _charactersRating: string;
-    private _dialogueRating: string;
-    private _styleRating: string;
-    private _feelRating: string;
+    public id: string;
+    public title: string;
+    public author: string;
+    public genre: string;
+    public body: string;
+    public comments: any[];
+    public ratings: any[];
+    public isUserLoggedIn: boolean;
+    public showCommentSection: boolean;
+    public commentBodyText: string;
+    public username: string = null;
+    public storyRating: string;
+    public charactersRating: string;
+    public dialogueRating: string;
+    public styleRating: string;
+    public feelRating: string;
 
     private _pieceService: LiteraryPiecesService;
     private _authService: AuthService;
@@ -58,41 +59,17 @@ export class DetailedPieceComponent {
         this._route = route;
         this._formBuilder = formBuilder;
 
-        this._username = JSON.parse(localStorage.getItem('user')).result.username;
-        this._comments = [];
-        this._ratings = [];
-        this._showCommentSection = false;
-    }
-
-    get title() {
-        return this._title;
-    }
-
-    get body() {
-        return this._body;
-    }
-
-    get author() {
-        return this._author;
-    }
-
-    get genre() {
-        return this._genre;
-    }
-
-    get comments() {
-        return this._comments;
-    }
-
-    get showCommentSection() {
-        return this._showCommentSection;
+        this.username = JSON.parse(localStorage.getItem('user')).result.username;
+        this.comments = [];
+        this.ratings = [];
+        this.showCommentSection = false;
     }
 
     get canUserComment(): boolean {
         let isUserLoggedIn = this._authService.isLoggedIn();
         let userCommented: boolean = false;
-        for (let i = 0; i < this._comments.length; i += 1) {
-            if (this._comments[i].author === this._username) {
+        for (let i = 0; i < this.comments.length; i += 1) {
+            if (this.comments[i].author === this.username) {
                 userCommented = true;
                 break;
             }
@@ -102,102 +79,102 @@ export class DetailedPieceComponent {
     }
 
     get isPieceCommented() {
-        return this._comments.length !== 0;
+        return this.comments.length !== 0;
     }
 
     public toggleCommentSection(): void {
-        this._showCommentSection = !this._showCommentSection;
+        this.showCommentSection = !this.showCommentSection;
     }
 
     public keyupHandlerFunction(value: string): void {
-        this._commentBodyText = value;
+        this.commentBodyText = value;
     }
 
     public onChangeCommentBodyText(value: string): void {
-        this._commentBodyText = value;
+        this.commentBodyText = value;
     }
 
     public onChangeStory(value: string): void {
-        this._storyRating = value;
+        this.storyRating = value;
     }
 
     public onChangeCharacters(value: string): void {
-        this._charactersRating = value;
+        this.charactersRating = value;
     }
 
     public onChangeDialgue(value: string): void {
-        this._dialogueRating = value;
+        this.dialogueRating = value;
     }
 
     public onChangeStyle(value: string): void {
-        this._styleRating = value;
+        this.styleRating = value;
     }
 
     public onChangeFeel(value: string): void {
-        this._feelRating = value;
+        this.feelRating = value;
     }
     public addComment(): void {
         this._pieceService
             .addComment(this.commentForm.value)
             .subscribe(
-            response => {
-                if (response.message.type === 'error') {
-                    this._notificationService.create('Error', `${response.message.text}`, 'error');
-                } else {
-                    this._notificationService.create('Title', 'You have successfully added comment', 'success');
-                    this._comments = response.updatedComments;
-                    this._ratings = response.updatedRatings;
-                    this.calculateAverageRatins();
-                    this.toggleCommentSection();
-                }
-            },
-            err => console.log(err));
+                response => {
+                    if (response.message.type === 'error') {
+                        this._notificationService.create('Error', `${response.message.text}`, 'error');
+                    } else {
+                        this._notificationService.create('Title', 'You have successfully added comment', 'success');
+                        this.comments = response.updatedComments;
+                        this.ratings = response.updatedRatings;
+                        this.calculateAverageRatings();
+                        this.toggleCommentSection();
+                    }
+                },
+                err => console.log(err));
     };
 
     public ngOnInit(): void {
         this._route.params
             .map(params => params['id'])
             .subscribe((id) => {
-                this._id = id;
+                this.id = id;
                 this._pieceService.getPieceById(id)
                     .subscribe(piece => {
-                        this._title = piece.title;
-                        this._body = piece.body;
-                        this._author = piece.author;
-                        this._genre = piece.genre;
-                        this._comments = piece.comments;
-                        this._ratings = piece.ratings;
-                        this.calculateAverageRatins();
+                        this.title = piece.title;
+                        this.body = piece.body;
+                        this.author = piece.author;
+                        this.genre = piece.genre;
+                        this.comments = piece.comments;
+                        this.ratings = piece.ratings;
+                        this.calculateAverageRatings();
                     });
             });
 
         this.commentForm = this._formBuilder.group({
-            id: this._id,
-            commentBody: this._commentBodyText,
-            author: this._username,
-            storyRating: this._storyRating,
-            charactersRating: this._charactersRating,
-            dialogueRating: this._dialogueRating,
-            styleRating: this._styleRating,
-            feelRating: this._feelRating
+            id: this.id,
+            commentBody: this.commentBodyText,
+            author: this.username,
+            storyRating: this.storyRating,
+            charactersRating: this.charactersRating,
+            dialogueRating: this.dialogueRating,
+            styleRating: this.styleRating,
+            feelRating: this.feelRating
         });
     }
 
-    private calculateAverageRatins(): void {
+    private calculateAverageRatings(): void {
         this.averageStory = 0;
         this.averageCharacters = 0;
         this.averageDialogue = 0;
         this.averageStyle = 0;
         this.averageFeel = 0;
 
-        let ratingArratLength = this._ratings.length;
+        let ratingArratLength = this.ratings.length;
         if (ratingArratLength) {
             for (let i = 0; i < ratingArratLength; i += 1) {
-                this.averageStory += +this._ratings[i].story;
-                this.averageCharacters += +this._ratings[i].characters;
-                this.averageDialogue += +this._ratings[i].dialogue;
-                this.averageStyle += +this._ratings[i].style;
-                this.averageFeel += +this._ratings[i].feel;
+                this.averageStory += +this.ratings[i].story;
+                this.averageCharacters += +this.ratings[i].characters;
+                this.averageDialogue += +this.ratings[i].dialogue;
+                this.averageStyle += +this.ratings[i].style;
+                this.averageFeel += +this.ratings[i].feel;
             }
 
             this.averageStory /= ratingArratLength;
@@ -205,12 +182,6 @@ export class DetailedPieceComponent {
             this.averageDialogue /= ratingArratLength;
             this.averageStyle /= ratingArratLength;
             this.averageFeel /= ratingArratLength;
-
-            this.averageStory = Math.round(this.averageStory * 10 ) / 10;
-            this.averageCharacters = Math.round(this.averageCharacters * 10 ) / 10;
-            this.averageDialogue = Math.round(this.averageDialogue * 10 ) / 10;
-            this.averageStyle = Math.round(this.averageStyle * 10 ) / 10;
-            this.averageFeel = Math.round(this.averageFeel * 10 ) / 10;
         }
     }
 }
