@@ -73,3 +73,7 @@ td {
 .average-rating, .comment-author {
     margin: 10px;
 }
+
+.id-holder {
+    display: none;
+}

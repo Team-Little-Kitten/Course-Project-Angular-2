@@ -76,9 +76,9 @@ export class DetailedPieceComponent {
                 break;
             }
         }
+        let isUserAuthor: boolean = this.username === this.author;
 
-        return isUserLoggedIn && !userCommented;
-        // return isUserLoggedIn;
+        return isUserLoggedIn && !userCommented && !isUserAuthor;
     }
 
     get isPieceCommented() {
@@ -86,13 +86,35 @@ export class DetailedPieceComponent {
     }
 
     public likeComment(ev): void {
-        ev.target.style.display = 'none';
-        ev.target.parentNode.children[1].style.display = 'block';
+        let commentId = ev.target.nextSibling.nextSibling.innerHTML;
+        this._pieceService
+            .likeComment(this.id, commentId, this.username)
+            .subscribe(
+                response => {
+                        if (response.message.type === 'error') {
+                            this._notificationService.create('Error', `${response.message.text}`, 'error');
+                        } else {
+                            this._notificationService.create('Title', 'You have successfully liked comment', 'success');
+                            this.comments = response.updatedComments;
+                        }
+                    },
+                    err => console.log(err));
     }
 
     public dislikeComment(ev): void {
-        ev.target.style.display = 'none';
-        ev.target.parentNode.children[0].style.display = 'block';
+        let commentId = ev.target.nextSibling.nextSibling.innerHTML;
+        this._pieceService
+            .dislikeComment(this.id, commentId, this.username)
+            .subscribe(
+                response => {
+                        if (response.message.type === 'error') {
+                            this._notificationService.create('Error', `${response.message.text}`, 'error');
+                        } else {
+                            this._notificationService.create('Title', 'You have successfully disliked comment', 'success');
+                            this.comments = response.updatedComments;
+                        }
+                    },
+                    err => console.log(err));
     }
 
     public toggleCommentSection(): void {

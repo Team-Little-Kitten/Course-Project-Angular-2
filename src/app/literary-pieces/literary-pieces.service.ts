@@ -13,6 +13,8 @@ const GET_PIECE_BY_ID_URL: string = 'http://localhost:8080/api/pieces/byId';
 const POST_PIECE_UPDATE: string = 'http://localhost:8080/api/pieces/update';
 const GET_PIECES_FOR_HOMEPAGE_URL: string = 'http://localhost:8080/api/pieces/filtered-for-homepage';
 const ADD_COMMENT_URL: string = 'http://localhost:8080/api/pieces/add-comment';
+const LIKE_COMMENT_URL: string = 'http://localhost:8080/api/pieces/like-comment';
+const DISLIKE_COMMENT_URL: string = 'http://localhost:8080/api/pieces/dislike-comment';
 
 @Injectable()
 export class LiteraryPiecesService {
@@ -82,6 +84,20 @@ export class LiteraryPiecesService {
         let options: RequestOptions = this._httpOptionsService.getRequestOptions(true);
         return this._http
             .post(ADD_COMMENT_URL, newComment, options)
+            .map((response: Response) => response.json());
+    }
+
+    public likeComment(pieceId: string, commentId: string, currentUser: string): Observable<any> {
+        let options: RequestOptions = this._httpOptionsService.getRequestOptions(true);
+        return this._http
+            .post(LIKE_COMMENT_URL, { pieceId, commentId, currentUser }, options)
+            .map((response: Response) => response.json());
+    }
+
+    public dislikeComment(pieceId: string, commentId: string, currentUser: string): Observable<any> {
+        let options: RequestOptions = this._httpOptionsService.getRequestOptions(true);
+        return this._http
+            .post(DISLIKE_COMMENT_URL, { pieceId, commentId, currentUser }, options)
             .map((response: Response) => response.json());
     }
 }
