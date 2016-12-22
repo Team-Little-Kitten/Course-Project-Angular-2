@@ -169,9 +169,9 @@ export class DetailedPieceComponent {
         this.averageStyle = 0;
         this.averageFeel = 0;
 
-        let ratingArratLength = this.ratings.length;
-        if (ratingArratLength) {
-            for (let i = 0; i < ratingArratLength; i += 1) {
+        let ratingArrayLength = this.ratings.length;
+        if (ratingArrayLength) {
+            for (let i = 0; i < ratingArrayLength; i += 1) {
                 this.averageStory += +this.ratings[i].story;
                 this.averageCharacters += +this.ratings[i].characters;
                 this.averageDialogue += +this.ratings[i].dialogue;
@@ -179,11 +179,11 @@ export class DetailedPieceComponent {
                 this.averageFeel += +this.ratings[i].feel;
             }
 
-            this.averageStory /= ratingArratLength;
-            this.averageCharacters /= ratingArratLength;
-            this.averageDialogue /= ratingArratLength;
-            this.averageStyle /= ratingArratLength;
-            this.averageFeel /= ratingArratLength;
+            this.averageStory /= ratingArrayLength;
+            this.averageCharacters /= ratingArrayLength;
+            this.averageDialogue /= ratingArrayLength;
+            this.averageStyle /= ratingArrayLength;
+            this.averageFeel /= ratingArrayLength;
         }
     }
 }

@@ -31,9 +31,9 @@
         </button>
         <form [formGroup]="commentForm" *ngIf="showCommentSection" id="create-comment-form" class="clearfix" (ngSubmit)="addComment()">
             <h3>Leave your comment here: </h3>
-            <simple-tiny [elementId]="detailed-piece-editor" formControlName="commentBody" ngDefaultControl [(ngModel)]="commentBodyText" (ngModelChange)="onChange($event)"
+            <!--<simple-tiny [elementId]="detailed-piece-editor" formControlName="commentBody" ngDefaultControl [(ngModel)]="commentBodyText" (ngModelChange)="onChange($event)"
                 (onEditorKeyup)="keyupHandlerFunction($event)">
-            </simple-tiny>
+            </simple-tiny>-->
             <div class="form-group">
                 <textarea id="comment-body" cols="90" rows="10" formControlName="commentBody" ngDefaultControl [(ngModel)]="commentBodyText" (ngModelChange)="onChangeCommentBodyText($event)" (onEditorKeyup)="keyupHandlerFunction($event)"></textarea>
             </div>
