@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 
 import { TinyEditorComponent } from './../tiny-editor.component';
 import { ILiteraryPiece } from '../literary-piece';
@@ -39,6 +39,7 @@ export class DetailedPieceComponent {
     public dialogueRating: string;
     public styleRating: string;
     public feelRating: string;
+    public notificationOptions: Object;
 
     private _pieceService: LiteraryPiecesService;
     private _authService: AuthService;
@@ -63,6 +64,7 @@ export class DetailedPieceComponent {
         this.comments = [];
         this.ratings = [];
         this.showCommentSection = false;
+        this.notificationOptions = { timeOut: 1500, pauseOnHover: true, showProgressBar: true, animate: 'scale', position: ['right', 'bottom'] };
     }
 
     get canUserComment(): boolean {
@@ -76,6 +78,7 @@ export class DetailedPieceComponent {
         }
 
         return isUserLoggedIn && !userCommented;
+        // return isUserLoggedIn;
     }
 
     get isPieceCommented() {
@@ -94,26 +97,11 @@ export class DetailedPieceComponent {
         this.commentBodyText = value;
     }
 
-    public onChangeStory(value: string): void {
-        this.storyRating = value;
-    }
-
-    public onChangeCharacters(value: string): void {
-        this.charactersRating = value;
-    }
-
-    public onChangeDialgue(value: string): void {
-        this.dialogueRating = value;
-    }
-
-    public onChangeStyle(value: string): void {
-        this.styleRating = value;
-    }
-
-    public onChangeFeel(value: string): void {
-        this.feelRating = value;
-    }
     public addComment(): void {
+        if (!this.validateFormValue()) {
+            this._notificationService.create('Error', `Invalid comment`, 'error');
+            return;
+        }
         this._pieceService
             .addComment(this.commentForm.value)
             .subscribe(
@@ -158,6 +146,20 @@ export class DetailedPieceComponent {
             styleRating: this.styleRating,
             feelRating: this.feelRating
         });
+    }
+
+    private validateFormValue(): boolean {
+        if (!this.storyRating ||
+            !this.charactersRating ||
+            !this.dialogueRating ||
+            !this.styleRating ||
+            !this.feelRating ||
+            !this.commentBodyText) {
+                return false;
+            }
+        else {
+            return true;
+        }
     }
 
     private calculateAverageRatings(): void {

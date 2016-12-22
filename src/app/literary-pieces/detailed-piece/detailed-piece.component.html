@@ -38,7 +38,7 @@
                 <textarea id="comment-body" cols="90" rows="10" formControlName="commentBody" ngDefaultControl [(ngModel)]="commentBodyText" (ngModelChange)="onChangeCommentBodyText($event)" (onEditorKeyup)="keyupHandlerFunction($event)"></textarea>
             </div>
             <label>Story:</label>
-            <select formControlName="storyRating" class="rating-selector form-control" (change)="onChangeStory($event.target.value)">
+            <select formControlName="storyRating" [(ngModel)]="storyRating" class="rating-selector form-control">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -47,7 +47,7 @@
             </select>
             <br>
             <label>Characters:</label>
-            <select formControlName="charactersRating" class="rating-selector form-control">
+            <select formControlName="charactersRating" [(ngModel)]="charactersRating" class="rating-selector form-control">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -56,7 +56,7 @@
             </select>
             <br>
             <label>Dialogue:</label>
-            <select formControlName="dialogueRating" class="rating-selector form-control">
+            <select formControlName="dialogueRating" [(ngModel)]="dialogueRating" class="rating-selector form-control">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -65,7 +65,7 @@
             </select>
             <br>
             <label>Style:</label>
-            <select formControlName="styleRating" class="rating-selector form-control">
+            <select formControlName="styleRating" [(ngModel)]="styleRating" class="rating-selector form-control">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -74,7 +74,7 @@
             </select>
             <br>
             <label>Feel:</label>
-            <select formControlName="feelRating" class="rating-selector form-control">
+            <select formControlName="feelRating" [(ngModel)]="feelRating" class="rating-selector form-control">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -87,6 +87,7 @@
                 <div class="ripple-container"></div>
             </button>
         </form>
+        <simple-notifications [options]="notificationOptions"></simple-notifications>
         <div *ngIf="isPieceCommented" id="comments-list" >
             <div *ngFor="let comment of comments" class="single-comment card">
                 <p [innerHtml]="comment.content"></p>
