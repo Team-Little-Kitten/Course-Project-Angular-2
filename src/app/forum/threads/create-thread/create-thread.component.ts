@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { ThreadsService } from './../threads.service'
+
+import { NotificationsService } from './../../../../../node_modules/angular2-notifications';
 
 @Component({
     templateUrl: './create-thread.component.html',
@@ -13,7 +16,12 @@ export class CreateThreadComponent implements OnInit {
 
     public pieceBodyText: string = "Magic";
 
-    constructor(formBuilder: FormBuilder) {
+    private _threadsService: ThreadsService;
+    private _notificationService: NotificationsService;
+
+    constructor(formBuilder: FormBuilder, threadsService: ThreadsService, notificationService: NotificationsService) {
+        this._notificationService = notificationService;
+        this._threadsService = threadsService;
         this.fb = formBuilder;
         this.username = JSON.parse(localStorage.getItem('user')).result.username;
         this.options = { timeOut: 1500, pauseOnHover: true, showProgressBar: true, animate: 'scale', position: ['right', 'bottom'] };
@@ -36,6 +44,17 @@ export class CreateThreadComponent implements OnInit {
     }
 
     public createThread(): void {
-        console.log(this.createThreadForm.value);
+        this._threadsService
+            .postCreateThread(this.createThreadForm.value)
+            .subscribe(response => {
+                console.log(response)
+                if (response.message.type === 'error') {
+                    this._notificationService.error('Error', `${response.message.text}`);
+                } else {
+                    this._notificationService.success('success', `${response.message.text}`);
+                    // setTimeout(() => this._router.navigateByUrl('/login'), 1500);
+                }
+            },
+            err => console.log(err))
     }
 }

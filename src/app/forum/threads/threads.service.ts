@@ -33,11 +33,11 @@ export class ThreadsService {
             .map((res: Response) => res.json());
     }
 
-    public postCreateThread(categoryName: string): Observable<any> {
-        let category: Object = { category: { categoryName } };
+    public postCreateThread(thread: Object): Observable<any> {
+        let newThread: Object = { thread };
         let options: RequestOptions = this._httpOptionsService.getRequestOptions(true);
         return this._http
-            .post(RECIPES_BY_CATEGORY, category, options)
+            .post(POST_THREAD_URL, newThread, options)
             .map((res: Response) => res.json());
     }
 }
