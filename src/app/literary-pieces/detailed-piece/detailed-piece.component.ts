@@ -60,7 +60,7 @@ export class DetailedPieceComponent {
         this._route = route;
         this._formBuilder = formBuilder;
 
-        this.username = JSON.parse(localStorage.getItem('user')).result.username;
+        this.username = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')).result.username : null;
         this.comments = [];
         this.ratings = [];
         this.showCommentSection = false;
@@ -85,6 +85,14 @@ export class DetailedPieceComponent {
         return this.comments.length !== 0;
     }
 
+    public likeButtonVisible(comment: any): boolean {
+        return !comment.likedBy.includes(this.username) && this.username !== null && comment.author !== this.username;
+    }
+
+    public dislikeButtonVisible(comment: any): boolean {
+        return !comment.dislikedBy.includes(this.username) && this.username !== null && comment.author !== this.username;
+    }
+
     public likeComment(ev): void {
         let commentId = ev.target.nextSibling.nextSibling.innerHTML;
         this._pieceService
@@ -94,7 +102,7 @@ export class DetailedPieceComponent {
                         if (response.message.type === 'error') {
                             this._notificationService.create('Error', `${response.message.text}`, 'error');
                         } else {
-                            this._notificationService.create('Title', 'You have successfully liked comment', 'success');
+                            this._notificationService.create('Comment', 'You have successfully liked comment', 'success');
                             this.comments = response.updatedComments;
                         }
                     },
@@ -110,7 +118,7 @@ export class DetailedPieceComponent {
                         if (response.message.type === 'error') {
                             this._notificationService.create('Error', `${response.message.text}`, 'error');
                         } else {
-                            this._notificationService.create('Title', 'You have successfully disliked comment', 'success');
+                            this._notificationService.create('Comment', 'You have successfully disliked comment', 'success');
                             this.comments = response.updatedComments;
                         }
                     },

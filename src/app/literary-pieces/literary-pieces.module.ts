@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SimpleNotificationsModule, NotificationsService } from '../../../node_modules/angular2-notifications';
 
 import { FormatRatingPipe } from './../pipes/format-rating.pipe';
+
 import { SharedModule } from './../shared/shared.module';
 
 import {
