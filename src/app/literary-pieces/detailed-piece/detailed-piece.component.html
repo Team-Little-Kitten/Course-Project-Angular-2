@@ -15,11 +15,11 @@
                     <td>Feel</td>
                 </tr>
                 <tr>
-                    <td>{{averageStory}}</td>
-                    <td>{{averageCharacters}}</td>
-                    <td>{{averageDialogue}}</td>
-                    <td>{{averageStyle}}</td>
-                    <td>{{averageFeel}}</td>
+                    <td>{{averageStory  | formatRatingPipe}}</td>
+                    <td>{{averageCharacters | formatRatingPipe}}</td>
+                    <td>{{averageDialogue | formatRatingPipe}}</td>
+                    <td>{{averageStyle | formatRatingPipe}}</td>
+                    <td>{{averageFeel | formatRatingPipe}}</td>
                 </tr>
             </tbody>
         </table>
@@ -91,7 +91,7 @@
             <div *ngFor="let comment of comments" class="single-comment card">
                 <p [innerHtml]="comment.content"></p>
                 <span class="left">by {{comment.author}}</span>
-                <span class="right">average rating: {{comment.averageRating}}</span>
+                <span class="right">average rating: {{comment.averageRating | formatRatingPipe}}</span>
             </div>
         </div>
     </div>

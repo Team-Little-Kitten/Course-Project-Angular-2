@@ -5,9 +5,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SimpleNotificationsModule, NotificationsService } from '../../../node_modules/angular2-notifications';
 
-
+import { FormatRatingPipe } from './../pipes/format-rating.pipe';
 import { SharedModule } from './../shared/shared.module';
-import { TinyEditorComponent } from './../shared/tiny-editor.component'
+import { TinyEditorComponent } from './../shared/tiny-editor.component';
 
 import {
     EditPieceComponent,
@@ -31,7 +31,7 @@ import { HttpOptionsService, UserService } from '../common-services';
         PiecesListComponent,
         DetailedPieceComponent,
         PiecePreviewComponent,
-
+        FormatRatingPipe
       //  TinyEditorComponent
     ],
     imports: [
