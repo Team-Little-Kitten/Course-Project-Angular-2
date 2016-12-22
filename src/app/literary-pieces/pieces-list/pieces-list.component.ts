@@ -12,17 +12,23 @@ import { LiteraryPiecesService } from '../literary-pieces.service';
 
 // should be on init
 export class PiecesListComponent {
-    public pieces: ILiteraryPiece[];
+    public piecesByDate: ILiteraryPiece[];
+    public piecesByRating: ILiteraryPiece[];
     private _pieceService: LiteraryPiecesService;
 
     constructor(pieceService: LiteraryPiecesService) {
-        this.pieces = [];
+        this.piecesByDate = [];
+        this.piecesByRating = [];
         this._pieceService = pieceService;
     }
 
     public ngOnInit(): void {
         this._pieceService
             .getPiecesForHomepage()
-            .subscribe(resultPieces => this.pieces = resultPieces, error => console.log(error));
+            .subscribe(resultPieces => {
+                this.piecesByDate = resultPieces.filteredPiecesByDate;
+                this.piecesByRating = resultPieces.filteredPiecesByRating;
+
+            }, error => console.log(error));
     }
 }

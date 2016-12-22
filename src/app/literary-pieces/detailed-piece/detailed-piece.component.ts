@@ -190,25 +190,27 @@ export class DetailedPieceComponent {
         this.averageStyle = 0;
         this.averageFeel = 0;
 
-        let len = this._ratings.length;
-        for (let i = 0; i < len; i += 1) {
-            this.averageStory += +this._ratings[i].story;
-            this.averageCharacters += +this._ratings[i].characters;
-            this.averageDialogue += +this._ratings[i].dialogue;
-            this.averageStyle += +this._ratings[i].style;
-            this.averageFeel += +this._ratings[i].feel;
+        let ratingArratLength = this._ratings.length;
+        if (ratingArratLength) {
+            for (let i = 0; i < ratingArratLength; i += 1) {
+                this.averageStory += +this._ratings[i].story;
+                this.averageCharacters += +this._ratings[i].characters;
+                this.averageDialogue += +this._ratings[i].dialogue;
+                this.averageStyle += +this._ratings[i].style;
+                this.averageFeel += +this._ratings[i].feel;
+            }
+
+            this.averageStory /= ratingArratLength;
+            this.averageCharacters /= ratingArratLength;
+            this.averageDialogue /= ratingArratLength;
+            this.averageStyle /= ratingArratLength;
+            this.averageFeel /= ratingArratLength;
+
+            this.averageStory = Math.round(this.averageStory * 10 ) / 10;
+            this.averageCharacters = Math.round(this.averageCharacters * 10 ) / 10;
+            this.averageDialogue = Math.round(this.averageDialogue * 10 ) / 10;
+            this.averageStyle = Math.round(this.averageStyle * 10 ) / 10;
+            this.averageFeel = Math.round(this.averageFeel * 10 ) / 10;
         }
-
-        this.averageStory /= len;
-        this.averageCharacters /= len;
-        this.averageDialogue /= len;
-        this.averageStyle /= len;
-        this.averageFeel /= len;
-
-        this.averageStory = Math.round(this.averageStory * 10 ) / 10;
-        this.averageCharacters = Math.round(this.averageCharacters * 10 ) / 10;
-        this.averageDialogue = Math.round(this.averageDialogue * 10 ) / 10;
-        this.averageStyle = Math.round(this.averageStyle * 10 ) / 10;
-        this.averageFeel = Math.round(this.averageFeel * 10 ) / 10;
     }
 }

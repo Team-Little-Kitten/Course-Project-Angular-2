@@ -91,7 +91,7 @@
             <div *ngFor="let comment of comments" class="single-comment card">
                 <p [innerHtml]="comment.content"></p>
                 <span class="left">by {{comment.author}}</span>
-                <span class="right">rating: {{comment.averageRating}}</span>
+                <span class="right">average rating: {{comment.averageRating}}</span>
             </div>
         </div>
     </div>

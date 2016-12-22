@@ -1,9 +1,10 @@
 <h2> NEWEST</h2>
 <div class="row">
-    <div single-piece *ngFor="let piece of pieces" [piece]="piece" class="single-piece-container col-md-4">
+    <div single-piece *ngFor="let piece of piecesByDate" [piece]="piece" class="single-piece-container col-md-4">
     </div>
 </div>
 <h2>TOP RATED</h2>
-<span>to do</span>
-<!--<div single-piece *ngFor="let piece of pieces" [piece]="piece">
-    </div>-->
+<div class="row">
+    <div single-piece *ngFor="let piece of piecesByRating" [piece]="piece" class="single-piece-container col-md-4">
+    </div>
+</div>
