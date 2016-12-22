@@ -1,0 +1,30 @@
+<div id="single-thread-container">
+    <div class="card card-nav-tabs">
+        <div class="header header-success">
+            <div class="nav-tabs-navigation">
+                <div class="nav-tabs-wrapper">
+                    <h3>{{thread.title}}</h3>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            {{thread.content}}
+        </div>
+        <div>
+            <hr>
+            <div class="thread-links">
+                <a routerLink="/forum/threads/{{thread.category}}">{{thread.category}}</a>
+                <a routerLink="/user/{{thread.author._id}}">{{thread.author.username}}</a>
+            </div>
+        </div>
+        <div>
+            <div class="main main-raised comments-container" *ngIf="thread.comments">
+                <div *ngFor="let comment of thread.comments">
+                    <p>{{comment.content}}</p>
+                    <a routerLink="/user/{{comment.author._id}}">{{comment.author.username}}</a>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

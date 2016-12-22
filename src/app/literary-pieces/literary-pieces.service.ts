@@ -71,7 +71,7 @@ export class LiteraryPiecesService {
             .map((response: Response) => <ILiteraryPiece>response.json()[0]);
     }
 
-    public getPiecesForHomepage(): Observable<ILiteraryPiece[]> {
+    public getPiecesForHomepage(): Observable<any> {
         return this._http
             .get(GET_PIECES_FOR_HOMEPAGE_URL)
             .map((response: Response) => response.json());

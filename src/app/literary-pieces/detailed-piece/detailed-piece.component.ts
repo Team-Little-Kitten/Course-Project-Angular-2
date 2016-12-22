@@ -27,12 +27,17 @@ export class DetailedPieceComponent {
     private _author: string;
     private _genre: string;
     private _body: string;
-    private _comments: string[];
+    private _comments: any[];
     private _ratings: any[];
     private _isUserLoggedIn: boolean;
     private _showCommentSection: boolean;
     private _commentBodyText: string;
-    private _username: string;
+    private _username: string = null;
+    private _storyRating: string;
+    private _charactersRating: string;
+    private _dialogueRating: string;
+    private _styleRating: string;
+    private _feelRating: string;
 
     private _pieceService: LiteraryPiecesService;
     private _authService: AuthService;
@@ -83,8 +88,17 @@ export class DetailedPieceComponent {
         return this._showCommentSection;
     }
 
-    get isUserLoggedIn() {
-        return this._authService.isLoggedIn();
+    get canUserComment(): boolean {
+        let isUserLoggedIn = this._authService.isLoggedIn();
+        let userCommented: boolean = false;
+        for (let i = 0; i < this._comments.length; i += 1) {
+            if (this._comments[i].author === this._username) {
+                userCommented = true;
+                break;
+            }
+        }
+
+        return isUserLoggedIn && !userCommented;
     }
 
     get isPieceCommented() {
@@ -99,10 +113,29 @@ export class DetailedPieceComponent {
         this._commentBodyText = value;
     }
 
-    public onChange(value: string): void {
+    public onChangeCommentBodyText(value: string): void {
         this._commentBodyText = value;
     }
 
+    public onChangeStory(value: string): void {
+        this._storyRating = value;
+    }
+
+    public onChangeCharacters(value: string): void {
+        this._charactersRating = value;
+    }
+
+    public onChangeDialgue(value: string): void {
+        this._dialogueRating = value;
+    }
+
+    public onChangeStyle(value: string): void {
+        this._styleRating = value;
+    }
+
+    public onChangeFeel(value: string): void {
+        this._feelRating = value;
+    }
     public addComment(): void {
         this._pieceService
             .addComment(this.commentForm.value)
@@ -113,8 +146,9 @@ export class DetailedPieceComponent {
                 } else {
                     this._notificationService.create('Title', 'You have successfully added comment', 'success');
                     this._comments = response.updatedComments;
+                    this._ratings = response.updatedRatings;
+                    this.calculateAverageRatins();
                     this.toggleCommentSection();
-                    // setTimeout(() => this._router.navigateByUrl('/login'), 1500);
                 }
             },
             err => console.log(err));
@@ -140,7 +174,12 @@ export class DetailedPieceComponent {
         this.commentForm = this._formBuilder.group({
             id: this._id,
             commentBody: this._commentBodyText,
-            author: this._username
+            author: this._username,
+            storyRating: this._storyRating,
+            charactersRating: this._charactersRating,
+            dialogueRating: this._dialogueRating,
+            styleRating: this._styleRating,
+            feelRating: this._feelRating
         });
     }
 
@@ -151,25 +190,27 @@ export class DetailedPieceComponent {
         this.averageStyle = 0;
         this.averageFeel = 0;
 
-        let len = this._ratings.length;
-        for (let i = 0; i < len; i += 1) {
-            this.averageStory += +this._ratings[i].story;
-            this.averageCharacters += +this._ratings[i].characters;
-            this.averageDialogue += +this._ratings[i].dialogue;
-            this.averageStyle += +this._ratings[i].style;
-            this.averageFeel += +this._ratings[i].feel;
+        let ratingArratLength = this._ratings.length;
+        if (ratingArratLength) {
+            for (let i = 0; i < ratingArratLength; i += 1) {
+                this.averageStory += +this._ratings[i].story;
+                this.averageCharacters += +this._ratings[i].characters;
+                this.averageDialogue += +this._ratings[i].dialogue;
+                this.averageStyle += +this._ratings[i].style;
+                this.averageFeel += +this._ratings[i].feel;
+            }
+
+            this.averageStory /= ratingArratLength;
+            this.averageCharacters /= ratingArratLength;
+            this.averageDialogue /= ratingArratLength;
+            this.averageStyle /= ratingArratLength;
+            this.averageFeel /= ratingArratLength;
+
+            this.averageStory = Math.round(this.averageStory * 10 ) / 10;
+            this.averageCharacters = Math.round(this.averageCharacters * 10 ) / 10;
+            this.averageDialogue = Math.round(this.averageDialogue * 10 ) / 10;
+            this.averageStyle = Math.round(this.averageStyle * 10 ) / 10;
+            this.averageFeel = Math.round(this.averageFeel * 10 ) / 10;
         }
-
-        this.averageStory /= len;
-        this.averageCharacters /= len;
-        this.averageDialogue /= len;
-        this.averageStyle /= len;
-        this.averageFeel /= len;
-
-        this.averageStory = Math.round(this.averageStory * 10 ) / 10;
-        this.averageCharacters = Math.round(this.averageCharacters * 10 ) / 10;
-        this.averageDialogue = Math.round(this.averageDialogue * 10 ) / 10;
-        this.averageStyle = Math.round(this.averageStyle * 10 ) / 10;
-        this.averageFeel = Math.round(this.averageFeel * 10 ) / 10;
     }
 }
