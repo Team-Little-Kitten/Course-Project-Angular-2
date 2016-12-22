@@ -27,12 +27,12 @@ export class DetailedPieceComponent {
     private _author: string;
     private _genre: string;
     private _body: string;
-    private _comments: string[];
+    private _comments: any[];
     private _ratings: any[];
     private _isUserLoggedIn: boolean;
     private _showCommentSection: boolean;
     private _commentBodyText: string;
-    private _username: string;
+    private _username: string = null;
     private _storyRating: string;
     private _charactersRating: string;
     private _dialogueRating: string;
@@ -88,8 +88,17 @@ export class DetailedPieceComponent {
         return this._showCommentSection;
     }
 
-    get isUserLoggedIn() {
-        return this._authService.isLoggedIn();
+    get canUserComment(): boolean {
+        let isUserLoggedIn = this._authService.isLoggedIn();
+        let userCommented: boolean = false;
+        for (let i = 0; i < this._comments.length; i += 1) {
+            if (this._comments[i].author === this._username) {
+                userCommented = true;
+                break;
+            }
+        }
+
+        return isUserLoggedIn && !userCommented;
     }
 
     get isPieceCommented() {

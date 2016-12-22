@@ -26,7 +26,7 @@
     </div>  
     <div id="comments-holder">
         <span class="left">Comments: {{comments.length}}</span>
-        <button *ngIf="isUserLoggedIn" type="submit" class="right btn btn-success btn-round" (click)="toggleCommentSection()">
+        <button *ngIf="canUserComment" type="submit" class="right btn btn-success btn-round" (click)="toggleCommentSection()">
             <i class="material-icons">comment</i> Leave comment 
         </button>
         <form [formGroup]="commentForm" *ngIf="showCommentSection" id="create-comment-form" class="clearfix" (ngSubmit)="addComment()">
@@ -90,7 +90,8 @@
         <div *ngIf="isPieceCommented" id="comments-list" >
             <div *ngFor="let comment of comments" class="single-comment card">
                 <p [innerHtml]="comment.content"></p>
-                <span>by <strong>{{comment.author}}</strong></span>
+                <span class="left">by {{comment.author}}</span>
+                <span class="right">rating: {{comment.averageRating}}</span>
             </div>
         </div>
     </div>
