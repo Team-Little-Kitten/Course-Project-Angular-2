@@ -1,10 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { NotificationsService } from '../../../../node_modules/angular2-notifications';
 
+import { NotificationsService } from '../../../../node_modules/angular2-notifications';
 import { LiteraryPiecesService } from './../literary-pieces.service';
-import { TinyEditorComponent } from './../tiny-editor.component';
 
 const MIN_TITLE_LENGHT = 10;
 const MAX_TITLE_LENGHT = 35;

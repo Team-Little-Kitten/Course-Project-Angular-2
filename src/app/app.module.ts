@@ -17,9 +17,15 @@ import { LiteraryPieceModule, LiteraryPiecesService } from './literary-pieces';
 import { ForumModule } from './forum';
 import { HttpOptionsService } from './common-services/http-options.service';
 
+// import { TinyEditorComponent } from './shared/tiny-editor.component';
+
+import { SharedModule } from './shared/shared.module';
 @NgModule({
     bootstrap: [AppComponent],
-    declarations: [AppComponent],
+    declarations: [
+        AppComponent,
+        //  TinyEditorComponent
+    ],
     imports: [
         BrowserModule,
         RouterModule.forRoot(APP_ROUTES),
@@ -28,8 +34,10 @@ import { HttpOptionsService } from './common-services/http-options.service';
         ProfileModule,
         LiteraryPieceModule,
         SearchModule,
-        ForumModule
+        ForumModule,
+        SharedModule
     ],
-    providers: [AuthService, UserService, LiteraryPiecesService, GuardIsLoggedUser, HttpOptionsService]
+    providers: [AuthService, UserService, LiteraryPiecesService, GuardIsLoggedUser, HttpOptionsService],
+    // exports: [TinyEditorComponent]
 })
 export class AppModule { }

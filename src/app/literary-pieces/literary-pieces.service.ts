@@ -40,7 +40,7 @@ export class LiteraryPiecesService {
             .map((response: Response) => response.json());
     }
 
-    public createPiece(data: Object, pieceImageDataUrl: string): Observable<string> {
+    public createPiece(data: any, pieceImageDataUrl: string): Observable<string> {
         data.imageDataUrl = pieceImageDataUrl;
         console.log(data);
         let pieceToCreate: string = JSON.stringify(data);
@@ -50,7 +50,7 @@ export class LiteraryPiecesService {
             .map((response: Response) => response.json());
     }
 
-    public updatePiece(id: string, piece: Object, pieceImageDataUrl: string): Observable<string> {
+    public updatePiece(id: string, piece: any, pieceImageDataUrl: string): Observable<string> {
         let url = `${POST_PIECE_UPDATE}?id=${id}`;
         piece.imageDataUrl = pieceImageDataUrl;
         let data: string = JSON.stringify(piece);

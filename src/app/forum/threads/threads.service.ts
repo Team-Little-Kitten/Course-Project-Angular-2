@@ -5,6 +5,7 @@ import { HttpOptionsService } from '../../common-services/http-options.service';
 
 const RECIPE_BY_TITLE_URL: string = 'http://localhost:8080/forum/threads/findByTitle';
 const RECIPES_BY_CATEGORY: string = 'http://localhost:8080/forum/threads/findByCategory';
+const POST_THREAD_URL: string = 'http://localhost:8080/forum/threads/create';
 
 @Injectable()
 export class ThreadsService {
@@ -25,6 +26,14 @@ export class ThreadsService {
     }
 
     public getThreadsByCategory(categoryName: string): Observable<any> {
+        let category: Object = { category: { categoryName } };
+        let options: RequestOptions = this._httpOptionsService.getRequestOptions(true);
+        return this._http
+            .post(RECIPES_BY_CATEGORY, category, options)
+            .map((res: Response) => res.json());
+    }
+
+    public postCreateThread(categoryName: string): Observable<any> {
         let category: Object = { category: { categoryName } };
         let options: RequestOptions = this._httpOptionsService.getRequestOptions(true);
         return this._http

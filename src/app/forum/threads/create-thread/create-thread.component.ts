@@ -11,6 +11,8 @@ export class CreateThreadComponent implements OnInit {
     public options: Object;
     public username: string;
 
+    public pieceBodyText: string;
+
     constructor(formBuilder: FormBuilder) {
         this.fb = formBuilder;
         this.username = JSON.parse(localStorage.getItem('user')).result.username;
@@ -23,6 +25,14 @@ export class CreateThreadComponent implements OnInit {
             content: ['Thread content', Validators.required],
             author: [this.username]
         });
+    }
+
+    public keyupHandlerFunction(value: string): void {
+        this.pieceBodyText = value;
+    }
+
+    public onChange(value: string): void {
+        this.pieceBodyText = value;
     }
 
     public createThread(): void {

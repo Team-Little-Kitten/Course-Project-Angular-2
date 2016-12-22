@@ -6,8 +6,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SimpleNotificationsModule, NotificationsService } from '../../../node_modules/angular2-notifications';
 
 
-import { TinyEditorComponent } from './tiny-editor.component';
-import { TinymceEditorDirective } from './../directives/tiny-editor.directive';
+import { SharedModule } from './../shared/shared.module';
+import { TinyEditorComponent } from './../shared/tiny-editor.component'
+
 import {
     EditPieceComponent,
     PiecePreviewComponent,
@@ -31,7 +32,7 @@ import { HttpOptionsService, UserService } from '../common-services';
         DetailedPieceComponent,
         PiecePreviewComponent,
 
-        TinyEditorComponent
+      //  TinyEditorComponent
     ],
     imports: [
         HttpModule,
@@ -39,7 +40,8 @@ import { HttpOptionsService, UserService } from '../common-services';
         ReactiveFormsModule,
         RouterModule,
         SimpleNotificationsModule,
-        CommonModule
+        CommonModule,
+        //SharedModule
     ],
     exports: [PiecesListComponent],
     providers: [LiteraryPiecesService, NotificationsService, HttpOptionsService, UserService]

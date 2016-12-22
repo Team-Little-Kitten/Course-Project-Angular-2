@@ -13,8 +13,10 @@
         <div class="form-group" [ngClass]="{'has-error':!createThreadForm.controls['content'].valid && createThreadForm.controls['content'].touched}">
             <label for="tb-title">Thread Body</label>
             <br />
-            <textarea formControlName="content">
-        </textarea>
+            <!--<simple-tiny [elementId]="'my-editor-id'" formControlName="content" ngDefaultControl [(ngModel)]="pieceBodyText" (ngModelChange)="onChange($event)"
+                (onEditorKeyup)="keyupHandlerFunction($event)">
+            </simple-tiny>
+            <!--<textarea formControlName="content">        </textarea>-->
             <br />
             <div class="alert alert-danger" *ngIf="!createThreadForm.controls['content'].valid && createThreadForm.controls['content'].touched">
                 Piece body must be between x and y characters.

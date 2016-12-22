@@ -15,11 +15,15 @@ declare var tinymce: any;
     template: `<textarea id="{{elementId}}" [(ngModel)]="pieceBodyText"></textarea>`
 })
 export class TinyEditorComponent implements AfterViewInit, OnDestroy {
-    @Input() elementId: String;
-    @Input() ngModel: String;
+    @Input() elementId: string;
+    @Input() ngModel: string;
     @Output() onEditorKeyup = new EventEmitter<any>();
 
     editor;
+
+    constructor() {
+        console.log("mce")
+    }
 
     onChange(value) {
         console.log(value)
