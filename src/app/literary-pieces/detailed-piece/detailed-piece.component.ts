@@ -32,7 +32,7 @@ export class DetailedPieceComponent {
     public ratings: any[];
     public isUserLoggedIn: boolean;
     public showCommentSection: boolean;
-    public commentBodyText: string;
+    public pieceBodyText: string = 'Enter your comment here.';
     public username: string = null;
     public storyRating: string;
     public charactersRating: string;
@@ -90,11 +90,11 @@ export class DetailedPieceComponent {
     }
 
     public keyupHandlerFunction(value: string): void {
-        this.commentBodyText = value;
+        this.pieceBodyText = value;
     }
 
-    public onChangeCommentBodyText(value: string): void {
-        this.commentBodyText = value;
+    public onChange(value){
+        this.pieceBodyText = value;
     }
 
     public addComment(): void {
@@ -138,7 +138,7 @@ export class DetailedPieceComponent {
 
         this.commentForm = this._formBuilder.group({
             id: this.id,
-            commentBody: this.commentBodyText,
+            commentBody: this.pieceBodyText,
             author: this.username,
             storyRating: this.storyRating,
             charactersRating: this.charactersRating,
@@ -154,7 +154,7 @@ export class DetailedPieceComponent {
             !this.dialogueRating ||
             !this.styleRating ||
             !this.feelRating ||
-            !this.commentBodyText) {
+            !this.pieceBodyText) {
                 return false;
             }
         else {
