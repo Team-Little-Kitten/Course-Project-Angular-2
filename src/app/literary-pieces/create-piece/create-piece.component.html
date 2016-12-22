@@ -50,11 +50,10 @@
         <div class="form-group" [ngClass]="{'has-error':!createPieceForm.controls['pieceBody'].valid && createPieceForm.controls['pieceBody'].touched}">
             <label for="tb-title">Piece Body</label>
             <br />
-            <simple-tiny> </simple-tiny>
             <!--            <simple-tiny elementId="'my-editor-id'" formControlName="pieceBody" ngDefaultControl [(ngModel)]="pieceBodyText" (ngModelChange)="onChange($event)"
                 (onEditorKeyup)="keyupHandlerFunction($event)">
-            </simple-tiny>
-    --><br />
+            </simple-tiny> -->
+            <br />
             <div class="alert alert-danger" *ngIf="!createPieceForm.controls['pieceBody'].valid && createPieceForm.controls['pieceBody'].touched">
                 Piece body must be between x and y characters.
             </div>
