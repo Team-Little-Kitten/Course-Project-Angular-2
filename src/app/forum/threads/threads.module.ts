@@ -10,9 +10,11 @@ import { ThreadsListComponent } from './threads-list/threads-list.component';
 import { ThreadsService } from './threads.service';
 import { SingleThreadComponent } from './single-thread/single-thread.component';
 
+import { SharedModule } from './../../shared/shared.module'
+
 @NgModule({
     declarations: [ThreadComponent, CreateThreadComponent, ThreadsListComponent, SingleThreadComponent],
-    imports: [FormsModule, ReactiveFormsModule, CommonModule, SimpleNotificationsModule, RouterModule],
+    imports: [FormsModule, ReactiveFormsModule, CommonModule, SimpleNotificationsModule, RouterModule, SharedModule],
     exports: [ThreadComponent, CreateThreadComponent],
     providers: [ThreadsService, NotificationsService]
 })
