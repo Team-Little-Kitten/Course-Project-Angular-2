@@ -43,7 +43,7 @@ export class UserService {
         return this._isUserObjectUpdatedSubject.asObservable();
     }
 
-    public getUserData(userId: string): Observable<string> {
+    public getUserData(userId: string): Observable<any> {
         let url = `${USER_URL}${userId}`;
         return this._http.get(url).map((response: Response) => response.json());
     }

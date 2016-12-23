@@ -18,6 +18,11 @@ export class ProfileComponent implements OnInit {
     constructor(userService: UserService) {
         this._userService = userService;
         this.user = JSON.parse(localStorage.getItem('user')).result;
+        let userId = JSON.parse(localStorage.getItem('user')).result._id;
+        this._userService.getUserData(userId)
+            .subscribe(resultUser => {
+                this.user = resultUser.result;
+            });
     }
 
     public ngOnInit(): void {

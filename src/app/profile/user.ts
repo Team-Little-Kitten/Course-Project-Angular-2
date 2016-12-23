@@ -6,4 +6,6 @@ export interface IUser {
     imageDataUrl: string;
     signature: string;
     username: string;
+    rating: number;
+    rank: string;
 }

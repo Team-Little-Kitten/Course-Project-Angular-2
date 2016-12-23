@@ -93,10 +93,12 @@ export class DetailedPieceComponent {
         return !comment.dislikedBy.includes(this.username) && this.username !== null && comment.author !== this.username;
     }
 
-    public likeComment(ev): void {
-        let commentId = ev.target.nextSibling.nextSibling.innerHTML;
+    public likeComment(ev, comment): void {
+        //let commentId = ev.target.nextSibling.nextSibling.innerHTML;
+        let commentId = comment._id;
+        let commentAuthor = comment.author;
         this._pieceService
-            .likeComment(this.id, commentId, this.username)
+            .likeComment(this.id, commentId, this.username, commentAuthor)
             .subscribe(
                 response => {
                         if (response.message.type === 'error') {
@@ -109,10 +111,12 @@ export class DetailedPieceComponent {
                     err => console.log(err));
     }
 
-    public dislikeComment(ev): void {
-        let commentId = ev.target.nextSibling.nextSibling.innerHTML;
+    public dislikeComment(ev, comment): void {
+        //let commentId = ev.target.nextSibling.nextSibling.innerHTML;
+        let commentId = comment._id;
+        let commentAuthor = comment.author;
         this._pieceService
-            .dislikeComment(this.id, commentId, this.username)
+            .dislikeComment(this.id, commentId, this.username, commentAuthor)
             .subscribe(
                 response => {
                         if (response.message.type === 'error') {

@@ -87,17 +87,17 @@ export class LiteraryPiecesService {
             .map((response: Response) => response.json());
     }
 
-    public likeComment(pieceId: string, commentId: string, currentUser: string): Observable<any> {
+    public likeComment(pieceId: string, commentId: string, currentUser: string, commentAuthor: string): Observable<any> {
         let options: RequestOptions = this._httpOptionsService.getRequestOptions(true);
         return this._http
-            .post(LIKE_COMMENT_URL, { pieceId, commentId, currentUser }, options)
+            .post(LIKE_COMMENT_URL, { pieceId, commentId, currentUser, commentAuthor }, options)
             .map((response: Response) => response.json());
     }
 
-    public dislikeComment(pieceId: string, commentId: string, currentUser: string): Observable<any> {
+    public dislikeComment(pieceId: string, commentId: string, currentUser: string, commentAuthor: string): Observable<any> {
         let options: RequestOptions = this._httpOptionsService.getRequestOptions(true);
         return this._http
-            .post(DISLIKE_COMMENT_URL, { pieceId, commentId, currentUser }, options)
+            .post(DISLIKE_COMMENT_URL, { pieceId, commentId, currentUser, commentAuthor }, options)
             .map((response: Response) => response.json());
     }
 }
