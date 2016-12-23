@@ -4,4 +4,11 @@ import { Component } from '@angular/core';
     templateUrl: './forum.component.html',
     styleUrls: ['./forum.component.css']
 })
-export class ForumComponent { }
+export class ForumComponent {
+    public isLoggedIn: boolean;
+
+    constructor() {
+        this.isLoggedIn = !!localStorage.getItem('user');
+    }
+ }
+ 

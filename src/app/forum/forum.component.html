@@ -1,8 +1,29 @@
 <div id="forum-threads-container">
-    <a class="btn btn-info btn-lg" [routerLink]="['/forum/threads/create']">Create Thread</a>
-    <a [routerLink]="['/forum/threads/userSuggestions']">User Suggestions</a>
-    <a [routerLink]="['/forum/threads/commentAuthors']">Comment Authors</a>
-    <a [routerLink]="['/forum/threads/lessons']">Lessons</a>
-    <a [routerLink]="['/forum/threads/writeABookPreview']">Write a Book Review</a>
-    <a [routerLink]="['/forum/threads/fun']">Fun</a>
+    <button id="btn-add-thread" *ngIf="isLoggedIn" [routerLink]="['/forum/threads/create']" type="button" class="btn btn-lg btn-fab btn-fab-mini btn-round btn-info btn-tooltip" data-toggle="tooltip" data-placement="right"
+        title="" data-container="body" data-original-title="Add Thread">
+        <i class="material-icons">border_color</i>
+        <div class="ripple-container"></div>
+    </button>
+    <div id="categories-container">
+        <h1>Categories</h1>
+        <a [routerLink]="['/forum/threads/userSuggestions']">
+            <i class="material-icons">accessibility</i>&nbsp; User Suggestions
+        </a>
+        <hr>
+        <a [routerLink]="['/forum/threads/commentAuthors']">
+            <i class="material-icons">face</i>&nbsp; Comment Authors
+        </a>
+        <hr>
+        <a [routerLink]="['/forum/threads/lessons']">
+            <i class="material-icons">book</i>&nbsp; Lessons
+        </a>
+        <hr>
+        <a [routerLink]="['/forum/threads/writeABookPreview']">
+            <i class="material-icons">pageview</i>&nbsp; Write a Book Review
+        </a>
+        <hr>
+        <a [routerLink]="['/forum/threads/fun']">
+            <i class="material-icons">card_giftcard</i>&nbsp; Fun
+        </a>
+    </div>
 </div>
