@@ -5,17 +5,18 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 
 import { APP_ROUTES } from './app.routes';
+
 import { HomeModule } from './home';
 import { AuthModule, AuthService } from './auth';
+import { LiteraryPieceModule, LiteraryPiecesService } from './literary-pieces';
 import { ProfileModule } from './profile';
 import { SearchModule } from './search';
+import { ForumModule } from './forum';
+import { LibraryModule } from './library';
 
 import { UserService } from './common-services';
-import { GuardIsLoggedUser } from './route-guards';
-
-import { LiteraryPieceModule, LiteraryPiecesService } from './literary-pieces';
-import { ForumModule } from './forum';
 import { HttpOptionsService } from './common-services/http-options.service';
+import { GuardIsLoggedUser } from './route-guards';
 
 // import { TinyEditorComponent } from './shared/tiny-editor.component';
 
@@ -35,6 +36,7 @@ import { SharedModule } from './shared/shared.module';
         LiteraryPieceModule,
         SearchModule,
         ForumModule,
+        LibraryModule
     ],
     providers: [AuthService, UserService, LiteraryPiecesService, GuardIsLoggedUser, HttpOptionsService],
     // exports: [TinyEditorComponent]

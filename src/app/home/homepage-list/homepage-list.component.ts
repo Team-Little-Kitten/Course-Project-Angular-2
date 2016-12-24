@@ -26,7 +26,6 @@ export class HomepageListComponent {
             .subscribe(resultPieces => {
                 this.piecesByDate = resultPieces.filteredPiecesByDate;
                 this.piecesByRating = resultPieces.filteredPiecesByRating;
-                console.log(this.piecesByDate);
             }, error => console.log(error));
     }
 }
