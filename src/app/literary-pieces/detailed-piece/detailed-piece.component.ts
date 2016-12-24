@@ -94,7 +94,6 @@ export class DetailedPieceComponent {
     }
 
     public likeComment(ev, comment): void {
-        //let commentId = ev.target.nextSibling.nextSibling.innerHTML;
         let commentId = comment._id;
         let commentAuthor = comment.author;
         this._pieceService
@@ -112,7 +111,6 @@ export class DetailedPieceComponent {
     }
 
     public dislikeComment(ev, comment): void {
-        //let commentId = ev.target.nextSibling.nextSibling.innerHTML;
         let commentId = comment._id;
         let commentAuthor = comment.author;
         this._pieceService
@@ -177,19 +175,20 @@ export class DetailedPieceComponent {
                         this.comments = piece.comments;
                         this.ratings = piece.ratings;
                         this.calculateAverageRatings();
+
+                        this.commentForm = this._formBuilder.group({
+                            id: this.id,
+                            commentBody: this.pieceBodyText,
+                            author: this.username,
+                            pieceAuthor: this.author,
+                            storyRating: this.storyRating,
+                            charactersRating: this.charactersRating,
+                            dialogueRating: this.dialogueRating,
+                            styleRating: this.styleRating,
+                            feelRating: this.feelRating
+                        });
                     });
             });
-
-        this.commentForm = this._formBuilder.group({
-            id: this.id,
-            commentBody: this.pieceBodyText,
-            author: this.username,
-            storyRating: this.storyRating,
-            charactersRating: this.charactersRating,
-            dialogueRating: this.dialogueRating,
-            styleRating: this.styleRating,
-            feelRating: this.feelRating
-        });
     }
 
     private validateFormValue(): boolean {

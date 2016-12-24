@@ -12,7 +12,8 @@ import { LiteraryPieceModule, LiteraryPiecesService } from './literary-pieces';
 import { ProfileModule } from './profile';
 import { SearchModule } from './search';
 import { ForumModule } from './forum';
-import { LibraryModule } from './library';
+import { LibraryModule, LibrarySharedService } from './library';
+import { WritersModule, WritersSharedService } from './writers';
 
 import { UserService } from './common-services';
 import { HttpOptionsService } from './common-services/http-options.service';
@@ -36,9 +37,18 @@ import { SharedModule } from './shared/shared.module';
         LiteraryPieceModule,
         SearchModule,
         ForumModule,
-        LibraryModule
+        LibraryModule,
+        WritersModule
     ],
-    providers: [AuthService, UserService, LiteraryPiecesService, GuardIsLoggedUser, HttpOptionsService],
+    providers: [
+        AuthService,
+        UserService,
+        LiteraryPiecesService,
+        GuardIsLoggedUser,
+        HttpOptionsService,
+        LibrarySharedService,
+        WritersSharedService
+    ],
     // exports: [TinyEditorComponent]
 })
 export class AppModule { }

@@ -1,0 +1,15 @@
+<div class="writers-holder">
+    <h2>ALL OF THEM</h2>
+    <div *ngFor="let user of users" class="card">
+        <img src="{{user.imageDataUrl}}">
+        <div class="info-holder">
+            <a class="username-link" routerLink="/user/{{user._id}}">{{user.username}}</a>
+            <br>
+            <span>Writer points: {{user.writerRating}}</span>
+            <br>
+            <span>Critiques rank: {{user.rank}}</span>
+            <br>
+            <span>Critiques rating: {{user.critiqueRating}}</span>
+        </div>
+    </div>
+</div>

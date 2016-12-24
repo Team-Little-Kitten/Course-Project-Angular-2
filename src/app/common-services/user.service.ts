@@ -6,6 +6,7 @@ import { Subject } from 'rxjs/Subject';
 import { HttpOptionsService } from '../common-services';
 
 const USER_URL = 'http://localhost:8080/users/';
+const USERS_ALL_URL = 'http://localhost:8080/users/all';
 
 @Injectable()
 export class UserService {
@@ -45,6 +46,11 @@ export class UserService {
 
     public getUserData(userId: string): Observable<any> {
         let url = `${USER_URL}${userId}`;
+        return this._http.get(url).map((response: Response) => response.json());
+    }
+
+    public getAllUsersData(): Observable<any> {
+        let url = USERS_ALL_URL;
         return this._http.get(url).map((response: Response) => response.json());
     }
 

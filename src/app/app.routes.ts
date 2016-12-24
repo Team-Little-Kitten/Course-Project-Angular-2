@@ -1,6 +1,17 @@
 import { Routes } from '@angular/router';
+
 import { RegisterComponent, LoginComponent } from './auth';
-import { LibraryMainComponent } from './library';
+import {
+    LibraryMainComponent,
+    LibraryAllComponent,
+    LibraryDramaComponent,
+    LibraryPoetryComponent,
+    LibraryStoriesComponent
+} from './library';
+import {
+    WritersMainComponent,
+    WritersAllComponent
+} from './writers';
 import { HomeComponent } from './home';
 import { ProfileComponent, AdditionalInfoComponent, FriendsComponent, WorksComponent, OtherUserProfileComponent } from './profile';
 import { GuardIsLoggedUser } from './route-guards';
@@ -17,7 +28,23 @@ import { ForumComponent, CreateThreadComponent, ThreadsListComponent, SingleThre
 
 export const APP_ROUTES: Routes = [
     { path: '', component: HomeComponent },
-    { path: 'library', component: LibraryMainComponent },
+    { path: 'library',
+        component: LibraryMainComponent,
+        children: [
+            { path: 'all', component: LibraryAllComponent },
+            { path: 'drama', component: LibraryDramaComponent },
+            { path: 'poetry', component: LibraryPoetryComponent },
+            { path: 'stories', component: LibraryStoriesComponent }
+        ]
+    },
+    { path: 'writers',
+        component: WritersMainComponent,
+        children: [
+            { path: 'all', component: WritersAllComponent },
+            { path: 'writers', component: null },
+            { path: 'critiques', component: null },
+        ]
+    },
     { path: 'register', component: RegisterComponent },
     { path: 'login', component: LoginComponent },
     {

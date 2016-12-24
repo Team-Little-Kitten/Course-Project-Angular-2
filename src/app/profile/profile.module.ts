@@ -20,7 +20,8 @@ import { LiteraryPiecesService } from './../literary-pieces/literary-pieces.serv
         ProfileComponent,
         WorksComponent,
         ToNumberArrayPaginationPipe,
-        LoggedInUserWorksComponent],
+        LoggedInUserWorksComponent
+    ],
     imports: [RouterModule, HttpModule, BrowserModule, FormsModule,  ReactiveFormsModule, SimpleNotificationsModule],
     exports: [],
     providers: [UserService, NotificationsService, LiteraryPiecesService]
