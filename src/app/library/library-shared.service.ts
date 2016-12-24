@@ -1,18 +1,11 @@
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import { Injectable, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-
-import { LiteraryPiecesService } from './../literary-pieces/literary-pieces.service';
+import { Injectable } from '@angular/core';
 import { ILiteraryPiece } from './../literary-pieces/literary-piece';
 
 @Injectable()
 export class LibrarySharedService {
-    private literaryService: LiteraryPiecesService;
     private pieces: ILiteraryPiece[];
 
-    constructor(literaryService: LiteraryPiecesService) {
-        this.literaryService = literaryService;
+    constructor() {
         this.pieces = [];
     }
 

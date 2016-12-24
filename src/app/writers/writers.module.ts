@@ -5,17 +5,14 @@ import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { WritersMainComponent } from './writers-main/writers-main.component';
+import { WritersAllComponent } from './writers-all/writers-all.component';
 
-
-//import { LibrarySortPipe } from './../pipes/library-sort.pipe';
-
-//import { LibrarySharedService } from './library-shared.service';
-
-//import { LiteraryPieceModule } from './../literary-pieces';
+import { WritersSharedService } from './writers-shared.service';
 
 @NgModule({
     declarations: [
         WritersMainComponent,
+        WritersAllComponent
     ],
     imports: [
         CommonModule,
@@ -24,7 +21,7 @@ import { WritersMainComponent } from './writers-main/writers-main.component';
         BrowserModule,
     ],
     exports: [],
-    providers: []
+    providers: [ WritersSharedService ]
 })
 
 export class WritersModule { }
