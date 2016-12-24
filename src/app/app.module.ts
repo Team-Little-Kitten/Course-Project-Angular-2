@@ -13,6 +13,7 @@ import { ProfileModule } from './profile';
 import { SearchModule } from './search';
 import { ForumModule } from './forum';
 import { LibraryModule, LibrarySharedService } from './library';
+import { WritersModule } from './writers';
 
 import { UserService } from './common-services';
 import { HttpOptionsService } from './common-services/http-options.service';
@@ -36,7 +37,8 @@ import { SharedModule } from './shared/shared.module';
         LiteraryPieceModule,
         SearchModule,
         ForumModule,
-        LibraryModule
+        LibraryModule,
+        WritersModule
     ],
     providers: [AuthService, UserService, LiteraryPiecesService, GuardIsLoggedUser, HttpOptionsService, LibrarySharedService],
     // exports: [TinyEditorComponent]

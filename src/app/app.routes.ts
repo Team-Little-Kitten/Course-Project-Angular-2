@@ -8,6 +8,9 @@ import {
     LibraryPoetryComponent,
     LibraryStoriesComponent
 } from './library';
+import {
+    WritersMainComponent,
+} from './writers';
 import { HomeComponent } from './home';
 import { ProfileComponent, AdditionalInfoComponent, FriendsComponent, WorksComponent, OtherUserProfileComponent } from './profile';
 import { GuardIsLoggedUser } from './route-guards';
@@ -31,6 +34,14 @@ export const APP_ROUTES: Routes = [
             { path: 'drama', component: LibraryDramaComponent },
             { path: 'poetry', component: LibraryPoetryComponent },
             { path: 'stories', component: LibraryStoriesComponent }
+        ]
+    },
+    { path: 'writers',
+        component: WritersMainComponent,
+        children: [
+            { path: 'all', component: null },
+            { path: 'writers', component: null },
+            { path: 'critiques', component: null },
         ]
     },
     { path: 'register', component: RegisterComponent },

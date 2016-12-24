@@ -1,0 +1,30 @@
+<div class="header header-filter" style="background-image: url('/assets/images/bg2.jpeg');"></div>
+<div class="main main-raised" id="writers-main">
+    <div id="writers-container">
+        <h1>OUR WRITERS</h1>
+        <nav id="profile-navigation">
+            <div class="nav-icon">
+                <img src="/assets/images/writers-images/all.png" alt="All" class="writers-nav-btn-img">
+                <br>
+                <a [routerLink]="['all']">
+                    ALL
+                </a>
+            </div>
+            <div class="nav-icon">
+                <img src="/assets/images/writers-images/writers.png" alt="Drama" class="writers-nav-btn-img">
+                <br>
+                <a [routerLink]="['writers']">
+                    TOP WRITERS
+                </a>
+            </div>
+            <div class="nav-icon">
+                <img src="/assets/images/writers-images/critiques.png" alt="Poetry" class="writers-nav-btn-img">
+                <br>
+                <a [routerLink]="['critiques']">
+                    TOP CRITIQUES
+                </a>
+            </div>
+        </nav>
+    </div>
+    <router-outlet></router-outlet>
+<div>
