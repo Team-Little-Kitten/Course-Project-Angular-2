@@ -25,12 +25,20 @@ export class ThreadsListComponent implements OnInit {
 
     public ngOnInit(): void {
         let categoryName: string = (<any>this._route.params)._value.categoryName;
-        this.categoryName = categoryName;
+        this.categoryName = this._getCategoryName(categoryName);
         this._threadsService
             .getThreadsByCategory(categoryName)
             .subscribe((res: Response) => {
                 this.threads = <IThread[]>(<any>res).result;
                 console.log(this.threads);
             });
+    }
+
+    private _getCategoryName(category: string): string {
+        if (category === 'userSuggestions') return 'User Suggestions';
+        if (category === 'commentAuthors') return 'Comment Authors';
+        if (category === 'lessons') return 'Lessons';
+        if (category === 'writeABookPreview') return 'Write a Book Review';
+        if (category === 'fun') return 'Fun';
     }
 }
