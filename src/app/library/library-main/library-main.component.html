@@ -1,0 +1,37 @@
+<div class="header header-filter" style="background-image: url('/assets/images/bg2.jpeg');"></div>
+<div class="main main-raised" id="library-main">
+    <div id="library-container">
+        <h1>THE LIBRARY</h1>
+        <nav id="profile-navigation">
+            <div class="nav-icon">
+                <img src="/assets/images/library-images/all.png" alt="All" class="library-nav-btn-img">
+                <br>
+                <a [routerLink]="['all']">
+                    ALL
+                </a>
+            </div>
+            <div class="nav-icon">
+                <img src="/assets/images/library-images/drama.png" alt="Drama" class="library-nav-btn-img">
+                <br>
+                <a [routerLink]="['drama']">
+                    DRAMA
+                </a>
+            </div>
+            <div class="nav-icon">
+                <img src="/assets/images/library-images/poetry.png" alt="Poetry" class="library-nav-btn-img">
+                <br>
+                <a [routerLink]="['poetry']">
+                    POETRY
+                </a>
+            </div>
+            <div class="nav-icon">
+                <img src="/assets/images/library-images/stories.png" alt="Stories" class="library-nav-btn-img">
+                <br>
+                <a [routerLink]="['stories']">
+                    STORIES
+                </a>
+            </div>
+        </nav>
+    </div>
+    <router-outlet></router-outlet>
+<div>

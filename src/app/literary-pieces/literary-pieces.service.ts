@@ -12,6 +12,7 @@ const GET_PIECES_BY_AUTHOR_URL: string = 'http://localhost:8080/api/pieces/byAut
 const GET_PIECE_BY_ID_URL: string = 'http://localhost:8080/api/pieces/byId';
 const POST_PIECE_UPDATE: string = 'http://localhost:8080/api/pieces/update';
 const GET_PIECES_FOR_HOMEPAGE_URL: string = 'http://localhost:8080/api/pieces/filtered-for-homepage';
+const GET_ALL_PIECES_URL: string = 'http://localhost:8080/api/pieces/all';
 const ADD_COMMENT_URL: string = 'http://localhost:8080/api/pieces/add-comment';
 const LIKE_COMMENT_URL: string = 'http://localhost:8080/api/pieces/like-comment';
 const DISLIKE_COMMENT_URL: string = 'http://localhost:8080/api/pieces/dislike-comment';
@@ -30,6 +31,15 @@ export class LiteraryPiecesService {
         if (localStorage.getItem('user')) {
             this._username = JSON.parse(localStorage.getItem('user')).result.username;
         }
+    }
+
+    public getAllPieces(page, pageSize): Observable<any> {
+        let url = `${GET_ALL_PIECES_URL}?page=${page}&pageSize=${pageSize}`;
+
+        let options: RequestOptions = this._httpOptionsService.getRequestOptions(false);
+        return this._http
+            .get(url, options)
+            .map((response: Response) => response.json());
     }
 
     public getPiecesByAuthorForLoggedInUser(username, page, pageSize): Observable<any> {
