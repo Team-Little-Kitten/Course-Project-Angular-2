@@ -4,7 +4,9 @@ import { RegisterComponent, LoginComponent } from './auth';
 import {
     LibraryMainComponent,
     LibraryAllComponent,
-    LibraryDramaComponent
+    LibraryDramaComponent,
+    LibraryPoetryComponent,
+    LibraryStoriesComponent
 } from './library';
 import { HomeComponent } from './home';
 import { ProfileComponent, AdditionalInfoComponent, FriendsComponent, WorksComponent, OtherUserProfileComponent } from './profile';
@@ -27,8 +29,8 @@ export const APP_ROUTES: Routes = [
         children: [
             { path: 'all', component: LibraryAllComponent },
             { path: 'drama', component: LibraryDramaComponent },
-            { path: 'poetry' },
-            { path: 'stories' }
+            { path: 'poetry', component: LibraryPoetryComponent },
+            { path: 'stories', component: LibraryStoriesComponent }
         ]
     },
     { path: 'register', component: RegisterComponent },

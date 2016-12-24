@@ -94,7 +94,6 @@ export class DetailedPieceComponent {
     }
 
     public likeComment(ev, comment): void {
-        //let commentId = ev.target.nextSibling.nextSibling.innerHTML;
         let commentId = comment._id;
         let commentAuthor = comment.author;
         this._pieceService
@@ -112,7 +111,6 @@ export class DetailedPieceComponent {
     }
 
     public dislikeComment(ev, comment): void {
-        //let commentId = ev.target.nextSibling.nextSibling.innerHTML;
         let commentId = comment._id;
         let commentAuthor = comment.author;
         this._pieceService

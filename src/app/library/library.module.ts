@@ -7,6 +7,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { LibraryMainComponent } from './library-main/library-main.component';
 import { LibraryAllComponent } from './library-all/library-all.component';
 import { LibraryDramaComponent } from './library-drama/library-drama.component';
+import { LibraryPoetryComponent } from './library-poetry/library-poetry.component';
+import { LibraryStoriesComponent } from './library-stories/library-stories.component';
+
+import { LibrarySortPipe } from './../pipes/library-sort.pipe';
 
 import { LibrarySharedService } from './library-shared.service';
 
@@ -16,7 +20,10 @@ import { LiteraryPieceModule } from './../literary-pieces';
     declarations: [
         LibraryMainComponent,
         LibraryAllComponent,
-        LibraryDramaComponent
+        LibraryDramaComponent,
+        LibraryPoetryComponent,
+        LibraryStoriesComponent,
+        LibrarySortPipe
     ],
     imports: [
         CommonModule,
