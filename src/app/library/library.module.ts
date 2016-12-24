@@ -6,6 +6,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { LibraryMainComponent } from './library-main/library-main.component';
 import { LibraryAllComponent } from './library-all/library-all.component';
+import { LibraryDramaComponent } from './library-drama/library-drama.component';
+
 import { LibrarySharedService } from './library-shared.service';
 
 import { LiteraryPieceModule } from './../literary-pieces';
@@ -13,7 +15,8 @@ import { LiteraryPieceModule } from './../literary-pieces';
 @NgModule({
     declarations: [
         LibraryMainComponent,
-        LibraryAllComponent
+        LibraryAllComponent,
+        LibraryDramaComponent
     ],
     imports: [
         CommonModule,

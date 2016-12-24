@@ -18,9 +18,10 @@ export class LibraryMainComponent implements OnInit {
         this.literaryService = literaryService;
         this.libraryService = libraryService;
     }
+
     ngOnInit() {
         this.literaryService
-            .getAllPieces(0, 0)
+            .getAllPieces(1, 10)
             .subscribe(result => {
                 this.libraryService.setPieces(result);
             });

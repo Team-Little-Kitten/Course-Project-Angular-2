@@ -1,7 +1,11 @@
 import { Routes } from '@angular/router';
 
 import { RegisterComponent, LoginComponent } from './auth';
-import { LibraryMainComponent, LibraryAllComponent } from './library';
+import {
+    LibraryMainComponent,
+    LibraryAllComponent,
+    LibraryDramaComponent
+} from './library';
 import { HomeComponent } from './home';
 import { ProfileComponent, AdditionalInfoComponent, FriendsComponent, WorksComponent, OtherUserProfileComponent } from './profile';
 import { GuardIsLoggedUser } from './route-guards';
@@ -22,7 +26,7 @@ export const APP_ROUTES: Routes = [
         component: LibraryMainComponent,
         children: [
             { path: 'all', component: LibraryAllComponent },
-            { path: 'drama' },
+            { path: 'drama', component: LibraryDramaComponent },
             { path: 'poetry' },
             { path: 'stories' }
         ]

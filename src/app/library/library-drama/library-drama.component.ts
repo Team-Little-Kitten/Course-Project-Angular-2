@@ -6,11 +6,11 @@ import { ILiteraryPiece } from './../../literary-pieces/literary-piece';
 import { LibrarySharedService } from './../library-shared.service';
 
 @Component({
-    templateUrl: './library-all.component.html',
+    templateUrl: './library-drama.component.html',
     styleUrls: ['./../shared-styles.component.css']
 })
 
-export class LibraryAllComponent {
+export class LibraryDramaComponent {
     public libraryService: LibrarySharedService;
     private _pieces: ILiteraryPiece[];
 
