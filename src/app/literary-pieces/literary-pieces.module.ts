@@ -16,7 +16,6 @@ import {
     CreatePieceComponent,
     LiterayPieceDetailedComponent,
     SinglePieceComponent,
-    PiecesListComponent,
     DetailedPieceComponent
 } from './';
 
@@ -28,7 +27,6 @@ import { HttpOptionsService, UserService } from '../common-services';
         EditPieceComponent,
         LiterayPieceDetailedComponent,
         SinglePieceComponent,
-        PiecesListComponent,
         DetailedPieceComponent,
         PiecePreviewComponent,
         FormatRatingPipe
@@ -42,7 +40,7 @@ import { HttpOptionsService, UserService } from '../common-services';
         CommonModule,
         SharedModule
     ],
-    exports: [PiecesListComponent],
+    exports: [SinglePieceComponent],
     providers: [LiteraryPiecesService, NotificationsService, HttpOptionsService, UserService]
 })
 export class LiteraryPieceModule { }

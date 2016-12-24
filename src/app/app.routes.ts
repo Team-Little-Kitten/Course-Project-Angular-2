@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { RegisterComponent, LoginComponent } from './auth';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './home/homepage/homepage.component';
 import { ProfileComponent, AdditionalInfoComponent, FriendsComponent, WorksComponent, OtherUserProfileComponent } from './profile';
 import { GuardIsLoggedUser } from './route-guards';
 import { LoggedInUserWorksComponent } from './profile/works/logged-in-user-works.component';
