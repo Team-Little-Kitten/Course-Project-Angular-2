@@ -31,7 +31,8 @@ export class CreateThreadComponent implements OnInit {
         this.createThreadForm = this.fb.group({
             title: ['Thred title', Validators.required],
             content: ['Thread content', Validators.required],
-            author: [this.username]
+            author: [this.username],
+            category: [Validators.required]
         });
     }
 
@@ -52,7 +53,6 @@ export class CreateThreadComponent implements OnInit {
                     this._notificationService.error('Error', `${response.message.text}`);
                 } else {
                     this._notificationService.success('success', `${response.message.text}`);
-                    // setTimeout(() => this._router.navigateByUrl('/login'), 1500);
                 }
             },
             err => console.log(err))
