@@ -91,6 +91,7 @@ export class LiteraryPiecesService {
 
     public addComment(data: Object): Observable<any> {
         let newComment: string = JSON.stringify(data);
+        console.log(newComment);
         let options: RequestOptions = this._httpOptionsService.getRequestOptions(true);
         return this._http
             .post(ADD_COMMENT_URL, newComment, options)

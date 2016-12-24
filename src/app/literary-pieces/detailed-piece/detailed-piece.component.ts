@@ -175,19 +175,20 @@ export class DetailedPieceComponent {
                         this.comments = piece.comments;
                         this.ratings = piece.ratings;
                         this.calculateAverageRatings();
+
+                        this.commentForm = this._formBuilder.group({
+                            id: this.id,
+                            commentBody: this.pieceBodyText,
+                            author: this.username,
+                            pieceAuthor: this.author,
+                            storyRating: this.storyRating,
+                            charactersRating: this.charactersRating,
+                            dialogueRating: this.dialogueRating,
+                            styleRating: this.styleRating,
+                            feelRating: this.feelRating
+                        });
                     });
             });
-
-        this.commentForm = this._formBuilder.group({
-            id: this.id,
-            commentBody: this.pieceBodyText,
-            author: this.username,
-            storyRating: this.storyRating,
-            charactersRating: this.charactersRating,
-            dialogueRating: this.dialogueRating,
-            styleRating: this.styleRating,
-            feelRating: this.feelRating
-        });
     }
 
     private validateFormValue(): boolean {
