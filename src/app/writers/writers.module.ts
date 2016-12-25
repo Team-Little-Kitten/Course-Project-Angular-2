@@ -6,13 +6,21 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { WritersMainComponent } from './writers-main/writers-main.component';
 import { WritersAllComponent } from './writers-all/writers-all.component';
+import { TopWritersComponent } from './top-writers/top-writers.component';
+import { TopCritiquesComponent } from './top-critiques/top-critiques.component';
+
+import { WritersSortPipe } from './../pipes/writers-sort.pipe';
 
 import { WritersSharedService } from './writers-shared.service';
 
 @NgModule({
     declarations: [
         WritersMainComponent,
-        WritersAllComponent
+        WritersAllComponent,
+        TopWritersComponent,
+        TopCritiquesComponent,
+
+        WritersSortPipe
     ],
     imports: [
         CommonModule,

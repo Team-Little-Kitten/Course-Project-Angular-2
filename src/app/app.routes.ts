@@ -10,7 +10,9 @@ import {
 } from './library';
 import {
     WritersMainComponent,
-    WritersAllComponent
+    WritersAllComponent,
+    TopWritersComponent,
+    TopCritiquesComponent
 } from './writers';
 import { HomeComponent } from './home';
 import { ProfileComponent, AdditionalInfoComponent, FriendsComponent, WorksComponent, OtherUserProfileComponent } from './profile';
@@ -41,8 +43,8 @@ export const APP_ROUTES: Routes = [
         component: WritersMainComponent,
         children: [
             { path: 'all', component: WritersAllComponent },
-            { path: 'writers', component: null },
-            { path: 'critiques', component: null },
+            { path: 'writers', component: TopWritersComponent },
+            { path: 'critiques', component: TopCritiquesComponent },
         ]
     },
     { path: 'register', component: RegisterComponent },
