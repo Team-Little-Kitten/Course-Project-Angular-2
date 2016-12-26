@@ -55,6 +55,6 @@ export class CreateThreadComponent implements OnInit {
                     this._notificationService.success('success', `${response.message.text}`);
                 }
             },
-            err => console.log(err))
+            err => console.log(err));
     }
 }

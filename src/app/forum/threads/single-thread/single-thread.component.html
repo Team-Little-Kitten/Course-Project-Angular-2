@@ -13,7 +13,7 @@
         <div>
             <hr>
             <div class="thread-links">
-                <a routerLink="/forum/threads/{{thread.category}}">{{thread.category}}</a>
+                <a routerLink="/forum/threads/{{thread.category | normalizeCategory}}">{{thread.category}}</a>
                 <a routerLink="/user/{{thread.author._id}}">{{thread.author.username}}</a>
             </div>
         </div>
@@ -24,6 +24,11 @@
                     <a routerLink="/user/{{comment.author._id}}">{{comment.author.username}}</a>
                     <hr>
                 </div>
+            </div>
+
+            <div id="leave-comment-container">
+                <textarea id="" cols="30" rows="10" #textArea></textarea>
+                <button (click)="leaveComment(textArea.value)">Comment</button>
             </div>
         </div>
     </div>
