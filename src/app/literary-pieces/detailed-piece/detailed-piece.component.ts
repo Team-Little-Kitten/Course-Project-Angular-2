@@ -1,4 +1,4 @@
-import { Component, OnInit, trigger, state, animate, transition, style } from '@angular/core';
+import { Component, ChangeDetectorRef, OnInit, trigger, state, animate, transition, style } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 
@@ -32,7 +32,7 @@ export class DetailedPieceComponent {
     public ratings: any[];
     public isUserLoggedIn: boolean;
     public showCommentSection: boolean;
-    public pieceBodyText: string = 'Enter your comment here.';
+    public pieceBodyText: string;
     public username: string = null;
     public storyRating: string;
     public charactersRating: string;
@@ -40,26 +40,29 @@ export class DetailedPieceComponent {
     public styleRating: string;
     public feelRating: string;
     public notificationOptions: Object;
-    public isWriting: boolean = false;
+    public animationState: string = '1';
 
     private _pieceService: LiteraryPiecesService;
     private _authService: AuthService;
     private _notificationService: NotificationsService;
     private _route: ActivatedRoute;
     private _formBuilder: FormBuilder;
+    private _ref: ChangeDetectorRef;
 
     constructor (
         authService: AuthService,
         pieceService: LiteraryPiecesService,
         notificationService: NotificationsService,
         route: ActivatedRoute,
-        formBuilder: FormBuilder)
+        formBuilder: FormBuilder,
+        ref: ChangeDetectorRef)
     {
         this._authService = authService;
         this._pieceService = pieceService;
         this._notificationService = notificationService;
         this._route = route;
         this._formBuilder = formBuilder;
+        this._ref = ref;
 
         this.username = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')).result.username : null;
         this.comments = [];
@@ -134,9 +137,8 @@ export class DetailedPieceComponent {
 
     public keyupHandlerFunction(value: string): void {
         this.pieceBodyText = value;
-        console.log('in keyupHandlerFunction');
-        this.isWriting = !this.isWriting;
-        console.log(this.isWriting);
+        this.setAnimationState();
+        this._ref.detectChanges();
     }
 
     public onChange(value){
@@ -231,6 +233,20 @@ export class DetailedPieceComponent {
             this.averageDialogue /= ratingArrayLength;
             this.averageStyle /= ratingArrayLength;
             this.averageFeel /= ratingArrayLength;
+        }
+    }
+
+    private setAnimationState(): void {
+        if (this.animationState === '1') {
+            this.animationState = '2';
+        } else if(this.animationState === '2') {
+            this.animationState = '3';
+        } else if(this.animationState === '3') {
+            this.animationState = '4';
+        } else if (this.animationState === '4') {
+            this.animationState = '5';
+        } else if (this.animationState === '5') {
+            this.animationState = '1';
         }
     }
 }
