@@ -8,6 +8,7 @@ import { SimpleNotificationsModule, NotificationsService } from '../../../node_m
 import { FormatRatingPipe } from './../pipes/format-rating.pipe';
 
 import { SharedModule } from './../shared/shared.module';
+import { AnimationModule } from './../animations/animation.module';
 
 import {
     EditPieceComponent,
@@ -38,7 +39,8 @@ import { HttpOptionsService, UserService } from '../common-services';
         RouterModule,
         SimpleNotificationsModule,
         CommonModule,
-        SharedModule
+        SharedModule,
+        AnimationModule
     ],
     exports: [SinglePieceComponent],
     providers: [LiteraryPiecesService, NotificationsService, HttpOptionsService, UserService]

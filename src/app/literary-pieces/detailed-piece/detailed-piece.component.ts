@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, trigger, state, animate, transition, style } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 
@@ -40,6 +40,7 @@ export class DetailedPieceComponent {
     public styleRating: string;
     public feelRating: string;
     public notificationOptions: Object;
+    public isWriting: boolean = false;
 
     private _pieceService: LiteraryPiecesService;
     private _authService: AuthService;
@@ -133,6 +134,9 @@ export class DetailedPieceComponent {
 
     public keyupHandlerFunction(value: string): void {
         this.pieceBodyText = value;
+        console.log('in keyupHandlerFunction');
+        this.isWriting = !this.isWriting;
+        console.log(this.isWriting);
     }
 
     public onChange(value){

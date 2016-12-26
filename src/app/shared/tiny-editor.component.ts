@@ -22,11 +22,11 @@ export class TinyEditorComponent implements AfterViewInit, OnDestroy {
     editor;
 
     onChange(value) {
-        console.log(value)
+        console.log(value);
     }
-    
+
     ngOnInit(){
-        console.log(this.elementId)
+        console.log(this.elementId);
     }
 
     ngAfterViewInit() {
