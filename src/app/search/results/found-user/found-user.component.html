@@ -1,8 +1,11 @@
 <div class="found-user-container navbar navbar-info">
-    <img src="{{user.imageDataUrl}}">
-    <a class="username-link" routerLink="/user/{{user._id}}">{{user.username}}</a>
-    <!-- TODO: Redirect to user profile -->
-    <a class="" *ngIf="isFollwed && !isSelf"  (click)="unFollowUser()">unFollow</a>
-    <a class="" *ngIf="!isFollwed && !isSelf"  (click)="followUser()">Follow</a>
+    <div style="margin-bottom: 5px;">
+<img src="{{user.imageDataUrl}}">
+<a class="username-link" routerLink="/user/{{user._id}}">{{user.username}}</a>
 </div>
-<simple-notifications [options]="options"></simple-notifications>
+<div>
+    <button class="btn btn-block btn-xs btn-success pull-right" *ngIf="isFollwed && !isSelf" (click)="unFollowUser()"><i class="material-icons">people_outline</i></button>
+    <button class="btn btn-block btn-xs btn-warning pull-right" *ngIf="!isFollwed && !isSelf" (click)="followUser()"><i class="material-icons">people</i></button>
+    <button class="btn btn-block btn-xs btn-info pull-right" *ngIf="isSelf" [disabled]="true"><i class="material-icons">people</i></button>
+</div>
+</div>
