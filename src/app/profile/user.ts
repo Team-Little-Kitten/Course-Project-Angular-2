@@ -9,4 +9,6 @@ export interface IUser {
     critiqueRating: number;
     writerRating: number;
     rank: string;
+    usersFollowing: IUser[];
+    usersFollowed: IUser[];
 }

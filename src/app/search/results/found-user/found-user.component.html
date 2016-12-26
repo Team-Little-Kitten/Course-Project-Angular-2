@@ -1,4 +1,8 @@
 <div class="found-user-container navbar navbar-info">
     <img src="{{user.imageDataUrl}}">
-    <a class="username-link" routerLink="/user/{{user._id}}">{{user.username}}</a> <!-- TODO: Redirect to user profile -->
+    <a class="username-link" routerLink="/user/{{user._id}}">{{user.username}}</a>
+    <!-- TODO: Redirect to user profile -->
+    <a class="" *ngIf="isFollwed"  (click)="unFollowUser()">unFollow</a>
+    <a class="" *ngIf="!isFollwed"  (click)="followUser()">Follow</a>
 </div>
+<simple-notifications [options]="options"></simple-notifications>

@@ -7,6 +7,8 @@ import { HttpOptionsService } from '../common-services';
 
 const USER_URL = 'http://localhost:8080/users/';
 const USERS_ALL_URL = 'http://localhost:8080/users/all';
+const USERS_FOLLOW_URL = 'http://localhost:8080/api/users/follow';
+const USERS_UNFOLLOW_URL = 'http://localhost:8080/api/users/unfollow';
 
 @Injectable()
 export class UserService {
@@ -58,6 +60,21 @@ export class UserService {
         let url = `${USER_URL}${userId}`;
         let requestOptions = this._httpOptionsService.getRequestOptions(true);
         let data = JSON.stringify(updateData);
+        return this._http.post(url, data, requestOptions).map((response: Response) => response.json());
+    }
+
+    public followUser(currentUserUsername: string, userToFollow: string) {
+        let url = `${USERS_FOLLOW_URL}`;
+        let requestOptions = this._httpOptionsService.getRequestOptions(true);
+        let data = JSON.stringify({ currentUserUsername, userToFollow });
+        return this._http.post(url, data, requestOptions).map((response: Response) => response.json());
+
+    }
+
+    public unFollowUser(currentUserUsername: string, userToUnfollow: string) {
+        let url = `${USERS_UNFOLLOW_URL}`;
+        let requestOptions = this._httpOptionsService.getRequestOptions(true);
+        let data = JSON.stringify({ currentUserUsername, userToUnfollow });
         return this._http.post(url, data, requestOptions).map((response: Response) => response.json());
     }
 }
