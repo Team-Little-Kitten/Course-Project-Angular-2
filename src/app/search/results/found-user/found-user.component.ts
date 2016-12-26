@@ -13,6 +13,7 @@ export class FoundUserComponent {
     @Input() public user: IUser;
 
     public isFollwed: boolean = false;
+    public isSelf: boolean = false;
 
     public options: Object;
 
@@ -30,6 +31,9 @@ export class FoundUserComponent {
     }
 
     ngOnInit() {
+        if (this.user.username === this._loggedInUser) {
+            this.isSelf = true;
+        }
         for (let i = 0; i < this.user.usersFollowed.length; i++) {
             if (this._loggedInUser === this.user.usersFollowed[i].username) {
                 this.isFollwed = true;
