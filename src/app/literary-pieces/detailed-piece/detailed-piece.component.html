@@ -31,7 +31,7 @@
         </button>
         <form [formGroup]="commentForm" *ngIf="showCommentSection" id="create-comment-form" class="clearfix" (ngSubmit)="addComment()">
             <!-- HEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE -->
-            <writing-animation [isWriting]="isWriting"></writing-animation>
+            <writing-animation [animationState]="animationState"></writing-animation>
             <simple-tiny [elementId]="detailed-piece-editor" formControlName="commentBody" ngDefaultControl [(ngModel)]="pieceBodyText"
                 (ngModelChange)="onChange($event)" (onEditorKeyup)="keyupHandlerFunction($event)">
             </simple-tiny>

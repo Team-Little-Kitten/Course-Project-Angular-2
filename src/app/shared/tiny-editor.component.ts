@@ -19,7 +19,7 @@ export class TinyEditorComponent implements AfterViewInit, OnDestroy {
     @Input() ngModel: String;
     @Output() onEditorKeyup = new EventEmitter<any>();
 
-    editor;
+    private editor;
 
     onChange(value) {
         console.log(value);
