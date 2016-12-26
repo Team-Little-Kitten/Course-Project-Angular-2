@@ -2,10 +2,12 @@ import { Http, RequestOptions, Response } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/observable';
 import { HttpOptionsService } from '../../common-services/http-options.service';
+import { IThreadComment } from './thread-comment';
 
 const RECIPE_BY_TITLE_URL: string = 'http://localhost:8080/forum/threads/findByTitle';
 const RECIPES_BY_CATEGORY: string = 'http://localhost:8080/forum/threads/findByCategory';
 const POST_THREAD_URL: string = 'http://localhost:8080/forum/threads/create';
+const ADD_COMMENT_URL: string = 'http://localhost:8080/forum/threads/';
 
 @Injectable()
 export class ThreadsService {
@@ -38,6 +40,16 @@ export class ThreadsService {
         let options: RequestOptions = this._httpOptionsService.getRequestOptions(true);
         return this._http
             .post(POST_THREAD_URL, newThread, options)
+            .map((res: Response) => res.json());
+    }
+
+    public leaveComment(comment: IThreadComment, threadTitle: string): Observable<any> {
+        let userId: string = comment.author._id;
+        let url = `${ADD_COMMENT_URL}${threadTitle}/comments`;
+        let options: RequestOptions = this._httpOptionsService.getRequestOptions(true);
+
+        return this._http
+            .post(url, comment, options)
             .map((res: Response) => res.json());
     }
 }

@@ -9,11 +9,12 @@ import { CreateThreadComponent } from './create-thread/create-thread.component';
 import { ThreadsListComponent } from './threads-list/threads-list.component';
 import { ThreadsService } from './threads.service';
 import { SingleThreadComponent } from './single-thread/single-thread.component';
+import { NormalizeThreadCategoryPipe } from '../../pipes/normalize-thread-category.pipe';
 
 import { SharedModule } from './../../shared/shared.module'
 
 @NgModule({
-    declarations: [ThreadComponent, CreateThreadComponent, ThreadsListComponent, SingleThreadComponent],
+    declarations: [ThreadComponent, CreateThreadComponent, ThreadsListComponent, SingleThreadComponent, NormalizeThreadCategoryPipe],
     imports: [FormsModule, ReactiveFormsModule, CommonModule, SimpleNotificationsModule, RouterModule, SharedModule],
     exports: [ThreadComponent, CreateThreadComponent],
     providers: [ThreadsService, NotificationsService]

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ThreadsService } from '../threads.service';
+import { IThreadComment } from '../thread-comment';
 
 @Component({
     templateUrl: './single-thread.component.html',
@@ -18,7 +19,7 @@ export class SingleThreadComponent implements OnInit {
         this.thread = { author: {} };
     }
 
-    ngOnInit(): void {
+    public ngOnInit(): void {
         let threadTitle: string = (<any>this._route.params)._value.threadTitle;
         this._threadsService
             .getThreadByTitle(threadTitle)
@@ -26,5 +27,21 @@ export class SingleThreadComponent implements OnInit {
                 this.thread = res.thread;
                 console.log(this.thread);
             }, console.log);
+    }
+
+    public leaveComment(content: string): void {
+        let author = JSON.parse(localStorage.getItem('user')).result;
+        let commentToSend: IThreadComment = {
+            author: {
+                username: author.username,
+                _id: author._id
+            },
+            content
+        };
+        let threadTitle: string = (<any>this._route.params)._value.threadTitle;
+
+        this._threadsService
+            .leaveComment(commentToSend, threadTitle) // thread title
+            .subscribe(res => this.thread = res.thread, console.log);
     }
 }
