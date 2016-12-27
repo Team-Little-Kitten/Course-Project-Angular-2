@@ -24,7 +24,7 @@ export class LoggedInUserWorksComponent implements OnInit {
     constructor(literaryPiecesService: LiteraryPiecesService, route: ActivatedRoute) {
 
         if (localStorage.getItem('user')) {
-            this._username = JSON.parse(localStorage.getItem('user')).result.username
+            this._username = JSON.parse(localStorage.getItem('user')).result.username;
         }
 
         this._literaryPiecesService = literaryPiecesService;

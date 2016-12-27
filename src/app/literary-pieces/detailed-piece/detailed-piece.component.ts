@@ -2,7 +2,7 @@ import { Component, ChangeDetectorRef, OnInit, trigger, state, animate, transiti
 import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 
-import { TinyEditorComponent } from './../tiny-editor.component';
+import { TinyEditorComponent } from '../../shared/tiny-editor.component';
 import { ILiteraryPiece } from '../literary-piece';
 import { LiteraryPiecesService } from '../literary-pieces.service';
 import { AuthService } from '../../auth/auth.service';

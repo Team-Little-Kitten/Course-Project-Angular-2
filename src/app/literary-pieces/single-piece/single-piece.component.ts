@@ -6,7 +6,6 @@ import { ILiteraryPiece } from '../literary-piece';
     templateUrl: './single-piece.component.html',
     styleUrls: ['./single-piece.component.css']
 })
-
 export class SinglePieceComponent {
     @Input() public piece: ILiteraryPiece;
     @Input() public pieceUrl: string;

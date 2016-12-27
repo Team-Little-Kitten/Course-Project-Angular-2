@@ -31,9 +31,6 @@ export class SearchResultsComponent implements OnInit {
         let searchValue: string = params.value;
         this._searchService
             .getSearchResult(searchValue)
-            .subscribe(res => {
-                this.searchResult = res.result;
-                console.log(res)
-            });
+            .subscribe(res => this.searchResult = res.result);
     }
 }

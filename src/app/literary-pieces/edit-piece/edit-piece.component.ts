@@ -70,7 +70,7 @@ export class EditPieceComponent implements OnInit, AfterViewInit {
 
     ngAfterViewInit() {
         this._route.params
-            .map(params => params["id"])
+            .map(params => (<any>params).id)
             .subscribe((id) => {
                 this.id = id;
 
@@ -112,10 +112,11 @@ export class EditPieceComponent implements OnInit, AfterViewInit {
     public savePiece(): void {
         this._literaryService.updatePiece(this.id, this.editPieceForm.value, this._pieceImageDataUrl)
             .subscribe(response => {
-                if (response.message.type === 'error') {
-                    this._notificationService.error('Error', `${response.message.text}`);
+                let res: any = <any>response;
+                if (res.message.type === 'error') {
+                    this._notificationService.error('Error', `${res.message.text}`);
                 } else {
-                    this._notificationService.success('Success', `${response.message.text}`);
+                    this._notificationService.success('Success', `${res.message.text}`);
                     // setTimeout(() => this._router.navigateByUrl('/login'), 1500);
                 }
             },
@@ -123,6 +124,6 @@ export class EditPieceComponent implements OnInit, AfterViewInit {
     }
 
     resetFileInput() {
-        this.pictureInputVar.nativeElement.value = "";
+        this.pictureInputVar.nativeElement.value = '';
     }
 }

@@ -68,8 +68,6 @@ export class LiteraryPiecesService {
         let data: string = JSON.stringify(piece);
         let options: RequestOptions = this._httpOptionsService.getRequestOptions(true);
 
-        console.log(data)
-
         return this._http
             .post(url, data, options)
             .map((response: Response) => response.json());

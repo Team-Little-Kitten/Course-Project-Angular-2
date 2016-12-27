@@ -3,7 +3,7 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
-import { HttpOptionsService } from '../common-services';
+import { HttpOptionsService } from './http-options.service';
 
 const USER_URL = 'http://localhost:8080/users/';
 const USERS_ALL_URL = 'http://localhost:8080/users/all';

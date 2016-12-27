@@ -82,8 +82,9 @@ export class CreatePieceComponent implements OnInit {
             .createPiece(this.createPieceForm.value, this._pieceImageDataUrl)
             .subscribe(
             response => {
-                if (response.message.type === 'error') {
-                    this._notificationService.error('Error', `${response.message.text}`);
+                let res: any = <any>response;
+                if (res.message.type === 'error') {
+                    this._notificationService.error('Error', `${res.message.text}`);
                 } else {
                     this._notificationService.create('Title', 'drugo', 'success');
                     // setTimeout(() => this._router.navigateByUrl('/login'), 1500);
@@ -94,6 +95,6 @@ export class CreatePieceComponent implements OnInit {
 
 
     resetFileInput() {
-        this.pictureInputVar.nativeElement.value = "";
+        this.pictureInputVar.nativeElement.value = '';
     }
 }

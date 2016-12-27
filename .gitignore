@@ -2,6 +2,9 @@
 
 .vs/
 .vscode/
+dist/ 
+node_modules/
+bower_components/
 
 # Logs
 logs

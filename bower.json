@@ -1,16 +1,8 @@
 {
-  "name": "angular2-webpack-starter",
-  "description": "An Angular 2 Webpack Starter kit featuring Angular 2 (Router, Http, Forms, Services, Tests, E2E, Coverage), Karma, Protractor, Jasmine, Istanbul, TypeScript, and Webpack by AngularClass",
+  "name": "course-project",
   "main": "",
-  "authors": [
-    "Patrick Stapleton <patrick@angularclass.com>"
-  ],
+  "authors": [],
   "license": "MIT",
-  "keywords": [
-    "angular2",
-    "webpack",
-    "typescript"
-  ],
   "homepage": "https://github.com/Team-Little-Kitten/Course-Project-Angular-2",
   "ignore": [
     "**/.*",

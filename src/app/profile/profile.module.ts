@@ -8,7 +8,12 @@ import { OtherUserProfileComponent } from './other-user-profile/other-user-profi
 
 import { ToNumberArrayPaginationPipe } from './../pipes/to-number-array.pipe';
 
-import { AdditionalInfoComponent, FriendsComponent, ProfileComponent, WorksComponent, LoggedInUserWorksComponent } from './';
+import { AdditionalInfoComponent } from './additional-info/additional-info.component';
+import { FriendsComponent } from './friends/friends.component';
+import { ProfileComponent } from './profile.component';
+import { WorksComponent } from './works/works.component';
+import { LoggedInUserWorksComponent } from './works/logged-in-user-works.component';
+
 import { UserService } from '../common-services';
 import { LiteraryPiecesService } from './../literary-pieces/literary-pieces.service';
 
@@ -22,7 +27,7 @@ import { LiteraryPiecesService } from './../literary-pieces/literary-pieces.serv
         ToNumberArrayPaginationPipe,
         LoggedInUserWorksComponent
     ],
-    imports: [RouterModule, HttpModule, BrowserModule, FormsModule,  ReactiveFormsModule, SimpleNotificationsModule],
+    imports: [RouterModule, HttpModule, BrowserModule, FormsModule, ReactiveFormsModule, SimpleNotificationsModule],
     exports: [],
     providers: [UserService, NotificationsService, LiteraryPiecesService]
 })

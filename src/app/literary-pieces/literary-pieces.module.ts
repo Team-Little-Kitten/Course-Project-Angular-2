@@ -10,18 +10,17 @@ import { FormatRatingPipe } from './../pipes/format-rating.pipe';
 import { SharedModule } from './../shared/shared.module';
 import { AnimationModule } from './../animations/animation.module';
 
-import {
-    EditPieceComponent,
-    PiecePreviewComponent,
-    LiteraryPiecesService,
-    CreatePieceComponent,
-    LiterayPieceDetailedComponent,
-    SinglePieceComponent,
-    DetailedPieceComponent
-} from './';
+import { SinglePieceComponent } from './single-piece/single-piece.component';
+import { EditPieceComponent } from './edit-piece/edit-piece.component';
+import { PiecePreviewComponent } from './piece-preview/piece-preview.component';
+import { LiteraryPiecesService } from './literary-pieces.service';
+import { CreatePieceComponent } from './create-piece/create-piece.component';
+import { DetailedPieceComponent } from './detailed-piece/detailed-piece.component';
+import { LiterayPieceDetailedComponent } from './literary-piece-detailed.component';
 
 import { HttpOptionsService, UserService } from '../common-services';
 
+console.log(SinglePieceComponent);
 @NgModule({
     declarations: [
         CreatePieceComponent,
