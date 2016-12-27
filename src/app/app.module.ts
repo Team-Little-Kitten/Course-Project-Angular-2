@@ -20,14 +20,12 @@ import { UserService } from './common-services';
 import { HttpOptionsService } from './common-services/http-options.service';
 import { GuardIsLoggedUser } from './route-guards';
 
-// import { TinyEditorComponent } from './shared/tiny-editor.component';
-
 import { SharedModule } from './shared/shared.module';
+
 @NgModule({
     bootstrap: [AppComponent],
     declarations: [
         AppComponent,
-        //  TinyEditorComponent
     ],
     imports: [
         BrowserModule,
@@ -40,7 +38,8 @@ import { SharedModule } from './shared/shared.module';
         ForumModule,
         LibraryModule,
         WritersModule,
-        AnimationModule
+        AnimationModule,
+        SharedModule
     ],
     providers: [
         AuthService,
@@ -50,7 +49,6 @@ import { SharedModule } from './shared/shared.module';
         HttpOptionsService,
         LibrarySharedService,
         WritersSharedService
-    ],
-    // exports: [TinyEditorComponent]
+    ]
 })
 export class AppModule { }

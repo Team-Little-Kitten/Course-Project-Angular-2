@@ -1,0 +1,8 @@
+<li class="dropdown">
+    <a href="#" class="dropdown-toggle btn btn-primary btn-fab btn-fab-mini btn-round" data-toggle="dropdown"><i class="material-icons">favorite</i></a>
+    <ul class="dropdown-menu">
+        <li><a (click)="refresh($event)">Refresh</a></li>
+        <li class="divider"></li>
+        <li *ngFor="let notification of notifications"><a [routerLink]="['/pieces/detailed/', notification.createdPieceId]">{{notification.text}} | On: {{notification.sentOn}}</a></li>
+    </ul>
+</li>

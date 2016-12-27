@@ -1,0 +1,19 @@
+notifications {
+    box-sizing:border-box;
+    color:rgb(255, 255, 255);
+    display:block;
+    float:left;
+    font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size:14px;
+    font-weight:300;
+    height:50px;
+    line-height:20px;
+    list-style-image:none;
+    list-style-position:outside;
+    list-style-type:none;
+    position:relative;
+    text-align:left;
+    text-size-adjust:100%;
+    width:74px;
+    -webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+}

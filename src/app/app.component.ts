@@ -7,7 +7,8 @@ import { AuthService } from './auth';
 declare let $: any;
 @Component({
     selector: 'body',
-    templateUrl: './app.component.html'
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
     public isUserLoggedIn: boolean;
