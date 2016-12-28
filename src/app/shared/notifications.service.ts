@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map';
 import { HttpOptionsService, UserService } from './../common-services';
 
 const REFRESH_NOTIFICATION_URL = 'http://localhost:8080/api/notifications/refresh';
+const MARK_NOTIFICATION_AS_READ_URL = 'http://localhost:8080/api/notifications/markAsRead';
 
 @Injectable()
 export class NotificationsService {
@@ -23,6 +24,15 @@ export class NotificationsService {
         let url = `${REFRESH_NOTIFICATION_URL}?username=${username}`;
 
         let options: RequestOptions = this._httpOptionsService.getRequestOptions(false);
+        return this._http
+            .get(url, options)
+            .map((response: Response) => response.json());
+    }
+    public postMarkNotificationAsRead(username, notificationId): Observable<any> {
+
+        let url = `${MARK_NOTIFICATION_AS_READ_URL}?username=${username}&id=${notificationId}`;
+
+        let options: RequestOptions = this._httpOptionsService.getRequestOptions(true);
         return this._http
             .get(url, options)
             .map((response: Response) => response.json());

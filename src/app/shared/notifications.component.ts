@@ -16,6 +16,7 @@ import { NotificationsService } from './notifications.service';
 })
 export class NotificationsComponent implements OnInit {
     public notifications: any[];
+    public notificationsCount: number = 0;
 
     private _username: string;
     private _notificationService: NotificationsService;
@@ -29,19 +30,34 @@ export class NotificationsComponent implements OnInit {
     }
 
     ngOnInit() {
-        this._notificationService.getRefreshedNotificationsForUser(this._username)
-            .subscribe(response => {
-                this.notifications = response;
-                console.log(this.notifications);
-            },
-            err => console.log(err));
+        this.refreshNotifications();
     }
 
     refresh(value) {
+        this.refreshNotifications();
+    }
+
+    readNotification(notificationId) {
+        this._notificationService
+            .postMarkNotificationAsRead(this._username, notificationId)
+            .subscribe(() => { });
+        setTimeout(() => {
+            this.refreshNotifications()
+        }, 100)
+    }
+
+    private refreshNotifications() {
         this._notificationService.getRefreshedNotificationsForUser(this._username)
             .subscribe(response => {
                 this.notifications = response;
-                console.log(this.notifications);
+                if (this.notifications) {
+                    this.notificationsCount = 0;
+                    this.notifications.forEach(x => {
+                        if (x.isRead === false) {
+                            this.notificationsCount += 1;
+                        }
+                    });
+                }
             },
             err => console.log(err));
     }
