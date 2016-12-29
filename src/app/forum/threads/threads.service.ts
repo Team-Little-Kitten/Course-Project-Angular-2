@@ -1,6 +1,6 @@
 import { Http, RequestOptions, Response } from '@angular/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/observable';
+import { Observable } from 'rxjs';
 import { HttpOptionsService } from '../../common-services/http-options.service';
 import { IThreadComment } from './thread-comment';
 
