@@ -6,8 +6,10 @@ import 'rxjs/add/operator/map';
 
 import { HttpOptionsService, UserService } from './../common-services';
 
-const REFRESH_NOTIFICATION_URL = 'http://localhost:8080/api/notifications/refresh';
-const MARK_NOTIFICATION_AS_READ_URL = 'http://localhost:8080/api/notifications/markAsRead';
+import { Constants } from './../constants/constants';
+
+const REFRESH_NOTIFICATION_URL = `${Constants.BASE_DOMAIN_URL}api/notifications/refresh`;
+const MARK_NOTIFICATION_AS_READ_URL = `${Constants.BASE_DOMAIN_URL}api/notifications/markAsRead`;
 
 @Injectable()
 export class NotificationsService {

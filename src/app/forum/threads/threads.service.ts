@@ -4,10 +4,12 @@ import { Observable } from 'rxjs/observable';
 import { HttpOptionsService } from '../../common-services/http-options.service';
 import { IThreadComment } from './thread-comment';
 
-const RECIPE_BY_TITLE_URL: string = 'http://localhost:8080/forum/threads/findByTitle';
-const RECIPES_BY_CATEGORY: string = 'http://localhost:8080/forum/threads/findByCategory';
-const POST_THREAD_URL: string = 'http://localhost:8080/forum/threads/create';
-const ADD_COMMENT_URL: string = 'http://localhost:8080/forum/threads/';
+import { Constants } from './../../constants/constants';
+
+const RECIPE_BY_TITLE_URL: string = `${Constants.BASE_DOMAIN_URL}forum/threads/findByTitle`;
+const RECIPES_BY_CATEGORY: string = `${Constants.BASE_DOMAIN_URL}forum/threads/findByCategory`;
+const POST_THREAD_URL: string = `${Constants.BASE_DOMAIN_URL}forum/threads/create`;
+const ADD_COMMENT_URL: string = `${Constants.BASE_DOMAIN_URL}forum/threads/`;
 
 @Injectable()
 export class ThreadsService {

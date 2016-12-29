@@ -7,15 +7,17 @@ import 'rxjs/add/operator/map';
 import { HttpOptionsService, UserService } from './../common-services';
 import { ILiteraryPiece } from './literary-piece';
 
-const CREATE_PIECE_URL: string = 'http://localhost:8080/api/pieces/create';
-const GET_PIECES_BY_AUTHOR_URL: string = 'http://localhost:8080/api/pieces/byAuthor';
-const GET_PIECE_BY_ID_URL: string = 'http://localhost:8080/api/pieces/byId';
-const POST_PIECE_UPDATE: string = 'http://localhost:8080/api/pieces/update';
-const GET_PIECES_FOR_HOMEPAGE_URL: string = 'http://localhost:8080/api/pieces/filtered-for-homepage';
-const GET_ALL_PIECES_URL: string = 'http://localhost:8080/api/pieces/all';
-const ADD_COMMENT_URL: string = 'http://localhost:8080/api/pieces/add-comment';
-const LIKE_COMMENT_URL: string = 'http://localhost:8080/api/pieces/like-comment';
-const DISLIKE_COMMENT_URL: string = 'http://localhost:8080/api/pieces/dislike-comment';
+import { Constants } from './../constants/constants';
+
+const CREATE_PIECE_URL: string = `${Constants.BASE_DOMAIN_URL}api/pieces/create`;
+const GET_PIECES_BY_AUTHOR_URL: string = `${Constants.BASE_DOMAIN_URL}api/pieces/byAuthor`;
+const GET_PIECE_BY_ID_URL: string = `${Constants.BASE_DOMAIN_URL}api/pieces/byId`;
+const POST_PIECE_UPDATE: string = `${Constants.BASE_DOMAIN_URL}api/pieces/update`;
+const GET_PIECES_FOR_HOMEPAGE_URL: string = `${Constants.BASE_DOMAIN_URL}api/pieces/filtered-for-homepage`;
+const GET_ALL_PIECES_URL: string = `${Constants.BASE_DOMAIN_URL}api/pieces/all`;
+const ADD_COMMENT_URL: string = `${Constants.BASE_DOMAIN_URL}api/pieces/add-comment`;
+const LIKE_COMMENT_URL: string = `${Constants.BASE_DOMAIN_URL}api/pieces/like-comment`;
+const DISLIKE_COMMENT_URL: string = `${Constants.BASE_DOMAIN_URL}api/pieces/dislike-comment`;
 
 @Injectable()
 export class LiteraryPiecesService {

@@ -3,7 +3,9 @@ import { Http, RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { HttpOptionsService } from '../common-services';
 
-const SEARCH_URL: string = 'http://localhost:8080/search';
+import { Constants } from './../constants/constants';
+
+const SEARCH_URL: string = `${Constants.BASE_DOMAIN_URL}search`;
 
 @Injectable()
 export class SearchService {

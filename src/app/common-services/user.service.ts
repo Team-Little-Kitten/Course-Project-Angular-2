@@ -5,10 +5,12 @@ import { Subject } from 'rxjs/Subject';
 
 import { HttpOptionsService } from './http-options.service';
 
-const USER_URL = 'http://localhost:8080/users/';
-const USERS_ALL_URL = 'http://localhost:8080/users/all';
-const USERS_FOLLOW_URL = 'http://localhost:8080/api/users/follow';
-const USERS_UNFOLLOW_URL = 'http://localhost:8080/api/users/unfollow';
+import { Constants } from './../constants/constants';
+
+const USER_URL = `${Constants.BASE_DOMAIN_URL}users/`;
+const USERS_ALL_URL = `${Constants.BASE_DOMAIN_URL}users/all`;
+const USERS_FOLLOW_URL = `${Constants.BASE_DOMAIN_URL}api/users/follow`;
+const USERS_UNFOLLOW_URL = `${Constants.BASE_DOMAIN_URL}api/users/unfollow`;
 
 @Injectable()
 export class UserService {

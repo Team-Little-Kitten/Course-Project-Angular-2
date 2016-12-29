@@ -3,11 +3,14 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { HttpOptionsService } from '../common-services';
 
-const REGISTER_URL: string = 'http://localhost:8080/auth/register';
-const LOGIN_URL: string = 'http://localhost:8080/auth/login';
-const LOGOUT_URL: string = 'http://localhost:8080/auth/logout';
-const VERIFY_LOGIN_URL: string = 'http://localhost:8080/auth/verify';
-const FACEBOOK_LOGIN_URL: string = 'http://localhost:8080/auth/facebook';
+import { Constants } from './../constants/constants';
+
+
+const REGISTER_URL: string = `${Constants.BASE_DOMAIN_URL}auth/register`;
+const LOGIN_URL: string = `${Constants.BASE_DOMAIN_URL}auth/login`;
+const LOGOUT_URL: string = `${Constants.BASE_DOMAIN_URL}auth/logout`;
+const VERIFY_LOGIN_URL: string = `${Constants.BASE_DOMAIN_URL}auth/verify`;
+const FACEBOOK_LOGIN_URL: string = `${Constants.BASE_DOMAIN_URL}auth/facebook`;
 
 @Injectable()
 export class AuthService {
