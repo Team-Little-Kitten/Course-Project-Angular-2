@@ -17,3 +17,7 @@ notifications {
     width:74px;
     -webkit-tap-highlight-color:rgba(0, 0, 0, 0);
 }
+
+.hovered {
+    background-color: gray;
+}

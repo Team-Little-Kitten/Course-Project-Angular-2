@@ -15,6 +15,7 @@ import { ForumModule } from './forum';
 import { LibraryModule, LibrarySharedService } from './library';
 import { WritersModule, WritersSharedService } from './writers';
 import { AnimationModule } from './animations';
+import { ChangeBackgroundDirective } from './directives/change-background.directive';
 
 import { UserService } from './common-services';
 import { HttpOptionsService } from './common-services/http-options.service';
@@ -26,6 +27,7 @@ import { SharedModule } from './shared/shared.module';
     bootstrap: [AppComponent],
     declarations: [
         AppComponent,
+        ChangeBackgroundDirective
     ],
     imports: [
         BrowserModule,
@@ -40,6 +42,9 @@ import { SharedModule } from './shared/shared.module';
         WritersModule,
         AnimationModule,
         SharedModule
+    ],
+    exports: [
+        ChangeBackgroundDirective
     ],
     providers: [
         AuthService,
