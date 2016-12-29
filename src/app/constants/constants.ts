@@ -1,4 +1,3 @@
 export class Constants {
-    // public static readonly BASE_DOMAIN_URL: string = 'http://localhost:8080/';
-    public static readonly BASE_DOMAIN_URL: string = 'https://littlekitten.herokuapp.com/';
+    public static readonly BASE_DOMAIN_URL: string = 'http://localhost:8080/';
 }
