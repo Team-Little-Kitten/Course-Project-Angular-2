@@ -43,7 +43,7 @@ export class TinyEditorComponent implements AfterViewInit, OnDestroy {
             height: 500,
             schema: 'html5',
             selector: '#' + this.elementId,
-            skin_url: './../../assets/tinymce/skins/lightgray',
+            skin_url: './../../assets/bower_components/tinymce/skins/lightgray',
             setup: editor => {
                 this.editor = editor;
                 editor.on('keyup', () => {
