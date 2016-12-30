@@ -52,8 +52,7 @@
     text-align: center;
 }
 
-td {
-    border: 1px solid black;
+td, th {
     padding: 10px;
 }
 
