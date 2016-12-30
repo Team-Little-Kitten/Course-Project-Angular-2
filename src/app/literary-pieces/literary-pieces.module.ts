@@ -5,11 +5,11 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SimpleNotificationsModule, NotificationsService } from '../../../node_modules/angular2-notifications';
 
-import { FormatRatingPipe } from './../pipes/format-rating.pipe';
+//import { FormatRatingPipe } from './../pipes/format-rating.pipe';
 
 import { SharedModule } from './../shared/shared.module';
 import { AnimationModule } from './../animations/animation.module';
-
+import { PipesModule } from './../pipes/pipes.module';
 import { SinglePieceComponent } from './single-piece/single-piece.component';
 import { EditPieceComponent } from './edit-piece/edit-piece.component';
 import { PiecePreviewComponent } from './piece-preview/piece-preview.component';
@@ -30,7 +30,7 @@ import { HttpOptionsService, UserService } from '../common-services';
         SinglePieceComponent,
         DetailedPieceComponent,
         PiecePreviewComponent,
-        FormatRatingPipe,
+        //FormatRatingPipe,
         ChangeBackgroundDirective
     ],
     imports: [
@@ -41,7 +41,8 @@ import { HttpOptionsService, UserService } from '../common-services';
         SimpleNotificationsModule,
         CommonModule,
         SharedModule,
-        AnimationModule
+        AnimationModule,
+        PipesModule
     ],
     exports: [SinglePieceComponent],
     providers: [LiteraryPiecesService, NotificationsService, HttpOptionsService, UserService]

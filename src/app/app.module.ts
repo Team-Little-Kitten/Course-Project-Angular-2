@@ -15,17 +15,19 @@ import { ForumModule } from './forum';
 import { LibraryModule, LibrarySharedService } from './library';
 import { WritersModule, WritersSharedService } from './writers';
 import { AnimationModule } from './animations';
+import { SharedModule } from './shared/shared.module';
+import { PipesModule } from './pipes/pipes.module';
 
 import { UserService } from './common-services';
 import { HttpOptionsService } from './common-services/http-options.service';
 import { GuardIsLoggedUser } from './route-guards';
 
-import { SharedModule } from './shared/shared.module';
+
 
 @NgModule({
     bootstrap: [AppComponent],
     declarations: [
-        AppComponent,
+        AppComponent
     ],
     imports: [
         BrowserModule,
@@ -39,7 +41,8 @@ import { SharedModule } from './shared/shared.module';
         LibraryModule,
         WritersModule,
         AnimationModule,
-        SharedModule
+        SharedModule,
+        PipesModule
     ],
     exports: [
     ],

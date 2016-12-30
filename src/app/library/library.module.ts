@@ -10,11 +10,10 @@ import { LibraryDramaComponent } from './library-drama/library-drama.component';
 import { LibraryPoetryComponent } from './library-poetry/library-poetry.component';
 import { LibraryStoriesComponent } from './library-stories/library-stories.component';
 
-import { LibrarySortPipe } from './../pipes/library-sort.pipe';
+import { LiteraryPieceModule } from './../literary-pieces';
+import { PipesModule } from './../pipes/pipes.module';
 
 import { LibrarySharedService } from './library-shared.service';
-
-import { LiteraryPieceModule } from './../literary-pieces';
 
 @NgModule({
     declarations: [
@@ -22,8 +21,7 @@ import { LiteraryPieceModule } from './../literary-pieces';
         LibraryAllComponent,
         LibraryDramaComponent,
         LibraryPoetryComponent,
-        LibraryStoriesComponent,
-        LibrarySortPipe
+        LibraryStoriesComponent
     ],
     imports: [
         CommonModule,
@@ -32,6 +30,7 @@ import { LiteraryPieceModule } from './../literary-pieces';
         BrowserModule,
 
         LiteraryPieceModule,
+        PipesModule
     ],
     exports: [],
     providers: [LibrarySharedService]

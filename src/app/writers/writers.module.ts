@@ -9,24 +9,24 @@ import { WritersAllComponent } from './writers-all/writers-all.component';
 import { TopWritersComponent } from './top-writers/top-writers.component';
 import { TopCritiquesComponent } from './top-critiques/top-critiques.component';
 
-import { WritersSortPipe } from './../pipes/writers-sort.pipe';
-
 import { WritersSharedService } from './writers-shared.service';
+
+import { PipesModule } from './../pipes/pipes.module';
 
 @NgModule({
     declarations: [
         WritersMainComponent,
         WritersAllComponent,
         TopWritersComponent,
-        TopCritiquesComponent,
-
-        WritersSortPipe
+        TopCritiquesComponent
     ],
     imports: [
         CommonModule,
         RouterModule,
         HttpModule,
         BrowserModule,
+
+        PipesModule
     ],
     exports: [],
     providers: [ WritersSharedService ]
