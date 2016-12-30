@@ -12,6 +12,8 @@ const LOGOUT_URL: string = `${Constants.BASE_DOMAIN_URL}auth/logout`;
 const VERIFY_LOGIN_URL: string = `${Constants.BASE_DOMAIN_URL}auth/verify`;
 const FACEBOOK_LOGIN_URL: string = `${Constants.BASE_DOMAIN_URL}auth/facebook`;
 
+declare const CryptoJS: any;
+
 @Injectable()
 export class AuthService {
     private _http: Http;
@@ -22,7 +24,8 @@ export class AuthService {
         this._httpOptionsService = httpOptionsService;
     }
 
-    public registerUser(data: Object): Observable<any> {
+    public registerUser(data: any): Observable<any> {
+        data.password = CryptoJS.SHA3(data.password).toString();
         let userToCreate: string = JSON.stringify(data);
         let options: RequestOptions = this._httpOptionsService.getRequestOptions(true);
         return this._http
@@ -30,7 +33,8 @@ export class AuthService {
             .map((res: Response) => res.json());
     }
 
-    public loginUser(data: Object): Observable<any> {
+    public loginUser(data: any): Observable<any> {
+        data.password = CryptoJS.SHA3(data.password).toString();
         let userToLogin: string = JSON.stringify(data);
         let options: RequestOptions = this._httpOptionsService.getRequestOptions(true);
         return this._http

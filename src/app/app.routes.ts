@@ -30,7 +30,8 @@ import { ForumComponent, CreateThreadComponent, ThreadsListComponent, SingleThre
 
 export const APP_ROUTES: Routes = [
     { path: '', component: HomeComponent },
-    { path: 'library',
+    {
+        path: 'library',
         component: LibraryMainComponent,
         children: [
             { path: 'all', component: LibraryAllComponent },
@@ -39,7 +40,8 @@ export const APP_ROUTES: Routes = [
             { path: 'stories', component: LibraryStoriesComponent }
         ]
     },
-    { path: 'writers',
+    {
+        path: 'writers',
         component: WritersMainComponent,
         children: [
             { path: 'all', component: WritersAllComponent },
@@ -70,7 +72,7 @@ export const APP_ROUTES: Routes = [
     { path: 'search-results', component: SearchResultsComponent },
     { path: 'user/:id', component: OtherUserProfileComponent },
     { path: 'forum', component: ForumComponent },
-    { path: 'forum/threads/create', component: CreateThreadComponent },
+    { path: 'forum/threads/create', component: CreateThreadComponent, canActivate: [GuardIsLoggedUser] },
     { path: 'forum/threads/:categoryName', component: ThreadsListComponent },
     { path: 'forum/thread/:threadTitle', component: SingleThreadComponent }
 ];
