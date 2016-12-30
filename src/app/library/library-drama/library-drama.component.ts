@@ -15,7 +15,6 @@ export class LibraryDramaComponent {
     public currentPage: number = 1;
     public pageSize: number = 3;
     private _pieces: ILiteraryPiece[];
-    private _pageCount: number;
 
     constructor(libraryService: LibrarySharedService) {
         this.libraryService = libraryService;

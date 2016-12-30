@@ -17,4 +17,8 @@ export class WritersSharedService {
     public setUsers(result): void {
         this.users = result;
     }
+
+    public getUsersLength(): number {
+        return this.users.length;
+    }
 }

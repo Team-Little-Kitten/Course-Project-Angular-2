@@ -11,6 +11,8 @@ import { WritersSharedService } from './../writers-shared.service';
 
 export class TopCritiquesComponent {
     public writersService: WritersSharedService;
+    public currentPage: number = 1;
+    public pageSize: number = 6;
     private _users: IUser[];
 
     constructor(writersService: WritersSharedService) {
@@ -19,5 +21,9 @@ export class TopCritiquesComponent {
 
     get users(): IUser[] {
         return this.writersService.getUsers();
+    }
+
+    get pages(): number {
+        return this.writersService.getUsersLength() / this.pageSize;
     }
 }
