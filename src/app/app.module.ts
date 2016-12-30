@@ -31,7 +31,7 @@ import { GuardIsLoggedUser } from './route-guards';
     ],
     imports: [
         BrowserModule,
-        RouterModule.forRoot(APP_ROUTES),
+        RouterModule.forRoot(APP_ROUTES, { useHash: true }),
         HomeModule,
         AuthModule,
         ProfileModule,
