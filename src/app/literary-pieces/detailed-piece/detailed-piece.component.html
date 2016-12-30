@@ -99,14 +99,12 @@
                     <span class="comment-author left">by {{comment.author}}</span>
                     <span class="average-rating right">Rating: {{comment.averageRating | formatRatingPipe}}</span>
                     <div class="buttons-holder right">
-                        <button *ngIf=likeButtonVisible(comment) class="btn btn-success btn-round" (click)="likeComment($event, comment)" commentId="'comment._id'">
+                        <button like-button *ngIf=likeButtonVisible(comment) class="btn btn-success btn-round" (click)="likeComment($event, comment)" commentId="'comment._id'">
                             Like
                         </button>
-                        <!--<span class="id-holder">{{comment._id}}</span>-->
-                        <button *ngIf=dislikeButtonVisible(comment) class="btn btn-danger btn-round" (click)="dislikeComment($event, comment)">
+                        <button dislike-button *ngIf=dislikeButtonVisible(comment) class="btn btn-danger btn-round" (click)="dislikeComment($event, comment)">
                             Dislike
                         </button>
-                        <!--<span class="id-holder">{{comment._id}}</span>-->
                     </div>
                 </div>
             </div>
