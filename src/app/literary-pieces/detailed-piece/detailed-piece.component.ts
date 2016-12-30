@@ -33,6 +33,7 @@ export class DetailedPieceComponent implements OnInit {
     public averageDialogue: number = 0;
     public averageStyle: number = 0;
     public averageFeel: number = 0;
+    public averageOverall: number = 0;
 
     public id: string;
     public title: string;
@@ -228,6 +229,7 @@ export class DetailedPieceComponent implements OnInit {
         this.averageDialogue = 0;
         this.averageStyle = 0;
         this.averageFeel = 0;
+        this.averageOverall = 0;
 
         let ratingArrayLength = this.ratings.length;
         if (ratingArrayLength) {
@@ -244,6 +246,7 @@ export class DetailedPieceComponent implements OnInit {
             this.averageDialogue /= ratingArrayLength;
             this.averageStyle /= ratingArrayLength;
             this.averageFeel /= ratingArrayLength;
+            this.averageOverall = (this.averageStory + this.averageCharacters + this.averageDialogue + this.averageStyle + this.averageFeel) /5;
         }
     }
 
