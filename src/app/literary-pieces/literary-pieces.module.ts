@@ -8,6 +8,8 @@ import { SimpleNotificationsModule, NotificationsService } from '../../../node_m
 import { SharedModule } from './../shared/shared.module';
 import { AnimationModule } from './../animations/animation.module';
 import { PipesModule } from './../pipes/pipes.module';
+import { DirectivesModule } from './../directives/directives.module';
+
 import { SinglePieceComponent } from './single-piece/single-piece.component';
 import { EditPieceComponent } from './edit-piece/edit-piece.component';
 import { PiecePreviewComponent } from './piece-preview/piece-preview.component';
@@ -15,8 +17,6 @@ import { LiteraryPiecesService } from './literary-pieces.service';
 import { CreatePieceComponent } from './create-piece/create-piece.component';
 import { DetailedPieceComponent } from './detailed-piece/detailed-piece.component';
 import { LiterayPieceDetailedComponent } from './literary-piece-detailed/literary-piece-detailed.component';
-
-import { ChangeBackgroundDirective } from './../directives/change-background.directive';
 
 import { HttpOptionsService, UserService } from '../common-services';
 
@@ -27,8 +27,7 @@ import { HttpOptionsService, UserService } from '../common-services';
         LiterayPieceDetailedComponent,
         SinglePieceComponent,
         DetailedPieceComponent,
-        PiecePreviewComponent,
-        ChangeBackgroundDirective
+        PiecePreviewComponent
     ],
     imports: [
         HttpModule,
@@ -39,7 +38,8 @@ import { HttpOptionsService, UserService } from '../common-services';
         CommonModule,
         SharedModule,
         AnimationModule,
-        PipesModule
+        PipesModule,
+        DirectivesModule
     ],
     exports: [SinglePieceComponent],
     providers: [LiteraryPiecesService, NotificationsService, HttpOptionsService, UserService]

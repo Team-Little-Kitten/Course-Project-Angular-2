@@ -17,12 +17,11 @@ import { WritersModule, WritersSharedService } from './writers';
 import { AnimationModule } from './animations';
 import { SharedModule } from './shared/shared.module';
 import { PipesModule } from './pipes/pipes.module';
+import { DirectivesModule } from './directives/directives.module';
 
 import { UserService } from './common-services';
 import { HttpOptionsService } from './common-services/http-options.service';
 import { GuardIsLoggedUser } from './route-guards';
-
-
 
 @NgModule({
     bootstrap: [AppComponent],
@@ -42,7 +41,8 @@ import { GuardIsLoggedUser } from './route-guards';
         WritersModule,
         AnimationModule,
         SharedModule,
-        PipesModule
+        PipesModule,
+        DirectivesModule
     ],
     exports: [
     ],
