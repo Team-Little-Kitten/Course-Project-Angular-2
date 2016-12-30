@@ -13,6 +13,28 @@ export class LibrarySharedService {
         return this.pieces;
     }
 
+    public getPiecesLength(): number {
+        return this.pieces.length;
+    }
+
+     public getDramaPiecesLength(): number {
+        return this.pieces.filter((piece) => {
+            return piece.genre === 'drama';
+        }).length;
+    }
+
+     public getPoetryPiecesLength(): number {
+        return this.pieces.filter((piece) => {
+            return piece.genre === 'poetry';
+        }).length;
+    }
+
+     public getStoryPiecesLength(): number {
+        return this.pieces.filter((piece) => {
+            return piece.genre === 'story';
+        }).length;
+    }
+
     public setPieces(result): void {
         this.pieces = result;
     }

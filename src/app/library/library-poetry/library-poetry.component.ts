@@ -12,7 +12,10 @@ import { LibrarySharedService } from './../library-shared.service';
 
 export class LibraryPoetryComponent {
     public libraryService: LibrarySharedService;
+    public currentPage: number = 1;
+    public pageSize: number = 3;
     private _pieces: ILiteraryPiece[];
+    private _pageCount: number;
 
     constructor(libraryService: LibrarySharedService) {
         this.libraryService = libraryService;
@@ -20,5 +23,12 @@ export class LibraryPoetryComponent {
 
     get pieces(): ILiteraryPiece[] {
         return this.libraryService.getPieces();
+    }
+
+    get pages(): number {
+        console.log('All the drama poetry');
+        console.log(this.libraryService.getPoetryPiecesLength());
+        console.log(this.libraryService.getPoetryPiecesLength() / this.pageSize);
+        return this.libraryService.getPoetryPiecesLength() / this.pageSize;
     }
 }

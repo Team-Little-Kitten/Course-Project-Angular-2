@@ -12,7 +12,10 @@ import { LibrarySharedService } from './../library-shared.service';
 
 export class LibraryStoriesComponent {
     public libraryService: LibrarySharedService;
+    public currentPage: number = 1;
+    public pageSize: number = 3;
     private _pieces: ILiteraryPiece[];
+    private _pageCount: number;
 
     constructor(libraryService: LibrarySharedService) {
         this.libraryService = libraryService;
@@ -20,5 +23,9 @@ export class LibraryStoriesComponent {
 
     get pieces(): ILiteraryPiece[] {
         return this.libraryService.getPieces();
+    }
+
+    get pages(): number {
+        return this.libraryService.getStoryPiecesLength() / this.pageSize;
     }
 }

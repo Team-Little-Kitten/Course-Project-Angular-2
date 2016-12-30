@@ -10,7 +10,6 @@ export class LibrarySortPipe implements PipeTransform {
             }
         }
 
-        console.log(res);
         return res;
     }
 }

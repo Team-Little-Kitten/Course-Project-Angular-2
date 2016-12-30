@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { FormatRatingPipe } from './format-rating.pipe';
@@ -9,6 +7,7 @@ import { LibrarySortPipe } from './library-sort.pipe';
 import { WritersSortPipe } from './writers-sort.pipe';
 import { NormalizeThreadCategoryPipe } from './normalize-thread-category.pipe';
 import { ToNumberArrayPaginationPipe } from './to-number-array.pipe';
+import { PaginationPipe } from './pagination.pipe';
 
 @NgModule({
     declarations: [
@@ -16,12 +15,11 @@ import { ToNumberArrayPaginationPipe } from './to-number-array.pipe';
         LibrarySortPipe,
         WritersSortPipe,
         NormalizeThreadCategoryPipe,
-        ToNumberArrayPaginationPipe
+        ToNumberArrayPaginationPipe,
+        PaginationPipe
     ],
     imports: [
         CommonModule,
-        RouterModule,
-        HttpModule,
         BrowserModule
     ],
     exports: [
@@ -29,7 +27,8 @@ import { ToNumberArrayPaginationPipe } from './to-number-array.pipe';
         LibrarySortPipe,
         WritersSortPipe,
         NormalizeThreadCategoryPipe,
-        ToNumberArrayPaginationPipe
+        ToNumberArrayPaginationPipe,
+        PaginationPipe
     ],
     providers: []
 })
