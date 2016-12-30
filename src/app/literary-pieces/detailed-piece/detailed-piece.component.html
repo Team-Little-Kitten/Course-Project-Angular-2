@@ -1,6 +1,6 @@
 <div class="header header-filter" style="background-image: url('https://images.unsplash.com/photo-1423655156442-ccc11daa4e99?crop=entropy&dpr=2&fit=crop&fm=jpg&h=750&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1450');">
 </div>
-<div class="main main-raised" id="details-content">
+<div class="main main-raised" id="details-content" [@fadeInOut]>
     <h2 id="piece-title">{{title}}</h2>
     <img *ngIf="imageDataUrl" src="{{imageDataUrl}}" />
     <img *ngIf="!imageDataUrl" src="/assets/images/piece-default-image.jpg" />
@@ -27,12 +27,13 @@
         </table>
     </div>
     <div id="comments-holder">
-        <span class="left">Comments: {{comments.length}}</span>
-        <button *ngIf="canUserComment" type="submit" class="right btn btn-success btn-round" (click)="toggleCommentSection()">
-            <i class="material-icons">comment</i> Leave comment 
-        </button>
+        <div id="footer-holder">
+            <span id="comments-counter" class="left">Comments: {{comments.length}}</span>
+            <button *ngIf="canUserComment" type="submit" id="comment-button" class="right btn btn-success btn-round" (click)="toggleCommentSection()">
+                <i class="material-icons">comment</i> Leave comment 
+            </button>
+        </div>
         <form [formGroup]="commentForm" *ngIf="showCommentSection" id="create-comment-form" class="clearfix" (ngSubmit)="addComment()">
-            <!-- HEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE -->
             <writing-animation [animationState]="animationState"></writing-animation>
             <simple-tiny [elementId]="detailed-piece-editor" formControlName="commentBody" ngDefaultControl [(ngModel)]="pieceBodyText"
                 (ngModelChange)="onChange($event)" (onEditorKeyup)="keyupHandlerFunction($event)">

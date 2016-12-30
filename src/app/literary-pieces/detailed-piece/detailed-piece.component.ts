@@ -11,10 +11,21 @@ import { NotificationsService } from '../../../../node_modules/angular2-notifica
 @Component({
     selector: 'detailed-piece',
     templateUrl: './detailed-piece.component.html',
-    styleUrls: ['./detailed-piece.component.css']
+    styleUrls: ['./detailed-piece.component.css'],
+    animations: [
+        trigger('fadeInOut', [
+            transition(':enter', [
+                style({ opacity: 0 }),
+                animate(1000, style({ opacity: 1 }))
+            ]),
+            transition(':leave', [
+                animate(1000, style({ opacity: 0 }))
+            ])
+        ])
+    ]
 })
 
-export class DetailedPieceComponent {
+export class DetailedPieceComponent implements OnInit {
     public commentForm: FormGroup;
 
     public averageStory: number = 0;
@@ -207,8 +218,7 @@ export class DetailedPieceComponent {
             !this.feelRating ||
             !this.pieceBodyText) {
                 return false;
-            }
-        else {
+        } else {
             return true;
         }
     }
