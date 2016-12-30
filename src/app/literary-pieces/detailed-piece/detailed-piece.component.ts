@@ -25,6 +25,7 @@ export class DetailedPieceComponent {
 
     public id: string;
     public title: string;
+    public imageDataUrl: string;
     public author: string;
     public genre: string;
     public body: string;
@@ -177,6 +178,7 @@ export class DetailedPieceComponent {
                         this.title = piece.title;
                         this.body = piece.body;
                         this.author = piece.author;
+                        this.imageDataUrl = piece.imageDataUrl;
                         this.genre = piece.genre;
                         this.comments = piece.comments;
                         this.ratings = piece.ratings;

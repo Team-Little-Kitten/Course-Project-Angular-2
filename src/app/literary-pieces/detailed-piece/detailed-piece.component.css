@@ -77,3 +77,10 @@ td {
 .id-holder {
     display: none;
 }
+
+img {
+    width: 350px;
+    height: 175px;
+    display: block;
+    margin: 0 auto;
+}
