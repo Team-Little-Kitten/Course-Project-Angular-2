@@ -15,7 +15,7 @@ import {
     TopCritiquesComponent
 } from './writers';
 import { HomeComponent } from './home';
-import { ProfileComponent, AdditionalInfoComponent, FriendsComponent, WorksComponent, OtherUserProfileComponent } from './profile';
+import { ProfileComponent, AdditionalInfoComponent, WorksComponent, OtherUserProfileComponent } from './profile';
 import { GuardIsLoggedUser } from './route-guards';
 import { LoggedInUserWorksComponent } from './profile/works/logged-in-user-works.component';
 import {
@@ -55,7 +55,6 @@ export const APP_ROUTES: Routes = [
         canActivate: [GuardIsLoggedUser],
         children: [
             { path: 'additional-info', component: AdditionalInfoComponent },
-            { path: 'friends', component: FriendsComponent },
             {
                 path: 'works', component: WorksComponent,
                 children: [
