@@ -4,20 +4,30 @@
     margin: 0 auto;
 }
 
+#profile-navigation div {
+    display: block;
+    width: 185px;
+    margin: 0 auto;
+}
+
 .profile-nav-btn-img {
     width: 50px;
     margin: 20px;
 }
+
 #avatar-img {
     max-width: 160px;
     margin: -50px auto 0 !important;
 }
+
+
 /*
 #avatar-img {
     width: 150px;
     display: block;
     margin: 0 auto;
 }*/
+
 
 /*#profile-content {
     width: 90%;

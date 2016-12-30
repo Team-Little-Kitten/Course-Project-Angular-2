@@ -7,7 +7,6 @@ import { SimpleNotificationsModule, NotificationsService } from '../../../node_m
 import { OtherUserProfileComponent } from './other-user-profile/other-user-profile.component';
 
 import { AdditionalInfoComponent } from './additional-info/additional-info.component';
-import { FriendsComponent } from './friends/friends.component';
 import { ProfileComponent } from './profile.component';
 import { WorksComponent } from './works/works.component';
 import { LoggedInUserWorksComponent } from './works/logged-in-user-works.component';
@@ -21,7 +20,6 @@ import { LiteraryPiecesService } from './../literary-pieces/literary-pieces.serv
     declarations: [
         OtherUserProfileComponent,
         AdditionalInfoComponent,
-        FriendsComponent,
         ProfileComponent,
         WorksComponent,
         LoggedInUserWorksComponent
