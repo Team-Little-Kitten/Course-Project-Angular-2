@@ -12,6 +12,7 @@ import { TopCritiquesComponent } from './top-critiques/top-critiques.component';
 import { WritersSharedService } from './writers-shared.service';
 
 import { PipesModule } from './../pipes/pipes.module';
+import { DirectivesModule } from './../directives/directives.module';
 
 @NgModule({
     declarations: [
@@ -26,7 +27,8 @@ import { PipesModule } from './../pipes/pipes.module';
         HttpModule,
         BrowserModule,
 
-        PipesModule
+        PipesModule,
+        DirectivesModule
     ],
     exports: [],
     providers: [ WritersSharedService ]

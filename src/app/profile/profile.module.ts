@@ -12,6 +12,7 @@ import { WorksComponent } from './works/works.component';
 import { LoggedInUserWorksComponent } from './works/logged-in-user-works.component';
 
 import { PipesModule } from './../pipes/pipes.module';
+import { DirectivesModule } from './../directives/directives.module';
 
 import { UserService } from '../common-services';
 import { LiteraryPiecesService } from './../literary-pieces/literary-pieces.service';
@@ -32,7 +33,8 @@ import { LiteraryPiecesService } from './../literary-pieces/literary-pieces.serv
         ReactiveFormsModule,
         SimpleNotificationsModule,
 
-        PipesModule
+        PipesModule,
+        DirectivesModule
     ],
     exports: [],
     providers: [UserService, NotificationsService, LiteraryPiecesService]

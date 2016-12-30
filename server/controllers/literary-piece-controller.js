@@ -351,9 +351,6 @@ module.exports = () => {
                                     }
 
                                     resultUser.critiqueRating -= 1;
-                                    if (resultUser.critiqueRating < 0) {
-                                        resultUser.critiqueRating = 0;
-                                    }
 
                                     resultUser.rank = evaluateRank(resultUser.critiqueRating);
 
