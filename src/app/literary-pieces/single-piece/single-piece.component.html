@@ -1,6 +1,7 @@
 <div class="card" change-backgound>
         <h4><a routerLink="/pieces/detailed/{{piece._id}}">{{piece.title}}</a></h4>
-        <img src="{{piece.imageDataUrl}}" />
+        <img *ngIf="piece.imageDataUrl" src="{{piece.imageDataUrl}}" />
+        <img *ngIf="!piece.imageDataUrl" src="/assets/images/piece-default-image.jpg" />
         <p>{{piece.subtitle}}</p>
         <!--<p [innerHtml]="piece.body"></p>-->
         <span class="left-span">comments: {{piece.comments.length}}</span>
