@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -23,20 +23,23 @@ export class CreatePieceComponent implements OnInit {
     public createPieceForm: FormGroup;
     public formBuilder: FormBuilder;
     public options: Object;
+    public animationState: string = '1';
 
     private _formBuilder: FormBuilder;
     private _router: Router;
     private _notificationService: NotificationsService;
     private _pieceService: LiteraryPiecesService;
     private _pieceImageDataUrl: string;
+    private _ref: ChangeDetectorRef;
 
-    constructor(formBuilder: FormBuilder, router: Router,
+    constructor(formBuilder: FormBuilder, router: Router, ref: ChangeDetectorRef,
         notificationService: NotificationsService, pieceService: LiteraryPiecesService) {
 
         this._formBuilder = formBuilder;
         this._router = router;
         this._notificationService = notificationService;
         this._pieceService = pieceService;
+        this._ref = ref;
 
         this.username = JSON.parse(localStorage.getItem('user')).result.username;
         this.options = { timeOut: 1500, pauseOnHover: true, showProgressBar: true, animate: 'scale', position: ['right', 'bottom'] };
@@ -56,6 +59,8 @@ export class CreatePieceComponent implements OnInit {
 
     public keyupHandlerFunction(value: string): void {
         this.pieceBodyText = value;
+        this.setAnimationState();
+        this._ref.detectChanges();
     }
 
     public onChange(value: string): void {
@@ -94,7 +99,23 @@ export class CreatePieceComponent implements OnInit {
     };
 
 
-    resetFileInput() {
+    public resetFileInput() {
         this.pictureInputVar.nativeElement.value = '';
     }
+
+    private setAnimationState(): void {
+        if (this.animationState === '1') {
+            this.animationState = '2';
+        } else if(this.animationState === '2') {
+            this.animationState = '3';
+        } else if(this.animationState === '3') {
+            this.animationState = '4';
+        } else if (this.animationState === '4') {
+            this.animationState = '5';
+        } else if (this.animationState === '5') {
+            this.animationState = '1';
+        }
+    }
 }
+
+

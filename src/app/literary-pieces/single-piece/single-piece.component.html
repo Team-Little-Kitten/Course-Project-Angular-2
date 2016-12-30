@@ -1,9 +1,8 @@
-<div class="card" change-backgound>
+<div class="card" change-backgound [@slide]>
         <h4><a routerLink="/pieces/detailed/{{piece._id}}">{{piece.title}}</a></h4>
         <img *ngIf="piece.imageDataUrl" src="{{piece.imageDataUrl}}" />
         <img *ngIf="!piece.imageDataUrl" src="/assets/images/piece-default-image.jpg" />
         <p>{{piece.subtitle}}</p>
-        <!--<p [innerHtml]="piece.body"></p>-->
         <span class="left-span">comments: {{piece.comments.length}}</span>
         <span class="right-span">{{piece.genre}} by: <strong>{{piece.author}}</strong></span>
 </div>

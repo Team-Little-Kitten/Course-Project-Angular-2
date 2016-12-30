@@ -50,6 +50,7 @@
         <div class="form-group" [ngClass]="{'has-error':!createPieceForm.controls['pieceBody'].valid && createPieceForm.controls['pieceBody'].touched}">
             <label for="tb-title">Piece Body</label>
             <br />
+            <writing-animation [animationState]="animationState"></writing-animation>
             <simple-tiny elementId="create-piece-editor" formControlName="pieceBody" ngDefaultControl [(ngModel)]="pieceBodyText" (ngModelChange)="onChange($event)"
                 (onEditorKeyup)="keyupHandlerFunction($event)">
             </simple-tiny>

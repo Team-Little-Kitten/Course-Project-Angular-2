@@ -67,8 +67,7 @@ export class DetailedPieceComponent implements OnInit {
         notificationService: NotificationsService,
         route: ActivatedRoute,
         formBuilder: FormBuilder,
-        ref: ChangeDetectorRef)
-    {
+        ref: ChangeDetectorRef) {
         this._authService = authService;
         this._pieceService = pieceService;
         this._notificationService = notificationService;
