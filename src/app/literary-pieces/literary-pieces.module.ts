@@ -16,11 +16,12 @@ import { PiecePreviewComponent } from './piece-preview/piece-preview.component';
 import { LiteraryPiecesService } from './literary-pieces.service';
 import { CreatePieceComponent } from './create-piece/create-piece.component';
 import { DetailedPieceComponent } from './detailed-piece/detailed-piece.component';
-import { LiterayPieceDetailedComponent } from './literary-piece-detailed.component';
+import { LiterayPieceDetailedComponent } from './literary-piece-detailed/literary-piece-detailed.component';
+
+import { ChangeBackgroundDirective } from './../directives/change-background.directive';
 
 import { HttpOptionsService, UserService } from '../common-services';
 
-console.log(SinglePieceComponent);
 @NgModule({
     declarations: [
         CreatePieceComponent,
@@ -29,7 +30,8 @@ console.log(SinglePieceComponent);
         SinglePieceComponent,
         DetailedPieceComponent,
         PiecePreviewComponent,
-        FormatRatingPipe
+        FormatRatingPipe,
+        ChangeBackgroundDirective
     ],
     imports: [
         HttpModule,

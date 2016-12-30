@@ -1,5 +1,5 @@
 <div class="library-holder">
     <h2>ALL THE DRAMA HERE</h2>
-    <div single-piece *ngFor="let piece of pieces | librarySortPipe:'drama'" [piece]="piece" class="single-piece-container col-md-4">
-    </div>
+    <single-piece *ngFor="let piece of pieces | librarySortPipe:'drama'" [piece]="piece" class="single-piece-container col-md-4">
+    </single-piece>
 </div>

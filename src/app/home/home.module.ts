@@ -9,7 +9,7 @@ import { LiteraryPieceModule } from './../literary-pieces';
 @NgModule({
     declarations: [
         HomeComponent,
-        HomepageListComponent,
+        HomepageListComponent
     ],
     imports: [
         CommonModule,

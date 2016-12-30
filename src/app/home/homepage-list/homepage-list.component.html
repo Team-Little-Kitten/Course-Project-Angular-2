@@ -1,10 +1,10 @@
-<h2 change-backgound> NEWEST</h2>
+<h2> NEWEST</h2>
 <div class="row">
-    <div single-piece *ngFor="let piece of piecesByDate" [piece]="piece" class="single-piece-container col-md-4">
-    </div>
+    <single-piece *ngFor="let piece of piecesByDate" [piece]="piece" class="single-piece-container col-md-4">
+    </single-piece>
 </div>
-<h2 change-backgound>TOP RATED</h2>
+<h2>TOP RATED</h2>
 <div class="row">
-    <div change-backgound single-piece *ngFor="let piece of piecesByRating" [piece]="piece" class="single-piece-container col-md-4">
-    </div>
+    <single-piece *ngFor="let piece of piecesByRating" [piece]="piece" class="single-piece-container col-md-4">
+    </single-piece>
 </div>

@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { LiteraryPiecesService } from './literary-pieces.service';
-import { ILiteraryPiece } from './literary-piece';
+import { LiteraryPiecesService } from './../literary-pieces.service';
+import { ILiteraryPiece } from './../literary-piece';
 
 @Component({
     templateUrl: './literary-piece-detailed.component.html'
 })
-export class LiterayPieceDetailedComponent {
+export class LiterayPieceDetailedComponent implements OnInit {
     public id: string;
     public title: string;
     public subtitle: string;
