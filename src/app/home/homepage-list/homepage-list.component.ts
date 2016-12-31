@@ -9,7 +9,7 @@ import { LiteraryPiecesService } from '../../literary-pieces/literary-pieces.ser
     styleUrls: ['./homepage-list.component.css']
 })
 
-export class HomepageListComponent {
+export class HomepageListComponent implements OnInit {
     public piecesByDate: ILiteraryPiece[];
     public piecesByRating: ILiteraryPiece[];
     private _pieceService: LiteraryPiecesService;
@@ -24,6 +24,7 @@ export class HomepageListComponent {
         this._pieceService
             .getPiecesForHomepage()
             .subscribe(resultPieces => {
+                console.log(resultPieces);
                 this.piecesByDate = resultPieces.filteredPiecesByDate;
                 this.piecesByRating = resultPieces.filteredPiecesByRating;
             }, error => console.log(error));

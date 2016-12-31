@@ -22,17 +22,21 @@ function compareByRating(a, b) {
     }
 
     for (let i = 0; i < b.comments.length; i += 1) {
-        ratingA += +b.comments[i].averageRating;
+        ratingB += +b.comments[i].averageRating;
     }
 
-    ratingA /= a.comments.length;
-    ratingB /= b.comments.length;
+    if (ratingA !== 0) {
+        ratingA /= a.comments.length;
+    }
+    if (ratingB !== 0) {
+        ratingB /= b.comments.length;
+    }
 
     if (ratingA > ratingB) {
-        return 1;
+        return -1;
     }
     if (ratingA < ratingB) {
-        return -1;
+        return 1;
     }
     return 0;
 }
