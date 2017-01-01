@@ -18,7 +18,7 @@
             </div>
         </div>
         <div>
-            <div class="main main-raised comments-container" *ngIf="thread.comments">
+            <div class="main main-raised comments-container" *ngIf="thread.comments && thread.comments.length">
                 <div *ngFor="let comment of thread.comments">
                     <p>{{comment.content}}</p>
                     <a routerLink="/user/{{comment.author._id}}">{{comment.author.username}}</a>
@@ -27,8 +27,8 @@
             </div>
 
             <div id="leave-comment-container">
-                <textarea id="" cols="30" rows="10" #textArea></textarea>
-                <button (click)="leaveComment(textArea.value)">Comment</button>
+                <textarea cols="120" rows="5" #textArea></textarea>
+                <button (click)="leaveComment(textArea.value)" class="btn btn-success">Comment</button>
             </div>
         </div>
     </div>

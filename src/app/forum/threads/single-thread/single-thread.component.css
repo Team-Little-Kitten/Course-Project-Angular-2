@@ -41,3 +41,13 @@
     height: 2px;
     background-color: lightgray;
 }
+
+#leave-comment-container textarea {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+#leave-comment-container button {
+    margin-left: 100px;
+}
