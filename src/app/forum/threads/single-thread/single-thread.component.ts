@@ -9,6 +9,7 @@ import { IThreadComment } from '../thread-comment';
 })
 export class SingleThreadComponent implements OnInit {
     public thread: any;
+    public isUserLoggedIn: boolean;
 
     private _route: ActivatedRoute;
     private _threadsService: ThreadsService;
@@ -17,6 +18,7 @@ export class SingleThreadComponent implements OnInit {
         this._route = route;
         this._threadsService = threadsService;
         this.thread = { author: {} };
+        this.isUserLoggedIn = !!localStorage.getItem('user');
     }
 
     public ngOnInit(): void {
