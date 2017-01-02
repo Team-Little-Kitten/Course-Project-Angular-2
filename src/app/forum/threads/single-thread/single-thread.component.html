@@ -7,8 +7,7 @@
                 </div>
             </div>
         </div>
-        <div class="content">
-            {{thread.content}}
+        <div class="content" [innerHtml]="thread.content">
         </div>
         <div>
             <hr>
@@ -20,7 +19,7 @@
         <div>
             <div class="main main-raised comments-container" *ngIf="thread.comments && thread.comments.length">
                 <div *ngFor="let comment of thread.comments">
-                    <p>{{comment.content}}</p>
+                    <div [innerHtml]="comment.content"></div>
                     <a routerLink="/user/{{comment.author._id}}">{{comment.author.username}}</a>
                     <hr>
                 </div>
