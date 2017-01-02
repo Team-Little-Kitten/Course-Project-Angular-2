@@ -19,6 +19,8 @@ import { SharedModule } from './shared/shared.module';
 import { PipesModule } from './pipes/pipes.module';
 import { DirectivesModule } from './directives/directives.module';
 
+import { NotFoundModule } from './not-found/not-found.module';
+
 import { UserService } from './common-services';
 import { HttpOptionsService } from './common-services/http-options.service';
 import { GuardIsLoggedUser } from './route-guards';
@@ -42,7 +44,8 @@ import { GuardIsLoggedUser } from './route-guards';
         AnimationModule,
         SharedModule,
         PipesModule,
-        DirectivesModule
+        DirectivesModule,
+        NotFoundModule
     ],
     exports: [
     ],

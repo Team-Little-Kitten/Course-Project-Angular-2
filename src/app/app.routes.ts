@@ -27,6 +27,7 @@ import {
 } from './literary-pieces';
 import { SearchResultsComponent } from './search';
 import { ForumComponent, CreateThreadComponent, ThreadsListComponent, SingleThreadComponent } from './forum';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 export const APP_ROUTES: Routes = [
     { path: '', component: HomeComponent },
@@ -74,5 +75,7 @@ export const APP_ROUTES: Routes = [
     { path: 'forum', component: ForumComponent },
     { path: 'forum/threads/create', component: CreateThreadComponent, canActivate: [GuardIsLoggedUser] },
     { path: 'forum/threads/:categoryName', component: ThreadsListComponent },
-    { path: 'forum/thread/:threadTitle', component: SingleThreadComponent }
+    { path: 'forum/thread/:threadTitle', component: SingleThreadComponent },
+    { path: '404', component: NotFoundComponent },
+    { path: '**', redirectTo: '/404' }
 ];
