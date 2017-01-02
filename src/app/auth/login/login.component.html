@@ -6,20 +6,8 @@
             <div class="card card-signup">
                 <form [formGroup]="form" (ngSubmit)="login()">
                     <div class="header header-info text-center">
-                        <h4>Sign Up</h4>
-                        <div class="social-line">
-                            <button type="button" class="btn btn-simple btn-just-icon" (click)="facebookLogin()">
-                                <i class="fa fa-facebook-square"></i>
-                            </button>
-                            <a href="#pablo" class="btn btn-simple btn-just-icon">
-                                <i class="fa fa-twitter"></i>
-                            </a>
-                            <a href="#pablo" class="btn btn-simple btn-just-icon">
-                                <i class="fa fa-google-plus"></i>
-                            </a>
-                        </div>
+                        <h4>Sign In</h4>
                     </div>
-                    <p class="text-divider">Or Be Classical</p>
                     <div class="content">
                         <div class="form-group label-floating" [ngClass]="{'has-error':!form.controls['username'].valid && form.controls['username'].touched}">
                             <label class="control-label" for="tb-username">Username</label>
