@@ -9,11 +9,11 @@
                     </div>
                     <div class="name">
                         <h3 class="title">{{user.username}}</h3>
-                        <span><strong>Writer Points:</strong> {{user.writerRating}}</span>
+                        <span><strong>Writer Points:</strong> {{user.writerRating | formatRatingPipe}}</span>
                         <br>
                         <span><strong>Critique Rank:</strong> {{user.rank}}</span>
                         <br>
-                        <span><strong>Critique Rating:</strong> {{user.critiqueRating}}</span>
+                        <span><strong>Critique Rating:</strong> {{user.critiqueRating | formatRatingPipe}}</span>
                         <br>
                     </div>
                 </div>

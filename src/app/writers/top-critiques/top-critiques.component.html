@@ -5,11 +5,11 @@
         <div class="info-holder">
             <a class="username-link" routerLink="/user/{{user._id}}">{{user.username}}</a>
             <br>
-            <span>Writer points: {{user.writerRating}}</span>
+            <span>Writer points: {{user.writerRating | formatRatingPipe}}</span>
             <br>
             <span>Critiques rank: {{user.rank}}</span>
             <br>
-            <span>Critiques rating: <span rating-color>{{user.critiqueRating}}</span></span>
+            <span>Critiques rating: <span rating-color>{{user.critiqueRating | formatRatingPipe}}</span></span>
         </div>
     </div>
     <ul class="pagination pagination-primary">
