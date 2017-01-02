@@ -1,31 +1,15 @@
-# CourseProject
+# [Writter's Realm](https://littlekitten.herokuapp.com/#/)
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.24.
+Writter's Realm is a site offering it's user a place to express their poetic talent.
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Everybody is a writter and critique!
+##### Each registerd user can: 
+- Post literary pieces wich can be nicely formatted with a neat text editor in several different categories :  Drama, Poetry, Story and for the students at the academy - Telerik Myth.
+- Create threads in our forum in five different categories - User suggestions, Comment authors, Lessons, Writte a book review and Fun.
+- Comment on already existing threads in our forum.
+- Comment and rate already existing literary pieces, which in turn give points to thier author, and based on a certain amount of points, an author's rank in the site will change.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Deploying to Github Pages
-
-Run `ng github-pages:deploy` to deploy to Github Pages.
-
-## Further help
-
-To get more help on the `angular-cli` use `ng help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+##### Not register and/or not logged in users can:
+- Read already existing literary pieces
+- Read already posted forum threds
+- `Register`
