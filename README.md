@@ -16,6 +16,7 @@ Writer's Realm is a site offering it's user a place to express their poetic tale
 
 ---
 
-> 15 Unique cloners
-> 55 unique visitors 
-> &#35justsayin
+`15 Unique cloners`
+`55 unique visitors`
+`3200+ views`
+Колеги, поне слагайте по една звездичка  :/
