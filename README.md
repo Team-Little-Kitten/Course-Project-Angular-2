@@ -13,3 +13,9 @@ Writter's Realm is a site offering it's user a place to express their poetic tal
 - Read already existing literary pieces
 - Read already posted forum threds
 - `Register`
+
+---
+
+> 15 Unique cloners
+> 55 unique visitors 
+> #justsayin
